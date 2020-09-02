@@ -1,0 +1,24 @@
+:root{
+	--hhh-color-pink: #FA9295; 
+	--hhh-color-lightpink: #F7BAC0; 
+  	--hhh-color-forestgreen: #526851;
+    --hhh-color-lightgreen: #78A077;
+  	--hhh-color-lighteryellow: #FFFCF2;
+    --hhh-color-darkblue: #464654;
+    --hhh-color-lightyellow: #FBE99E;
+    --hhh-color-burntyellow: #FFBC00;
+  	--hhh-color-brown: #774D4B; 
+  	--hhh-color-white: #FDFFFC;
+      
+    --nav-height: 130px;
+}
+  
+.bg--light-pink{
+ background-color: var(--hhh-color-lightpink); 
+}
+#shopify-section-about-kitchen{
+  border-bottom-width: 0px;
+}
+  .featured-header{
+   color:  var(--hhh-color-darkblue);
+  }

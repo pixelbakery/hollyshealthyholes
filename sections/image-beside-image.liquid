@@ -1,0 +1,324 @@
+<style type="text/css">
+  .section-id-{{ section.id }} .image-beside-image__image--1 .overlay-type .line-1,
+  .section-id-{{ section.id }} .image-beside-image__image--1 .overlay-type .line-2 {
+    color: {{ section.settings.left_text_color }};
+  }
+  .section-id-{{ section.id }} .image-beside-image__image--2 .overlay-type .line-1,
+  .section-id-{{ section.id }} .image-beside-image__image--2 .overlay-type .line-2 {
+    color: {{ section.settings.right_text_color }};
+  }
+  .section-id-{{ section.id }} .image-beside-image__image--1 .rimage-outer-wrapper:after {
+    content: '';
+    background-color: {{ section.settings.left_bg_color }};
+    opacity: {{ section.settings.left_bg_opacity | divided_by: 100.0 }};
+  }
+  .section-id-{{ section.id }} .image-beside-image__image--2 .rimage-outer-wrapper:after {
+    content: '';
+    background-color: {{ section.settings.right_bg_color }};
+    opacity: {{ section.settings.right_bg_opacity | divided_by: 100.0 }};
+  }
+</style>
+
+<div class="image-beside-image section-id-{{ section.id }} cf" data-section-type="image-beside-image">
+
+  <div class="image-beside-image__image image-beside-image__image--1">
+    {% if section.settings.left_url != blank %}
+    <a href="{{ section.settings.left_url }}">
+      {% endif %}
+
+      {% if section.settings.left_image == blank %}
+        <div class="placeholder-image {% if section.settings.left_title != blank or section.settings.left_subheading != blank %}dark{% endif %}">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+      {% else %}
+        <div class="rimage-outer-wrapper lazyload fade-in"
+            data-bgset="{% include 'bgset', image: section.settings.left_image %}"
+            data-sizes="auto"
+            data-parent-fit="cover">
+          <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.left_image.aspect_ratio | times: 100 }}%">
+            <noscript>
+              <img src="{{ section.settings.left_image | img_url: '1024x1024' }}" alt="{{ section.settings.left_image.alt | escape }}" class="rimage__image">
+            </noscript>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if section.settings.left_title != blank or section.settings.left_subheading != blank or section.settings.left_button_text != blank %}
+      <div class="overlay-type overlay {{ section.settings.left_position }}">
+        <div class="inner">
+          <div>
+            <div class="overlay__content">
+              <h1 class="line-1">{{ section.settings.left_title | escape }}</h1>
+              <div class="line-2">{{ section.settings.left_subheading | escape }}</div>
+              {% if section.settings.left_button_text != blank %}
+              <div class="line-3">
+                <span class="button">{{ section.settings.left_button_text | escape }}</span>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if section.settings.left_url != blank %}
+    </a>
+    {% endif %}
+  </div>
+
+  <div class="image-beside-image__image image-beside-image__image--2">
+    {% if section.settings.right_url != blank %}
+    <a href="{{ section.settings.right_url }}">
+      {% endif %}
+
+      {% if section.settings.right_image == blank %}
+      <div class="placeholder-image {% if section.settings.right_title != blank or section.settings.right_subheading != blank %}dark{% endif %}">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+      {% else %}
+        <div class="rimage-outer-wrapper lazyload fade-in"
+            data-bgset="{% include 'bgset', image: section.settings.right_image %}"
+            data-sizes="auto"
+            data-parent-fit="cover">
+          <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.right_image.aspect_ratio | times: 100 }}%">
+            <noscript>
+              <img src="{{ section.settings.right_image | img_url: '1024x1024' }}" alt="{{ section.settings.right_image.alt | escape }}" class="rimage__image">
+            </noscript>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if section.settings.right_title != blank or section.settings.right_subheading != blank or section.settings.right_button_text != blank %}
+      <div class="overlay-type overlay {{ section.settings.right_position }}">
+        <div class="inner">
+          <div>
+            <div class="overlay__content">
+              <h1 class="line-1">{{ section.settings.right_title | escape }}</h1>
+              <div class="line-2">{{ section.settings.right_subheading | escape }}</div>
+              {% if section.settings.right_button_text != blank %}
+              <div class="line-3">
+                <span class="button">{{ section.settings.right_button_text | escape }}</span>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if section.settings.right_url != blank %}
+    </a>
+    {% endif %}
+  </div>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Two images",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Left image"
+      },
+      {
+        "type": "image_picker",
+        "id": "left_image",
+        "label": "Image"
+      },
+      {
+        "type": "color",
+        "id": "left_bg_color",
+        "label": "Image tint",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "left_bg_opacity",
+        "label": "Image tint strength",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 45
+      },
+      {
+        "type": "url",
+        "id": "left_url",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Left overlay"
+      },
+      {
+        "type": "text",
+        "id": "left_title",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "left_subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "left_button_text",
+        "label": "Button text"
+      },
+      {
+        "type": "select",
+        "id": "left_position",
+        "label": "Text position",
+        "options": [
+          {
+            "value": "position--left position--top",
+            "label": "Top left"
+          },
+          {
+            "value": "position--hcenter position--top",
+            "label": "Top center"
+          },
+          {
+            "value": "position--right position--top",
+            "label": "Top right"
+          },
+          {
+            "value": "position--left position--vcenter",
+            "label": "Center left"
+          },
+          {
+            "value": "position--hcenter position--vcenter",
+            "label": "Center center"
+          },
+          {
+            "value": "position--right position--vcenter",
+            "label": "Center right"
+          },
+          {
+            "value": "position--left position--bottom",
+            "label": "Bottom left"
+          },
+          {
+            "value": "position--hcenter position--bottom",
+            "label": "Bottom center"
+          },
+          {
+            "value": "position--right position--bottom",
+            "label": "Bottom right"
+          }
+        ],
+        "default": "position--hcenter position--vcenter"
+      },
+      {
+        "type": "color",
+        "id": "left_text_color",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Right image"
+      },
+      {
+        "type": "image_picker",
+        "id": "right_image",
+        "label": "Image"
+      },
+      {
+        "type": "color",
+        "id": "right_bg_color",
+        "label": "Image tint",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "right_bg_opacity",
+        "label": "Image tint strength",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 45
+      },
+      {
+        "type": "url",
+        "id": "right_url",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Right overlay"
+      },
+      {
+        "type": "text",
+        "id": "right_title",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "right_subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "right_button_text",
+        "label": "Button text"
+      },
+      {
+        "type": "select",
+        "id": "right_position",
+        "label": "Text position",
+        "options": [
+          {
+            "value": "position--left position--top",
+            "label": "Top left"
+          },
+          {
+            "value": "position--hcenter position--top",
+            "label": "Top center"
+          },
+          {
+            "value": "position--right position--top",
+            "label": "Top right"
+          },
+          {
+            "value": "position--left position--vcenter",
+            "label": "Center left"
+          },
+          {
+            "value": "position--hcenter position--vcenter",
+            "label": "Center center"
+          },
+          {
+            "value": "position--right position--vcenter",
+            "label": "Center right"
+          },
+          {
+            "value": "position--left position--bottom",
+            "label": "Bottom left"
+          },
+          {
+            "value": "position--hcenter position--bottom",
+            "label": "Bottom center"
+          },
+          {
+            "value": "position--right position--bottom",
+            "label": "Bottom right"
+          }
+        ],
+        "default": "position--hcenter position--vcenter"
+      },
+      {
+        "type": "color",
+        "id": "right_text_color",
+        "label": "Text color",
+        "default": "#ffffff"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Two images",
+        "category": "Image",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

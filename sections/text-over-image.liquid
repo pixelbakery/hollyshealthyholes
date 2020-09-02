@@ -1,0 +1,189 @@
+<div class="text-over-image section-id-{{ section.id }}" data-section-type="text-over-image">
+  {% if section.settings.link_url != blank %}
+  <a href="{{ section.settings.link_url }}">
+    {% endif %}
+
+    {% if section.settings.image == blank %}
+      <div class="placeholder-image placeholder--banner {% if section.settings.title != blank or section.settings.subheading != blank %}dark{% endif %}">
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {% else %}
+      <div class="rimage-outer-wrapper lazyload fade-in {% if section.settings.image_mobile != blank %}desktop-only{% endif %}"
+          data-bgset="{% include 'bgset', image: section.settings.image %}"
+          data-sizes="auto"
+          data-parent-fit="cover">
+        <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%">
+          <noscript>
+            <img src="{{ section.settings.image | img_url: '1024x1024' }}" alt="{{ section.settings.image.alt | escape }}" class="rimage__image">
+          </noscript>
+        </div>
+      </div>
+
+      {% if section.settings.image_mobile != blank %}
+        <div class="rimage-outer-wrapper lazyload fade-in mobile-only"
+             data-bgset="{% include 'bgset', image: section.settings.image_mobile %}"
+             data-sizes="auto"
+             data-parent-fit="cover">
+          <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image_mobile.aspect_ratio | times: 100 }}%">
+            <noscript>
+              <img src="{{ section.settings.image_mobile | img_url: '1024x1024' }}" alt="{{ section.settings.image_mobile.alt | escape }}" class="rimage__image">
+            </noscript>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if section.settings.title != blank or section.settings.subheading != blank %}
+    <div class="overlay-type overlay {{ section.settings.position }}">
+      <div class="inner">
+        <div>
+          <div class="overlay__content">
+            <h1 class="line-1">{{ section.settings.title | escape }}</h1>
+            <div class="line-2">{{ section.settings.subheading | escape }}</div>
+            {% if section.settings.button_text != blank %}
+            <div class="line-3">
+              <span class="button">{{ section.settings.button_text | escape }}</span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if section.settings.link_url != blank %}
+  </a>
+  {% endif %}
+</div>
+
+<style type="text/css">
+  .section-id-{{ section.id }} .overlay-type .line-1,
+  .section-id-{{ section.id }} .overlay-type .line-2 {
+    color: {{ section.settings.text_color }};
+  }
+
+  .section-id-{{ section.id }} .rimage-outer-wrapper::after {
+    content: '';
+    background-color: {{ section.settings.bg_color }};
+    opacity: {{ section.settings.bg_opacity | divided_by: 100.0 }};
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Image with text overlay",
+    "class": "header-overlap-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "1200 x 400px (recommended)"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Mobile image",
+        "info": "720px wide minimum"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Image tint",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "bg_opacity",
+        "label": "Image tint strength",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 45
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text overlay"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text"
+      },
+      {
+        "type": "select",
+        "id": "position",
+        "label": "Text position",
+        "options": [
+          {
+            "value": "position--left position--top",
+            "label": "Top left"
+          },
+          {
+            "value": "position--hcenter position--top",
+            "label": "Top center"
+          },
+          {
+            "value": "position--right position--top",
+            "label": "Top right"
+          },
+          {
+            "value": "position--left position--vcenter",
+            "label": "Center left"
+          },
+          {
+            "value": "position--hcenter position--vcenter",
+            "label": "Center center"
+          },
+          {
+            "value": "position--right position--vcenter",
+            "label": "Center right"
+          },
+          {
+            "value": "position--left position--bottom",
+            "label": "Bottom left"
+          },
+          {
+            "value": "position--hcenter position--bottom",
+            "label": "Bottom center"
+          },
+          {
+            "value": "position--right position--bottom",
+            "label": "Bottom right"
+          }
+        ],
+        "default": "position--hcenter position--vcenter"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Banner link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text overlay",
+        "category": "Image",
+        "settings": {
+          "position": "position--hcenter position--vcenter",
+          "link_url": ""
+        }
+      }
+    ]
+  }
+{% endschema %}

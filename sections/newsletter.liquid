@@ -1,0 +1,79 @@
+{% assign brightness = section.settings.background_color | color_brightness %}
+{% assign alpha = section.settings.background_color | color_extract: 'alpha' %}
+<style type="text/css">
+  .section-id-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+  }
+  {% if brightness < 190 and alpha > 0 %}
+  .section-id-{{ section.id }},
+  .section-id-{{ section.id }} h4,
+  .section-id-{{ section.id }} a {
+    color: #fff;
+  }
+  {% endif %}
+</style>
+
+<div class="section-id-{{ section.id }} {% if alpha > 0 %}cf{% endif %}">
+  <div class="section-spacing container align-center">
+    <h4 class="h3 section-title">{{ section.settings.title | escape }}</h4>
+
+    <div class="signup-form">
+      {% form 'customer' %}
+        {% if form.posted_successfully? %}
+          <div class="signup-form__response">
+            <h4>{{ 'general.signup.post_success' | t }}</h4>
+          </div>
+        {% else %}
+
+          <div class="rte align-center">{{ section.settings.text }}</div>
+
+          {% if form.errors %}
+            <div class="signup-form__response">
+              {% for field in form.errors %}
+                <p class="error">{{ field | capitalize }} - {{ form.errors.messages[field] }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter"/>
+          <div class="inline-mini-form">
+            <input type="email" aria-label="{{ 'general.signup.email_label' | t | escape }}" class="required" value="" id="mailinglist_email" name="contact[email]" /><button class="compact" type="submit">{{ 'general.signup.subscribe' | t }}</button>
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Newsletter"
+      },
+	    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Subheading",
+        "default": "<p>Sign up to our newsletter and we’ll keep you up to date with the latest arrivals<\/p>"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "rgba(0,0,0,0)"
+      }
+	  ],
+	  "presets": [
+      {
+        "name": "Newsletter",
+        "category": "Promotional",
+        "settings": {}
+      }
+	  ]
+  }
+{% endschema %}

@@ -1,0 +1,114 @@
+{% section 'sprinkles-sm-header' %}
+
+
+<section class="container-fluid bg--light-yellow border-bottom-0 border-top-0 mt-0 pt-0" id="Section-{{ block.id }}" data-section-id="{{ block.id }}">
+    <div class="container-lg bg--light-yellow">
+  <div class="row  bg--light-yellow pb-5 mb-5">
+      <div class="col col-6">
+              <div class="rimage-outer-wrapper fade-in lazyloaded ourstory" data-parent-fit="cover">
+        <div class=" bg--light-yellow rimage-wrapper" style="padding-top:50%">
+          <img src="https://media.pixelbakery.com/HHH/images/fullsizeoutput_1bb0.jpeg" alt="" class="rimage__image ourstory">
+        </div>
+      </div>
+      </div>
+      <div class="col col-6 align-center d-flex flex-column justify-content-center">
+        
+           {{ page.content }}
+          </div>
+      </div>
+  </div>
+</section>
+
+
+{% assign donut = collections['original-donuts'] %}
+{% if donut.products.size > 0 %}
+<section class="container-fluid container-lg py-3 my-3 px-md-5" id="CollectionSection-{{ block.id }}" data-section-id="{{ block.id }}" data-section-type="featured-collection">
+  <div class="row">
+    <div class="col-12 align-left">
+      <h1 class="feature-header h2 align-left feature-header--visible pt-3">ORIGINAL DONUTS</h1>
+    </div>
+    {% if donut.description %}
+    <div class="col-12 col-md-6 pb-2">
+      <p> {{ donut.description }} </p>
+    </div>
+    {% endif %}
+    
+  </div>
+  <div class="row row-cols-1 row-cols-md-2">
+    {% for product in collections['original-donuts'].products limit: '12'%}
+ 
+      {% include 'product-block-horiz' %}
+ 
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% assign donut-type = collections['unique-donuts'] %}
+{% if donut-type.products.size > 0 %}  
+<section class="container-fluid container-lg py-3 my-3" id="CollectionSection-{{ block.id }}" data-section-id="{{ block.id }}" data-section-type="featured-collection">
+  <div class="row">
+    <div class="col-12 align-left">
+      <h1 class="feature-header h2 align-left feature-header--visible pt-3">SPECIALTY DONUTS</h1>
+    </div>
+    {% if donut-type.description %}
+      <div class="col-6 pb-2">
+        <p> {{ donut-type.description }} </p>
+      </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    {% for product in collections['unique-donuts'].products limit: '12'%}
+    <div class="col-6 col-md-3 col-xl-2">
+      {% include 'product-block' %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% assign donut-type = collections['vegan-donuts'] %}
+{% if donut-type.products.size > 0 %}  
+<section class="container-fluid container-lg py-3 my-3" id="CollectionSection-{{ block.id }}" data-section-id="{{ block.id }}" data-section-type="featured-collection">
+  <div class="row">
+    <div class="col-12 align-left">
+      <h1 class="feature-header h2 align-left feature-header--visible pt-3">VEGAN DONUTS</h1>
+    </div>
+    {% if donut-type.description %}
+      <div class="col-6 pb-2">
+        <p> {{ donut-type.description }} </p>
+      </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    {% for product in collections['vegan-donuts'].products limit: '12'%}
+    <div class="col-6 col-md-3 col-xl-2">
+      {% include 'product-block' %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% assign donut-type = collections['cbd-infused-donuts'] %}
+{% if donut-type.products.size > 0 %}
+<section class="container-fluid container-lg py-3 my-3" id="CollectionSection-{{ block.id }}" data-section-id="{{ block.id }}" data-section-type="featured-collection">
+  <div class="row">
+    <div class="col-12 align-left">
+      <h1 class="feature-header h2 align-left feature-header--visible pt-3">CBD-INFUSED DONUTS</h1>
+    </div>
+    {% if donut-type.description %}
+      <div class="col-6 pb-2">
+        <p> {{ donut-type.description }} </p>
+      </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    {% for product in collections['cbd-infused-donuts'].products limit: '12'%}
+    <div class="col-6 col-md-3 col-xl-2">
+      {% include 'product-block' %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,193 @@
+{% assign brightness = section.settings.color_bg | color_brightness %}
+{% assign alpha = section.settings.color_bg | color_extract: 'alpha' %}
+<style type="text/css">
+  .section-id-{{ section.id }} {
+    background: {{ section.settings.color_bg }};
+  }
+  {% if brightness < 190 and alpha > 0 %}
+  .section-id-{{ section.id }},
+  .section-id-{{ section.id }} h1,
+  .section-id-{{ section.id }} .rte a,
+  .section-id-{{ section.id }} .button {
+    color: #fff;
+  }
+  .section-id-{{ section.id }} .button {
+    background: transparent;
+    border-color: #fff;
+  }
+  .section-id-{{ section.id }} .button:hover {
+    background: #fff;
+    color: #000;
+  }
+  .section-id-{{ section.id }} .feature-header:after {
+    border-top-color: #fff;
+  }
+  {% else %}
+  .section-id-{{ section.id }} .button:hover {
+    background: transparent;
+  }
+  {% endif %}
+</style>
+
+{% capture image_html %}
+  <div class="text-beside-image__image lazyload--placeholder">
+    {% if section.settings.image_url != blank %}
+    <a href="{{ section.settings.image_url }}">
+      {% endif %}
+
+      {% if section.settings.image == blank %}
+        <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+      {% else %}
+        <div class="rimage-outer-wrapper lazyload fade-in"
+            data-bgset="{% include 'bgset', image: section.settings.image %}"
+            data-sizes="auto"
+            data-parent-fit="cover"
+            style="max-width: {{ section.settings.image.width }}px; max-height: {{ section.settings.image.height }}px">
+          <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%">
+            <noscript>
+              <img src="{{ section.settings.image | img_url: '1024x1024' }}" alt="{{ section.settings.image.alt | escape }}" class="rimage__image">
+            </noscript>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if section.settings.image_url != blank %}
+    </a>
+    {% endif %}
+  </div>
+{% endcapture %}
+
+<div class="text-beside-image cf section-id-{{ section.id }}" data-section-type="text-beside-image">
+
+  {% if section.settings.layout == 'left' %}{{ image_html }}{% endif %}
+
+  <div class="text-beside-image__text">
+    <div class="text-beside-image__text__wrap align-{{ section.settings.text_alignment }} padded-block {% if brightness < 190 and alpha > 0 %}inherit-colors{% endif %}">
+      {% if section.settings.title != blank %}
+      <h1 class="feature-header h2 align-{{ section.settings.text_alignment }}">{{ section.settings.title | escape }}</h1>
+      {% endif %}
+      <div class="rte align-{{ section.settings.text_alignment }}">{{ section.settings.text }}</div>
+      {% if section.settings.button_text != blank %}
+
+      <div class="button-row align-{{ section.settings.text_alignment }}">
+        {% if section.settings.button_url != blank %}
+          <a class="button" href="{{ section.settings.button_url }}">
+        {% else %}
+          <span class="button">
+        {% endif %}
+
+        {{ section.settings.button_text | escape }}
+
+        {% if section.settings.button_url == blank %}
+          </span>
+        {% else %}
+          </a>
+        {% endif %}
+      </div>
+
+      {% endif %}
+    </div>
+  </div>
+
+  {% if section.settings.layout == 'right' %}{{ image_html }}{% endif %}
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "Text on left"
+          },
+          {
+            "value": "left",
+            "label": "Text on right"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "image_url",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Text"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your store with your customers.</p><p>Describe product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "SEE MORE"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button link"
+      },
+      {
+        "type": "select",
+        "id": "text_alignment",
+        "label": "Alignment",
+        "default": "center",
+        "options": [
+          {
+            "label": "Left",
+            "value": "left"
+          },
+          {
+            "label": "Center",
+            "value": "center"
+          },
+          {
+            "label": "Right",
+            "value": "right"
+          }
+        ]
+      }
+    ],
+    "presets": [
+	    {
+        "name": "Image with text",
+        "category": "Image",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

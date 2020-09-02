@@ -1,0 +1,365 @@
+<style type="text/css">
+  {% if section.settings.logo != blank %}
+    .logo img { width: {{ section.settings.logo_width | escape }}px; }
+    @media (max-width: 767px) {
+      .logo img { width: {{ section.settings.logo_width | divided_by: 2 }}px; }
+    }
+  {% endif %}
+</style>
+
+{% if template == 'gift_card' %}
+
+{% comment %} Gift card template logo {% endcomment %}
+<a class="logo" href="{{ shop.url }}">
+  {% if section.settings.logo != blank %}
+  {% assign double_logo_width = section.settings.logo_width | default: 250 | times: 2 %}
+  {% capture img_size %}{% if double_logo_width > 2048 %}2048{% else %}{{ double_logo_width }}{% endif %}x{% endcapture %}
+  <img src="{{ section.settings.logo | img_url: img_size }}" alt="{{ shop.name | escape }}" />
+  {% else %}
+  {{ shop.name | escape }}
+  {% endif %}
+</a>
+
+
+
+
+{% else %}
+
+{% capture logo_html %}
+<a href="{{ routes.root_url }}">
+ <div class="navbar-brand">
+<img src="https://media.pixelbakery.com/HHH/logos/HHH_Logo_Badge_Horizontal_Pink.png" id="" alt="{{ shop.name | escape }}"/>
+</div>
+</a>
+{% endcapture %}
+
+{%- capture announcement -%}
+{% if section.settings.show_announcement %}
+{% if template == 'index' or section.settings.announcement_home_only == false %}
+<style type="text/css">
+  .announcement {
+    background: {{ section.settings.announcement_col_bar }};
+    color: {{ section.settings.announcement_col_text }};
+  }
+</style>
+<div class="announcement">
+  {% if section.settings.announcement_link != blank %}<a href="{{ section.settings.announcement_link }}">{% endif %}
+  <div class="announcement__inner">
+    {{ section.settings.announcement_text }}
+  </div>
+  {% if section.settings.announcement_link != blank %}</a>{% endif %}
+</div>
+{% endif %}
+{% endif %}
+{%- endcapture -%}
+
+<div data-section-type="header">
+  {% comment %} ACTUAL HEADER {% endcomment %}
+  <div id="site-control" class="site-control inline icons {% if section.settings.head_fixed %}fixed{% endif %}">
+    {{ announcement }}
+    <div class="links site-control__inner">
+      <a class="menu d-flex flex-column justify-content-around  text-center" href="#page-menu" aria-controls="page-menu" data-modal-nav-toggle aria-label="{{ 'layout.navigation.menu' | t | escape }}">
+        {% include 'icon-menu' %}
+        <span class="text-link">{{ 'layout.navigation.menu' | t }}</span>
+      </a>
+
+      {% unless template contains 'index' and section.settings.show_logo_on_homepage == false %}
+      {{ logo_html }}
+      {% endunless %}
+
+      <a class="cart d-flex flex-column justify-content-around  text-center" href="{{ routes.cart_url }}" aria-label="{{ 'layout.navigation.cart' | t | escape }}">
+        {% include 'svg-cart' %}{% if cart.item_count > 0 %}<div>{{ cart.item_count }}</div>{% endif %}
+        <span class="text-link">{{ 'layout.navigation.cart' | t }} {% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</span>
+      </a>
+    </div>
+  </div>
+
+  {% comment %} HIDDEN HEADER - USED FOR SPACING {% endcomment %}
+  <div id="faux-site-control" class="site-control faux-site-control inline icons">
+    {{ announcement }}
+    <div class="links site-control__inner">
+      <a class="menu" href="#page-menu" aria-label="{{ 'layout.navigation.menu' | t | escape }}">
+        {% include 'icon-menu' %}
+        <span class="text-link">{{ 'layout.navigation.menu' | t }}</span>
+      </a>
+
+      {% unless template contains 'index' and section.settings.show_logo_on_homepage == false %}
+      {{ logo_html }}
+      {% endunless %}
+
+      <a class="cart" href="{{ routes.cart_url }}" aria-label="{{ 'layout.navigation.cart' | t | escape }}">
+        {% include 'svg-cart' %}{% if cart.item_count > 0 %}<div>{{ cart.item_count }}</div>{% endif %}
+        <span class="text-link">{{ 'layout.navigation.cart' | t }} {% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</span>
+      </a>
+    </div>
+  </div>
+
+  <nav id="page-menu" class="theme-modal nav-uses-modal" data-show-breadcrumb="{{ section.settings.nav_show_breadcrumb }}">
+    <div class="inner">
+      <div class="container growth-area">
+        <div class="nav main-nav mx-auto" role="navigation" aria-label="{{ 'layout.navigation.menu_aria_label' | t | escape }}">
+
+          {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_1 %}
+          {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_2 %}
+          {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_3 %}
+          {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_4 %}
+
+          <ul>
+            {% for link in linklists[section.settings.menu_linklist].links %}
+            <li {% if link.active %}class="active"{% endif %}>
+              <a href="{{ link.url }}" {% if link.links != blank %}aria-haspopup="true"{% endif %}>
+                <span>{{ link.title }}</span>
+              </a>
+
+              {% if link.links != blank %}
+              <ul>
+                {% for child_link in link.links %}
+                <li {% if child_link.active %}class="active"{% endif %}>
+                  <a href="{{ child_link.url }}" {% if child_link.links != blank %}aria-haspopup="true"{% endif %}>
+                    <span>{{ child_link.title }}</span>
+                  </a>
+
+                  {% if child_link.links != blank %}
+                  <ul>
+                    {% for child_child_link in child_link.links %}
+                    <li {% if child_child_link.active %}class="active"{% endif %}>
+                      <a href="{{ child_child_link.url }}">
+                        <span>{{ child_child_link.title }}</span>
+                      </a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div>
+          <a class="search" href="{{ routes.search_url }}" data-modal-toggle="#search-modal">
+            {{ 'layout.navigation.search' | t }} <span class="arr arr--small">{% include 'svg-chevron-right' %}</span>
+          </a>
+        </div>
+      </div>
+      
+      
+
+      {% if the_snippet_auth contains 'Liquid error' %}
+      
+        {% if shop.customer_accounts_enabled %}
+        <div class="customer-links">
+          {% if customer %}
+          <a href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
+          |
+          <a href="{{ routes.account_logout_url }}">{{ 'layout.customer.log_out' | t }}</a>
+          {% else %}
+          <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t }}</a>
+          |
+          <a href="{{ routes.account_register_url }}">{{ 'layout.customer.register' | t }}</a>
+          {% endif %}
+        </div>
+        {% endif %}
+      
+      {% else %}
+        {% if shop.customer_accounts_enabled %}
+          <div id="ssw-topauth" class="ssw-topauth customer-links">
+            {% if customer %}
+              <div class="ssw-tprofile ssw-dropdown">
+                <a class="ssw-dropdown-toggle" data-toggle="ssw-dropdown" href="javascript:void(0);">
+                  <i class="ssw-icon-user"></i>
+                  {{ customer.first_name }}
+                  {% if customer.last_name != 'Unknown' %}
+                    {{ customer.last_name | slice:0 | upcase }}.
+                  {% endif %}
+                  <i class="ssw-icon-down-open-big"></i>
+                </a>
+                <ul class="ssw-dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li id="customer_myorders_li"><a tabindex="-1" href="/account">{{ 'socialshopwave.my_orders' | t }}</a></li>
+                  {% render 'ssw-widget-dropdown' %}
+                  <li><a id="customer_logout_link" tabindex="-1" href="/account/logout">{{ 'socialshopwave.logout' | t }}</a></li>
+                </ul>
+              </div>
+            {% else %}
+              <a id="customer_login_link" href="javascript:void(0);" data-toggle="ssw-modal" data-target="#login_modal" onclick="trackShopStats('login_popup_view', 'all')">{{ 'socialshopwave.log_in' | t }}</a>
+              |
+              <a id="customer_register_link" data-toggle="ssw-modal" data-target="#signup_modal" href="javascript:void(0);" onclick="trackShopStats('login_popup_view', 'all')">{{ 'socialshopwave.sign_up' | t }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endif %}    
+
+      {% include 'social-icons', icon_setting: settings.social_custom_icon, icon_size: 'x40' %}
+
+      {% if section.settings.show_locale_selector or section.settings.show_currency_selector %}
+        <div class="localization">
+          {% include 'localization', input_prefix: 'header' %}
+        </div>
+      {% endif %}
+    </div>
+  </nav>
+</div>
+
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "head_fixed",
+        "label": "Enable fixed position",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_home_only",
+        "label": "Home page only",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "announcement_link",
+        "label": "Link"
+      },
+      {
+        "type": "color",
+        "id": "announcement_col_bar",
+        "label": "Bar color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "announcement_col_text",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_logo_on_homepage",
+        "label": "Show the logo on the home page",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_width",
+        "label": "Logo width (px)",
+        "default": "200"
+      },
+      {
+        "type": "header",
+        "content": "Contrast logo"
+      },
+      {
+        "type": "paragraph",
+        "content": "Optional alternate logo to show over the home page slideshow, and over the navigation"
+      },
+      {
+        "type": "image_picker",
+        "id": "alt_logo",
+        "label": "Image"
+      },
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "nav_show_breadcrumb",
+        "label": "Show menu breadcrumb",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Collection menus"
+      },
+      {
+        "type": "paragraph",
+        "content": "These show at the top of the navigation, in a column layout, including their featured images."
+      },
+      {
+        "type": "checkbox",
+        "id": "nav_horizonal_show_title",
+        "label": "Show menu titles",
+        "default": true
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_1",
+        "label": "Menu 1"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_2",
+        "label": "Menu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_3",
+        "label": "Menu 3"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_4",
+        "label": "Menu 4"
+      },
+      {
+        "type": "header",
+        "content": "Language Selector",
+        "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_locale_selector",
+        "label": "Show language selector",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Currency Selector",
+        "info": "To add a currency, go to your [payment settings.](/admin/settings/payments)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_currency_selector",
+        "label": "Show currency selector",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

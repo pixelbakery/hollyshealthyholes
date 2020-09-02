@@ -1,0 +1,231 @@
+$hhh-color-pink: #fa9295;
+$hhh-color-lightpink: #f7bac0;
+$hhh-color-forestgreen: #526851;
+$hhh-color-lightgreen: #78a077;
+$hhh-color-darkblue: #464654;
+$hhh-color-lightyellow: #fbe99e;
+$hhh-color-burntyellow: #ffbc00;
+$hhh-color-brown: #774d4b;
+
+.sprinkletime-section{
+  height: 100vh;
+  width: 100%;
+  border-bottom-width: 15px;
+  border-bottom-style: solid;
+  border-bottom-color: $hhh-color-lightyellow;
+}
+
+.sprinkletime-container {
+  background-color: $hhh-color-pink;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sprinkle-header-holder{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2222;
+}
+.sprinkle-holder {
+  position: absolute;
+  left: 200px;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sprinkle {
+    position: relative;
+    transform: scale(0, 0);
+    opacity: 0;
+    text-align: center;
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pop-on-in {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  80% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+@keyframes floating {
+  0% {
+    transform: translateY(0%) rotate(-55deg) + random(20);
+  }
+  50% {
+    transform: translateY(100%) rotate(55deg);
+  }
+  100% {
+    transform: translateY(0%) rotate(-55deg) + random(20);
+  }
+}
+.holesome-wrapper{
+  
+}
+
+figure.hhh{
+    position: absolute;
+     display: block;
+    width: 66vw;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 1em auto;
+    padding: 0.5em 1em;
+    z-index: 2222;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 900px) {
+  figure.hhh {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  figure.hhh {
+    width: 150%;
+  }
+}
+.scaling-svg-container {
+  position: relative; 
+  height:0; 
+  width: 100%; 
+  padding: 0;
+
+  /* over-ride this inline for aspect ratio other than square */
+}
+.scaling-svg {
+  display:block;
+  position: absolute; 
+  height: 100%; 
+  width: 100%; 
+  left: 0; 
+  top:0;
+  margin: 0;
+  padding: 0; 
+   border: none; 
+  overflow: hidden;
+}
+figure.hhh > div {
+    text-align: center;
+}
+
+.cls-1 {
+  fill: #78a077;
+}
+.cls-2 {
+  fill: #fbe99e;
+}
+.cls-3 {
+  fill: #ffbc00;
+}
+.cls-4 {
+  fill: #fa9295;
+}
+
+g.letter {
+  transform-origin: center;
+  opacity: 0;
+  transform: translateY(-5%);
+  animation: animateIn 350ms calc(var(--animation-order) * 66ms) 1 ease normal
+    forwards;
+}
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9, 0.9) translateY(-5%);
+  }
+  80% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1) translateY(0%);
+  }
+}
+
+.sprinkletime-section-sm{
+  
+  min-height: 200px;
+  max-height: 400px;
+  height: 35vh;
+}
+.sprinkletime-section-sm .sprinkletime-container{
+  background-color: $hhh-color-lightpink;
+}
+.sprinkle-header-holder{
+ 
+}
+h1.sprinkle-header:before, .ml16:before{
+  word-break: keep-all;
+  
+}
+h1.sprinkle-header{
+  box-shadow: 0 0 10px $hhh-color-lightpink;
+  background-color:  $hhh-color-lightpink;
+  font-family: "grover", sans-serif; 
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 5em;
+  word-break: keep-all;
+  text-align: center;
+  color: $hhh-color-lightyellow;
+  z-index: 2000;
+  text-shadow:  -1px 1px $hhh-color-lightgreen,
+                -2px 2px $hhh-color-lightgreen,
+                -3px 3px $hhh-color-lightgreen,
+                -4px 4px $hhh-color-lightgreen,
+                -5px 5px $hhh-color-lightgreen,
+                -6px 6px $hhh-color-lightgreen,
+                -7px 7px $hhh-color-lightgreen,
+                -8px 8px $hhh-color-lightgreen,
+                -9px 9px $hhh-color-lightgreen,
+                -10px 10px $hhh-color-lightgreen,
+                -11px 11px $hhh-color-pink,
+                -12px 12px $hhh-color-pink,
+                -13px 13px $hhh-color-pink,
+                -14px 14px $hhh-color-pink;
+}
+
+.ml16 {
+  
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  overflow: hidden;
+}
+
+.ml16 .letter {
+
+  line-height: 1em;
+}

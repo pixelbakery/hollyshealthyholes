@@ -1,0 +1,51 @@
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+  <nav class="breadcrumb my-0 my-lg-2 pb-1 pb-lg-2" role="navigation" aria-label="breadcrumbs">
+   
+    {% if template contains 'page' %}
+  
+      <span>{{ page.title }}</span>
+    {% elsif template contains 'product' %}
+    {% if product.type contains  'Donut'  %}
+   
+        <a href="/pages/donuts">All Donuts</a>
+        {% endif %}
+    {% if product.collection.url %}
+      <span aria-hidden="true">&rsaquo;</span>
+      {{ collection.title | link_to: collection.url }}
+    {% endif %}
+    {% for collection in product.collections limit: 1 %}
+    	<span class="mx-1" aria-hidden="true">&rsaquo;</span>
+        {{ collection.title | link_to: collection.url }}
+    {% endfor %}
+    <span class="mx-1" aria-hidden="true">&rsaquo;</span>
+    <span>{{ product.title }}</span>
+    {% elsif template contains 'collection' and collection.handle %}
+      <span aria-hidden="true">&rsaquo;</span>
+      {% if current_tags %}
+        {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+        {{ collection.title | link_to: url }}
+        <span aria-hidden="true">&rsaquo;</span>
+        <span>{{ current_tags | join: " + " }}</span>
+      {% else %}
+        <span>{{ collection.title }}</span>
+      {% endif %}
+    {% elsif template == 'blog' %}
+      <span aria-hidden="true">&rsaquo;</span>
+      {% if current_tags %}
+        {{ blog.title | link_to: blog.url }}
+        <span aria-hidden="true">&rsaquo;</span>
+        <span>{{ current_tags | join: " + " }}</span>
+      {% else %}
+        <span>{{ blog.title }}</span>
+      {% endif %}
+    {% elsif template == 'article' %}
+      <span aria-hidden="true">&rsaquo;</span>
+      {{ blog.title | link_to: blog.url }}
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>{{ article.title }}</span>
+    {% else %}
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>{{ page_title }}</span>
+    {% endif %}
+  </nav>
+{% endunless %}

@@ -1,0 +1,90 @@
+<div class="section-id-{{ section.id }} cf">
+  <div class="double-section-spacing">
+    <div class="central wide">
+      <div class="content transparent align-center inherit-colors">
+        <h1 class="feature-header">{{ section.settings.title | escape }}</h1>
+        <div class="rte align-center type-2">{{ section.settings.text }}</div>
+        {% if section.settings.button_text != blank or section.settings.button_text2 != blank %}
+          <div class="button-row button-row--multiple">
+            {% if section.settings.button_text != blank %}
+              <a class="button" href="{{ section.settings.button_url }}">{{ section.settings.button_text | escape }}</a>
+            {% endif %}
+            {% if section.settings.button_text2 != blank %}
+              <a class="button" href="{{ section.settings.button_url2 }}">{{ section.settings.button_text2 | escape }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  .section-id-{{ section.id }} {
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.text_background }};
+  }
+  .section-id-{{ section.id }} .feature-header:after {
+    border-top-color: {{ section.settings.text_color }};
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Rich text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Rich text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your store with your customers.</p><p>Describe product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button 1 text"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button 1 link"
+      },
+      {
+        "type": "text",
+        "id": "button_text2",
+        "label": "Button 2 text"
+      },
+      {
+        "type": "url",
+        "id": "button_url2",
+        "label": "Button 2 link"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#464654"
+      },
+      {
+        "type": "color",
+        "id": "text_background",
+        "label": "Background color",
+        "default": "#ffffff"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Rich text",
+        "category": "Text",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,14 @@
+{% if link.links != blank %}
+  <li class="nav-item flex-fill text-center {% if child_link.active %} active {% endif %}">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ link.url }}" role="button" aria-haspopup="true" aria-expanded="false">{{ link.title }}</a>
+    <div class="dropdown-menu">
+      {% for child_link in link.links %}
+      <a class="dropdown-item" href="{{ child_link.url }}">{{ child_link.title }}</a>
+      {% endfor %}
+    </div>
+  </li>
+{% else %}
+  <li class="nav-item flex-fill text-center {% if child_link.active %} active {% endif %}">
+    <a class="nav-link " href="{{ link.url }}">{{ link.title }}</a>
+  </li>
+{% endif %}

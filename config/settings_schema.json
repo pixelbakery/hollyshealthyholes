@@ -1,0 +1,358 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Showcase",
+    "theme_author": "Clean Canvas",
+    "theme_version": "3.0.4",
+    "theme_documentation_url": "http:\/\/cleancanvas.co.uk\/support\/showcase\/",
+    "theme_support_url": "http:\/\/cleancanvas.co.uk\/support\/showcase\/"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "color",
+        "id": "col_text",
+        "label": "Text"
+      },
+      {
+        "type": "color",
+        "id": "col_headings",
+        "label": "Headings"
+      },
+      {
+        "type": "color",
+        "id": "col_links",
+        "label": "Links"
+      },
+      {
+        "type": "color",
+        "id": "col_mod_bg",
+        "label": "Modal \/ popup window background",
+        "default": "#000"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_mod_bg_op",
+        "label": "Use transparency for modal \/ popup window background",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "col_content_bg",
+        "label": "Page content background",
+        "default": "#fffdfb"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_content_bg_trans",
+        "label": "Use transparency on page content background",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "color",
+        "id": "col_head_links",
+        "label": "Icons",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "col_head_links_alt",
+        "label": "Alternate icon color",
+        "default": "#ffffff",
+        "info": "Used in menu, over home page slideshow, and over product gallery (if enabled)"
+      },
+      {
+        "type": "header",
+        "content": "Navigation text"
+      },
+      {
+        "type": "color",
+        "id": "col_nav_prim",
+        "label": "Primary",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "col_nav_sec",
+        "label": "Subnavigation",
+        "default": "#e3e0e1"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "color",
+        "id": "col_btn",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "col_btn_bg",
+        "label": "Background",
+        "default": "#8a7676"
+      },
+      {
+        "type": "header",
+        "content": "Dropdowns"
+      },
+      {
+        "type": "color",
+        "id": "col_select_bg",
+        "label": "Background",
+        "default": "#e0d8d5"
+      },
+      {
+        "type": "color",
+        "id": "col_select_txt",
+        "label": "Text",
+        "default": "#61523d"
+      },
+      {
+        "type": "header",
+        "content": "Product labels"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sale_label",
+        "label": "Show sale label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sold_out_label",
+        "label": "Show sold out label",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "coll_col_sale",
+        "label": "Sale",
+        "default": "#FC4B3A"
+      },
+      {
+        "type": "color",
+        "id": "coll_col_sold",
+        "label": "Sold out",
+        "default": "#828282"
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "footer_text",
+        "label": "Text",
+        "default": "#464654"
+      },
+      {
+        "type": "color",
+        "id": "footer_background",
+        "label": "Background",
+        "default": "#f7f7f7"
+      },
+      {
+        "type": "header",
+        "content": "Page background"
+      },
+      {
+        "type": "color",
+        "id": "col_page_bg",
+        "label": "Color"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "bg_image_method",
+        "label": "Repeat",
+        "options": [
+          {
+            "value": "cover",
+            "label": "Fill view"
+          },
+          {
+            "value": "tiled",
+            "label": "Tiled vertically + horizontally"
+          },
+          {
+            "value": "tiled-x",
+            "label": "Aligned to top, tiled horizontally"
+          },
+          {
+            "value": "tiled-y",
+            "label": "Aligned to center, tiled vertically"
+          },
+          {
+            "value": "top",
+            "label": "Aligned to top, centered, no tiling"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font families"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_base_font",
+        "label": "Base",
+        "default": "karla_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "label": "Headings",
+        "default": "karla_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_nav_font",
+        "label": "Navigation",
+        "default": "karla_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_logo_font",
+        "label": "Store name",
+        "default": "karla_n4",
+        "info": "If not using a logo image"
+      },
+      {
+        "type": "header",
+        "content": "Font sizes"
+      },
+      {
+        "type": "range",
+        "id": "font_size_base_int",
+        "label": "Base",
+        "min": 13,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "font_size_nav_int",
+        "label": "Navigation",
+        "min": 20,
+        "max": 60,
+        "step": 10,
+        "unit": "px",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "font_size_nav_sub_int",
+        "label": "Subnavigation",
+        "min": 20,
+        "max": 35,
+        "step": 5,
+        "unit": "px",
+        "default": 25
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing image"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Image",
+        "info": "Shown when sharing a link on social media. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/showing-social-media-thumbnail-images\/) about image thumbnails."
+      },
+      {
+        "type": "header",
+        "content": "Accounts"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_url",
+        "label": "Twitter",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_url",
+        "label": "Facebook",
+        "info": "https:\/\/facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_url",
+        "label": "Pinterest",
+        "info": "https:\/\/pinterest.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_url",
+        "label": "Vimeo",
+        "info": "https:\/\/vimeo.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_url",
+        "label": "Youtube",
+        "info": "https:\/\/youtube.com\/user\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_url",
+        "label": "Instagram",
+        "info": "https:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "header",
+        "content": "Custom link",
+        "info": "Upload a custom icon for your favorite social network"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_custom_icon",
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "social_custom_url",
+        "label": "Link",
+        "info": "https:\/\/socialnetwork.com\/shopify"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Image",
+        "info": "32 x 32px .png recommended"
+      }
+    ]
+  }
+]

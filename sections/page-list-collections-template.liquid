@@ -1,0 +1,75 @@
+<div class="wide-container double-gutter" data-section-type="list-collections">
+  {% if section.settings.coll_layout == 'rows' %}
+    {% if section.settings.coll_layout_per_row_int == 2 %}
+      {% assign product_class = 'column half' %}
+    {% elsif section.settings.coll_layout_per_row_int == 3 %}
+      {% assign product_class = 'column third' %}
+    {% else %}
+      {% assign product_class = 'column quarter' %}
+    {% endif %}
+  {% endif %}
+
+  <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row_int }}{% else %}grid--uniform{% endif %}">
+    {% for link in linklists[page.handle].links %}
+      {% if link.type == 'collection_link' %}
+        {% assign collection = link.object %}
+        {% include 'collection-block' %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Collection list",
+    "settings": [
+      {
+        "type": "select",
+        "id": "coll_layout",
+        "label": "Collection layout",
+        "options": [
+          {
+            "value": "columns",
+            "label": "Collage"
+          },
+          {
+            "value": "rows",
+            "label": "Grid"
+          }
+        ],
+        "default": "columns"
+      },
+      {
+        "type": "range",
+        "id": "coll_layout_per_row_int",
+        "label": "Collections per row",
+        "min": 2,
+        "max": 4,
+        "default": 3
+      },
+      {
+        "type": "select",
+        "id": "hover_effect",
+        "label": "Hover effect",
+        "default": "info",
+        "options": [
+          {
+            "value": "info",
+            "label": "Show collection title"
+          },
+          {
+            "value": "",
+            "label": "None"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_count",
+        "label": "Show product count",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

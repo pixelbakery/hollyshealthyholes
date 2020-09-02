@@ -1,0 +1,126 @@
+
+{% if section.settings.show_recommendations %}
+	<section class="container my-0 py-5 border-bottom-0">
+  <div
+     class="product-recommendations"
+     data-base-url="{{ routes.product_recommendations_url }}"
+     data-product-id="{{ product.id }}"
+     data-limit="4"
+   >
+     {%- if recommendations.products_count > 0 -%}
+    <div class="row">
+      <div class="col-12  pb-3">
+       <h2 class="feature-header align-left feature-header--visible mb-3">You may also like</h2>
+      </div>
+    </div>
+     <div class="row card-deck">
+       {%- for product in recommendations.products -%}
+
+       <div class="col-6 col-md-4 col-lg-4 mx-0">
+       
+         <a class="rec--link" href="{{ product.url }}">
+           <div class="card rec--card mx-0">
+           <img
+             class="product__img img-fluid card-img-top rec--image"
+             src="{{ product.featured_image | img_url: '300x300' }}"
+             alt="{{ product.featured_image.alt }}"
+           />
+             <div class="card-body pl-0">
+               <p class="product__title card-text text-bold">{{ product.title }}</p>
+               <p class="product__price card-text">{{ product.price | money}}</p>
+             </div>
+           </div>
+         </a>
+    	</div>
+       {%- endfor -%}
+    </div>
+     
+     {%- endif -%}
+   </div>
+</section>
+ {%- endif -%}
+
+   {% javascript %}
+   var loadProductRecommendationsIntoSection = function() {
+     // Look for an element with class 'product-recommendations'
+     var productRecommendationsSection = document.querySelector(".product-recommendations");
+     if (productRecommendationsSection === null) { return; }
+     // Read product id from data attribute
+     var productId = productRecommendationsSection.dataset.productId;
+     // Read base URL from data attribute
+     var baseUrl = productRecommendationsSection.dataset.baseUrl;
+     // Read limit from data attribute
+     var limit = productRecommendationsSection.dataset.limit;
+     // Build request URL
+     var requestUrl = baseUrl + "?section_id=product-recommendations&product_id=" + productId + "&limit=" + limit;
+     // Create request and submit it using Ajax
+     var request = new XMLHttpRequest();
+     request.open("GET", requestUrl);
+     request.onload = function() {
+       if (request.status >= 200 && request.status < 300) {
+         var container = document.createElement("div");
+         container.innerHTML = request.response;
+         productRecommendationsSection.parentElement.innerHTML = container.querySelector(".product-recommendations").innerHTML;
+       }
+     };
+     request.send();
+   };
+
+  // Listen for changes done in the Theme Editor
+   document.addEventListener("shopify:section:load", function(event) {
+     if (event.detail.sectionId === "product-recommendations") {
+       loadProductRecommendationsIntoSection();
+     }
+   });
+   // Fetching the recommendations on page load
+   loadProductRecommendationsIntoSection();
+   {% endjavascript %}
+
+
+{% schema %}
+  {
+    "name": "Product recommendations",
+    "settings": [
+      {
+        "type": "text",
+        "id": "recommendations_title",
+        "label": "Heading",
+        "default": "You may also like"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_recommendations",
+        "label": "Show recommendations",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "recommended_per_row_int",
+        "label": "Number of recommended products to show",
+        "min": 2,
+        "max": 4,
+        "default": 3
+      },
+      {
+        "type": "select",
+        "id": "hover_effect",
+        "label": "Hover effect",
+        "default": "info",
+        "options": [
+          {
+            "value": "info",
+            "label": "Show title and price"
+          },
+          {
+            "value": "image",
+            "label": "Show second image"
+          },
+          {
+            "value": "",
+            "label": "None"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

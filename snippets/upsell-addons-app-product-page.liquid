@@ -1,0 +1,8 @@
+<script>
+              window.upsell = window.upsell || {};
+              window.upsell.product = { collections:[]};
+                
+              {% for collection in product.collections %}
+                window.upsell.product.collections.push({{ collection.id }});
+              {% endfor %}
+            </script>

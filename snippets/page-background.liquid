@@ -1,0 +1,11 @@
+{%- if settings.bg_image != blank -%}
+  {%- if settings.bg_image_method == 'cover' or settings.bg_image_method == 'top' -%}
+    <div class="rimage-wrapper">
+      <div id="page-bg" class="lazyload fade-in"
+        data-bgset="{% include 'bgset', image: settings.bg_image %}"
+        data-sizes="auto"
+        data-parent-fit="cover">
+      </div>
+    </div>
+  {%- endif -%}
+{%- endif -%}

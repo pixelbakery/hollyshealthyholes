@@ -1,0 +1,630 @@
+<div data-section-type="nested-sections">
+  {% unless section.settings.enable_full_width %}
+  <div class="container container--full-mobile">
+  {% endunless %}
+
+  {% if section.settings.show_page_content %}
+  <div class="block-id-0 cf">
+    <div class="section-spacing section-spacing--bottom-only">
+      <div class="central">
+        <div class="content transparent">
+          <h1 class="feature-header align-center">{{ page.title }}</h1>
+          <div class="rte">{{ page.content }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    {% if block.type == 'richtext' %}
+
+      {%- assign bg_alpha = block.settings.text_background | color_extract: 'alpha' -%}
+      <div class="block-id-{{ block.id }} {% if bg_alpha > 0 and block.settings.text_background != settings.col_page_bg %}cf{% endif %}" {{ block.shopify_attributes }}>
+        <div class="section-spacing">
+          <div class="central">
+            <div class="content transparent align-{{ block.settings.alignment }} inherit-colors">
+              {% if block.settings.title != blank %}
+              <h1 class="{% if block.settings.text != blank or block.settings.button_label != blank%}feature-header{% endif %} align-{{ block.settings.alignment }} type-4">{{ block.settings.title | escape }}</h1>
+              {% endif %}
+              {% if block.settings.text != blank %}
+              <div class="rte align-{{ block.settings.alignment }}">{{ block.settings.text }}</div>
+              {% endif %}
+
+              {% if block.settings.button_label != blank %}
+                <div class="button-row align-{{ block.settings.text_alignment }}">
+                  <a class="button" href="{{ block.settings.button_link }}">
+                    {{ block.settings.button_label | escape }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style type="text/css">
+        .block-id-{{ block.id }} {
+          color: {{ block.settings.text_color }};
+          background-color: {{ block.settings.text_background }};
+        }
+        .block-id-{{ block.id }} .feature-header:after {
+          border-top-color: {{ block.settings.text_color }};
+        }
+      </style>
+
+    {% elsif block.type == 'image-with-text' %}
+
+      {% assign brightness = block.settings.color_bg | color_brightness %}
+      {% assign alpha = block.settings.color_bg | color_extract: 'alpha' %}
+      <style type="text/css">
+        .block-id-{{ block.id }} {
+          background: {{ block.settings.color_bg }};
+        }
+        {% if brightness < 190 and alpha > 0 %}
+        .block-id-{{ block.id }},
+        .block-id-{{ block.id }} h1,
+        .block-id-{{ block.id }} .rte a,
+        .block-id-{{ block.id }} .button {
+          color: #fff;
+        }
+        .block-id-{{ block.id }} .button {
+          background: transparent;
+          border-color: #fff;
+        }
+        .block-id-{{ block.id }} .button:hover {
+          background: #fff;
+          color: #000;
+        }
+        .block-id-{{ block.id }} .feature-header:after {
+          border-top-color: #fff;
+        }
+        {% else %}
+        .block-id-{{ block.id }} .button:hover {
+          background: transparent;
+        }
+        {% endif %}
+      </style>
+
+      {% capture image_html %}
+        <div class="text-beside-image__image text-beside-image__image--natural lazyload--placeholder">
+          {% if block.settings.image_url != blank %}
+          <a href="{{ block.settings.image_url }}">
+            {% endif %}
+
+            {% if block.settings.image == blank %}
+              <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {% else %}
+              <div class="rimage-outer-wrapper lazyload fade-in"
+                  data-bgset="{% include 'bgset', image: block.settings.image %}"
+                  data-sizes="auto"
+                  data-parent-fit="cover"
+                  style="max-width: {{ block.settings.image.width }}px; max-height: {{ block.settings.image.height }}px">
+                <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%">
+                  <noscript>
+                    <img src="{{ block.settings.image | img_url: '1024x1024' }}" alt="{{ block.settings.image.alt | escape }}" class="rimage__image">
+                  </noscript>
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.image_url != blank %}
+          </a>
+          {% endif %}
+        </div>
+      {% endcapture %}
+
+      <div class="text-beside-image cf block-id-{{ block.id }}" data-nested-section-type="text-beside-image" {{ block.shopify_attributes }}>
+
+        {% if block.settings.layout == 'left' %}{{ image_html }}{% endif %}
+
+        <div class="text-beside-image__text">
+          <div class="text-beside-image__text__wrap align-{{ block.settings.text_alignment }} padded-block {% if brightness < 190 and alpha > 0 %}inherit-colors{% endif %}">
+            {% if block.settings.title != blank %}
+            <h1 class="feature-header h2 align-{{ block.settings.text_alignment }}">{{ block.settings.title | escape }}</h1>
+            {% endif %}
+            <div class="rte align-{{ block.settings.text_alignment }}">{{ block.settings.text }}</div>
+            {% if block.settings.button_label != blank %}
+
+            <div class="button-row align-{{ block.settings.text_alignment }}">
+              {% if block.settings.button_link != blank %}
+                <a class="button" href="{{ block.settings.button_link }}">
+              {% else %}
+                <span class="button">
+              {% endif %}
+
+              {{ block.settings.button_label | escape }}
+
+              {% if block.settings.button_link == blank %}
+                </span>
+              {% else %}
+                </a>
+              {% endif %}
+            </div>
+
+            {% endif %}
+          </div>
+        </div>
+
+        {% if block.settings.layout == 'right' %}{{ image_html }}{% endif %}
+
+      </div>
+
+    {% elsif block.type == 'text-over-image' %}
+
+      <div class="text-over-image header-overlap-section needs-alt-logo block-id-{{ block.id }}" data-nested-section-type="text-over-image" {{ block.shopify_attributes }}>
+        {% if block.settings.link_url != blank %}
+        <a href="{{ block.settings.link_url }}">
+          {% endif %}
+
+          {% if block.settings.image == blank %}
+            <div class="placeholder-image placeholder--banner {% if block.settings.title != blank or block.settings.subheading != blank or block.settings.button_text != blank %}dark{% endif %}">
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {% else %}
+            <div class="rimage-outer-wrapper lazyload fade-in {% if block.settings.image_mobile != blank %}desktop-only{% endif %}"
+                data-bgset="{% include 'bgset', image: block.settings.image %}"
+                data-sizes="auto"
+                data-parent-fit="cover">
+              <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%">
+                <noscript>
+                  <img src="{{ block.settings.image | img_url: '1024x1024' }}" alt="{{ block.settings.image.alt | escape }}" class="rimage__image">
+                </noscript>
+              </div>
+            </div>
+
+            {% if block.settings.image_mobile != blank %}
+              <div class="rimage-outer-wrapper lazyload fade-in mobile-only"
+                   data-bgset="{% include 'bgset', image: block.settings.image_mobile %}"
+                   data-sizes="auto"
+                   data-parent-fit="cover">
+                <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: block.settings.image_mobile.aspect_ratio | times: 100 }}%">
+                  <noscript>
+                    <img src="{{ block.settings.image_mobile | img_url: '1024x1024' }}" alt="{{ block.settings.image_mobile.alt | escape }}" class="rimage__image">
+                  </noscript>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+
+          {% if block.settings.title != blank or block.settings.subheading != blank or block.settings.button_text != blank %}
+          <div class="overlay-type overlay {{ block.settings.position }}">
+            <div class="inner">
+              <div>
+                <div class="overlay__content">
+                  {% if block.settings.title != blank %}<h1 class="line-1">{{ block.settings.title | escape }}</h1>{% endif %}
+                  {% if block.settings.subheading != blank %}<div class="line-2">{{ block.settings.subheading | escape }}</div>{% endif %}
+                  {% if block.settings.button_text != blank %}
+                  <div class="line-3">
+                    <span class="button">{{ block.settings.button_text | escape }}</span>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if block.settings.link_url != blank %}
+        </a>
+        {% endif %}
+      </div>
+
+      <style type="text/css">
+        .block-id-{{ block.id }} .overlay-type .line-1,
+        .block-id-{{ block.id }} .overlay-type .line-2 {
+          color: {{ block.settings.text_color }};
+        }
+
+        .block-id-{{ block.id }} .rimage-outer-wrapper::after {
+          content: '';
+          background-color: {{ block.settings.bg_color }};
+          opacity: {{ block.settings.bg_opacity | divided_by: 100.0 }};
+        }
+      </style>
+
+
+
+
+    {% elsif block.type == 'image-beside-image' %}
+
+      <div class="image-beside-image cf" {{ block.shopify_attributes }}>
+
+        <div class="image-beside-image__image">
+          {% if block.settings.left_url != blank %}
+          <a href="{{ block.settings.left_url }}">
+            {% endif %}
+
+            {% if block.settings.left_image == blank %}
+            <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {% else %}
+            {% include 'responsive-image', image: block.settings.left_image %}
+            {% endif %}
+
+            {% if block.settings.left_url != blank %}
+          </a>
+          {% endif %}
+        </div>
+
+        <div class="image-beside-image__image">
+          {% if block.settings.right_url != blank %}
+          <a href="{{ block.settings.right_url }}">
+            {% endif %}
+
+            {% if block.settings.right_image == blank %}
+            <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {% else %}
+            {% include 'responsive-image', image: block.settings.right_image %}
+            {% endif %}
+
+            {% if block.settings.right_url != blank %}
+          </a>
+          {% endif %}
+        </div>
+
+      </div>
+
+    {% elsif block.type == 'video' %}
+
+      <div class="{% if section.settings.enable_full_width %}header-overlap-section needs-alt-logo{% else %}section-spacing wide-container{% endif %}" data-nested-section-type="video" {{ block.shopify_attributes }}>
+        {% if block.settings.title != blank %}
+          <div class="container">
+            <h2 class="section-title section-title--margin-under">{{ block.settings.title }}</h2>
+          </div>
+        {% endif %}
+
+        {% if block.settings.video_url != blank %}
+          <div class="video-container" data-video-url="{{ block.settings.video_url }}" data-video-id="{{ block.settings.video_url.id }}" data-video-type="{{ block.settings.video_url.type }}" data-video-autoplay="{% if block.settings.cover_image == blank %}{{ block.settings.autoplay }}{% else %}false{% endif %}">
+            {% if block.settings.cover_image != blank %}
+              <div class="video-container__cover">
+                <div class="rimage-outer-wrapper lazyload fade-in"
+                    data-bgset="{% include 'bgset', image: block.settings.cover_image %}"
+                    data-sizes="auto"
+                    data-parent-fit="cover">
+                  <noscript>
+                    <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: block.settings.cover_image.aspect_ratio | times: 100 }}%">
+                      <img src="{{ block.settings.cover_image | img_url: '1024x1024' }}" alt="{{ block.settings.cover_image.alt | escape }}" class="rimage__image">
+                    </div>
+                  </noscript>
+                </div>
+                <button class="button button--plain video-container__play" aria-label="{{ 'general.accessibility_labels.video_play' | t | escape }}">{% include 'svg-play' %}</button>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+    {% endif %}
+  {% endfor %}
+
+  {% unless section.settings.enable_full_width %}
+  </div>
+  {% endunless %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Story page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_full_width",
+        "label": "Enable full width layout",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_page_content",
+        "label": "Show page content",
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "type": "richtext",
+        "name": "Rich text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Rich text"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text to share information about your store with your customers.</p><p>Describe product, share announcements, or welcome customers to your store.</p>"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text color",
+            "default": "#464654"
+          },
+          {
+            "type": "color",
+            "id": "text_background",
+            "label": "Background color",
+            "default": "rgba(0,0,0,0)"
+          },
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Alignment",
+            "default": "center",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image-with-text",
+        "name": "Image with text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "select",
+            "id": "layout",
+            "label": "Image alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "header",
+            "content": "Text"
+          },
+          {
+            "type": "color",
+            "id": "color_bg",
+            "label": "Background color",
+            "default": "rgba(0,0,0,0)"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Image with text"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Alignment",
+            "default": "center",
+            "options": [
+              {
+                "label": "Left",
+                "value": "left"
+              },
+              {
+                "label": "Center",
+                "value": "center"
+              },
+              {
+                "label": "Right",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text-over-image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "1200 x 400px (recommended)"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Mobile image",
+            "info": "720px wide minimum"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Image tint",
+            "default": "#000000"
+          },
+          {
+            "type": "range",
+            "id": "bg_opacity",
+            "label": "Image tint strength",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "default": 0
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "text",
+            "id": "subheading",
+            "label": "Subheading"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text"
+          },
+          {
+            "type": "select",
+            "id": "position",
+            "label": "Text position",
+            "options": [
+                {
+                  "value": "position--left position--top",
+                  "label": "Top left"
+                },
+                {
+                  "value": "position--hcenter position--top",
+                  "label": "Top center"
+                },
+                {
+                  "value": "position--right position--top",
+                  "label": "Top right"
+                },
+                {
+                  "value": "position--left position--vcenter",
+                  "label": "Center left"
+                },
+                {
+                  "value": "position--hcenter position--vcenter",
+                  "label": "Center center"
+                },
+                {
+                  "value": "position--right position--vcenter",
+                  "label": "Center right"
+                },
+                {
+                  "value": "position--left position--bottom",
+                  "label": "Bottom left"
+                },
+                {
+                  "value": "position--hcenter position--bottom",
+                  "label": "Bottom center"
+                },
+                {
+                  "value": "position--right position--bottom",
+                  "label": "Bottom right"
+                }
+            ],
+            "default": "position--hcenter position--vcenter"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "url",
+            "id": "link_url",
+            "label": "Banner link"
+          }
+        ]
+      },
+      {
+        "type": "image-beside-image",
+        "name": "Two images",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Left"
+          },
+          {
+            "type": "image_picker",
+            "id": "left_image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "left_url",
+            "label": "Link"
+          },
+          {
+            "type": "header",
+            "content": "Right"
+          },
+          {
+            "type": "image_picker",
+            "id": "right_image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "right_url",
+            "label": "Link"
+          }
+        ]
+      },
+      {
+        "type": "video",
+        "name": "Video",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "id": "video_url",
+            "type": "video_url",
+            "label": "Video link",
+            "accept": ["youtube", "vimeo"],
+            "info": "Supports Youtube and Vimeo",
+            "default": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          },
+          {
+            "id": "autoplay",
+            "type": "checkbox",
+            "label": "Autoplay",
+            "info": "Video will be muted",
+            "default": false
+          },
+          {
+            "id": "cover_image",
+            "type": "image_picker",
+            "label": "Cover image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

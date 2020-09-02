@@ -1,0 +1,255 @@
+<section class="blog-section section-id-{{ section.id }}" data-section-type="featured-blog">
+
+  {% if section.settings.layout == 'feature' %}
+    <style type="text/css">
+      .section-id-{{ section.id }} .featured-blog,
+      .section-id-{{ section.id }} .featured-blog .rte a,
+      .section-id-{{ section.id }} .featured-blog .rte a:hover {
+        color: {{ section.settings.feature_text_col }};
+      }
+
+      .section-id-{{ section.id }} .featured-blog .rte a {
+        border-bottom-color: {{ section.settings.feature_text_col }};
+      }
+
+      .section-id-{{ section.id }} .featured-blog .rte a:hover {
+        border-bottom-color: rgba({{ section.settings.feature_text_col | color_extract: 'red' }}, {{ section.settings.feature_text_col | color_extract: 'green' }}, {{ section.settings.feature_text_col | color_extract: 'blue' }}, 0.5);
+      }
+    </style>
+    <div class="featured-blog">
+      <div class="slideshow fill-viewport" data-slideshow-transition="fade">
+        {% unless section.settings.blog == blank %}
+          {% assign blog = blogs[section.settings.blog] %}
+
+          {% for article in blog.articles limit: section.settings.article_count %}
+
+            <div class="slide slide-{{ forloop.index }} {% if section.settings.darken_background %}darken-image{% endif %}">
+              {% if article.image != blank %}
+                <div class="rimage-outer-wrapper lazyload--manual fade-in"
+                    data-bgset="{% include 'bgset', image: article.image %}"
+                    data-sizes="auto"
+                    data-parent-fit="cover">
+                  <div class="rimage-wrapper" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%">
+                    <noscript>
+                      <img src="{{ article.image | img_url: '1024x1024' }}" alt="{{ article.image.alt | escape }}" class="rimage__image">
+                    </noscript>
+                  </div>
+                </div>
+              {% else %}
+              <div class="placeholder-image placeholder--banner dark">
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+              {% endif %}
+
+              <h2 class="featured-blog__title">{{ section.settings.title | link_to: blog.url }}</h2>
+              <div class="featured-blog__count fill-viewport__contain">{{ forloop.index }}/{{ section.settings.article_count | at_most: blog.articles.size }}</div>
+
+              <div class="featured-blog__article fill-viewport__contain">
+                <h3 class="featured-blog__article-title align-left">{{ article.title }}</h3>
+                <div class="featured-blog__article-excerpt rte">
+                  {{ article.excerpt_or_content }}
+                </div>
+                <div class="featured-blog__article-more">
+                  <a href="{{ article.url }}" class="button">{{ 'blogs.article.read_more' | t }}</a>
+                </div>
+              </div>
+              <div class="featured-blog__view-all">{{ 'blogs.general.view_all' | t | link_to: blog.url }}</div>
+            </div>
+
+          {% else %}
+
+            <div>
+              {{ 'onboarding.blog.empty' | t }}
+            </div>
+
+          {% endfor %}
+
+        {% else %}
+
+          {% for i in (1..section.settings.article_count) %}
+            <div class="slide slide-{{ forloop.index }}">
+              <div class="placeholder-image placeholder--banner dark">
+                {% capture placeholder_type %}lifestyle-{% cycle '1', '2' %}{% endcapture %}
+                {{ placeholder_type | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+
+              <h2 class="featured-blog__title">{{ 'onboarding.blog.title' | t }}</h2>
+              <div class="featured-blog__count">{{ forloop.index }}/{{ section.settings.article_count }}</div>
+
+              <div class="featured-blog__article">
+                <h3 class="featured-blog__article-title align-left">{{ 'onboarding.blog.article_title' | t }} {{ forloop.index }}</h3>
+                <div class="featured-blog__article-excerpt rte">
+                  {{ 'onboarding.blog.article_excerpt' | t }}
+                </div>
+                <div class="featured-blog__article-more">
+                  <a href="#" class="button">{{ 'blogs.article.read_more' | t }}</a>
+                </div>
+              </div>
+              <div class="featured-blog__view-all">{{ 'blogs.general.view_all' | t | link_to: blog.url }}</div>
+            </div>
+          {% endfor %}
+
+        {% endunless %}
+      </div>
+
+      {% if blog == blank or blog.articles.size > 1 %}
+        {% if section.settings.article_count > 1 %}
+          <div class="featured-blog__controls">
+            <a href="#" class="featured-blog__prev">{{ 'blogs.feature_slideshow.prev' | t }}</a>
+            <a href="#" class="featured-blog__next">{{ 'blogs.feature_slideshow.next' | t }}</a>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+
+  {% else %}
+
+    <div class="wide-container double-gutter section-spacing">
+      {% unless section.settings.blog == blank %}
+
+        {% assign blog = blogs[section.settings.blog] %}
+        <h2 class="section-title">{{ section.settings.title | link_to: blog.url }}</h2>
+
+        <div class="grid grid--uniform cf column-blog">
+          {% for article in blog.articles limit: section.settings.article_count %}
+
+            <div class="article-block column third">
+              <a href="{{ article.url }}">
+                {% include 'responsive-image', image: article.image %}
+              </a>
+
+              <h3 class="article-block__title align-left">{{ article.title }}</h3>
+
+              {% if section.settings.show_date %}
+                <div class="article-block__meta">
+                  <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_date_year' }}</time>
+                </div>
+              {% endif %}
+
+              <div class="article-block__excerpt rte">
+                {{ article.excerpt_or_content }}
+
+                <div class="article-block__more">
+                  <a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+                </div>
+              </div>
+            </div>
+
+          {% else %}
+
+            {{ 'onboarding.blog.empty' | t }}
+
+          {% endfor %}
+        </div>
+
+      {% else %}
+
+        <h2 class="section-title">{{ 'onboarding.blog.title' | t }}</h2>
+
+        <div class="grid grid--uniform cf column-blog">
+          {% for i in (1..section.settings.article_count) %}
+            <div class="article-block column third">
+              <div class="placeholder-image landscape">
+                {% capture placeholder_type %}lifestyle-{% cycle '1', '2' %}{% endcapture %}
+                {{ placeholder_type | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+
+              <h3 class="article-block__title align-left">{{ 'onboarding.blog.article_title' | t }} {{ forloop.index }}</h3>
+
+              {% if section.settings.show_date %}
+                <div class="article-block__meta">
+                  <time pubdate datetime="{{ 'now' | date: '%Y-%m-%d' }}">{{ 'now' | date: format: 'month_date_year' }}</time>
+                </div>
+              {% endif %}
+
+              <div class="article-block__excerpt rte">
+                {{ 'onboarding.blog.article_excerpt' | t }}
+
+                <div class="article-block__more">
+                  <a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+      {% endunless %}
+    </div>
+
+  {% endif %}
+</section>
+
+
+{% schema %}
+  {
+    "name": "Blog posts",
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "default": "feature",
+        "options": [
+          {
+            "value": "feature",
+            "label": "Feature"
+          },
+          {
+            "value": "columns",
+            "label": "Columns"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Blog"
+      },
+      {
+        "type": "blog",
+        "id": "blog",
+        "label": "Blog"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_date",
+        "label": "Show date",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "article_count",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "label": "Articles",
+        "default": 5
+      },
+      {
+        "type": "header",
+        "content": "Feature layout"
+      },
+      {
+        "type": "color",
+        "id": "feature_text_col",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "darken_background",
+        "label": "Darken background image",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+      "name": "Blog posts",
+          "category": "Blog",
+          "settings": {
+          }
+      }
+    ]
+  }
+{% endschema %}

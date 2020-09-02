@@ -1,0 +1,23 @@
+<div class="product-block collection-block hover-{{ section.settings.hover_effect }} {{ product_class }}" data-loop-index="{{forloop.index}}">
+  <div class="product-block__inner">
+    <div class="image">
+      <a class="image-inner" href="{{ collection.url }}">
+        {% if collection.image %}
+          {% include 'responsive-image', image: collection.image %}
+        {% else %}
+          {% include 'responsive-image', image: collection.products.first.media.first.preview_image %}
+        {% endif %}
+      </a>
+    </div>
+    <div class="caption {% if section.settings.show_count and collection.all_products_count > 0 %}upper{% else %}middle{% endif %}">
+      <a href="{{ collection.url }}" class="title">{{ collection.title }}</a>
+    </div>
+    {% if section.settings.show_count and collection.all_products_count > 0 %}
+    <div class="caption lower">
+      <a href="{{ collection.url }}" class="price">
+        {{ 'collections.general.product_count' | t: count: collection.all_products_count }}
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>

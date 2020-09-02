@@ -1,0 +1,278 @@
+
+
+{% capture logo_html %}
+ <a class="align-center order-0 order-md-1 -mx-1 -mx-md-2 -mx-xl-5" href="{{ routes.root_url }}" style="flex-shrink:1">
+   <div class="navbar-brand">
+     <img src="https://media.pixelbakery.com/HHH/logos/PB_AspectRatio_HHH_PrimaryLogo_Pink_v1.svg" alt="{{ shop.name | escape }}">
+   </div>
+</a>
+{% endcapture %}
+
+{%- capture announcement -%}
+{% if section.settings.show_announcement %}
+{% if template == 'index' or section.settings.announcement_home_only == false %}
+<style type="text/css">
+  .announcement {
+    background: {{ section.settings.announcement_col_bar }};
+    color: {{ section.settings.announcement_col_text }};
+  }
+</style>
+<div class="announcement">
+  {% if section.settings.announcement_link != blank %}<a href="{{ section.settings.announcement_link }}">{% endif %}
+  <div class="announcement__inner">
+    {{ section.settings.announcement_text }}
+  </div>
+  {% if section.settings.announcement_link != blank %}</a>{% endif %}
+</div>
+{% endif %}
+{% endif %}
+{%- endcapture -%}
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar mobile-nav  d-block d-lg-none">
+      <div class="container d-flex justify-content-between h-100" style="flex-wrap:nowrap">
+    {{logo_html}}
+    <div class="h-100 d-flex flex-column justify-content-center" data-toggle="collapse">
+   
+      {% include 'mobile-nav' %}
+  
+    </div>
+    </div>
+  </nav>
+  <div class="navigation-wrap  start-header start-style d-none d-lg-block"  data-section-type="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="navbar navbar-expand-md   d-flex justify-content-center ">
+            
+            
+            <div class="order-1 order-md-0 flex-fill navbar-left  d-none d-lg-block" id="navbarSupportedContent" style="width:50%">
+              <ul class="navbar-nav d-flex justify-content-between w-100">
+                {% for link in linklists.main-menu-left.links %}
+                  {% include 'nav-list' %}
+                {% endfor %}
+
+
+              </ul>
+            </div>
+            
+            <div class="text-center" style="width:40%">
+            {{ logo_html }}
+            </div>
+            
+            <div class=" order-2 flex-fill navbar-right d-none d-lg-block flex-shrink-1" id="navbarSupportedContent" style="width:50%">
+              <ul class="navbar-nav d-flex justify-content-between w-100">
+                {% for link in linklists.main-menu-right.links %}
+                  {% include 'nav-list' %}
+                {% endfor %}
+                <li class="nav-item flex-fill text-center nav-icon">
+                  {% if shop.customer_accounts_enabled %}
+                    <div class="customer-links">
+                      {% if customer %}
+                      <a class="nav-link" href="{{ routes.account_url }}">{% include 'svg-login' %}</a>
+                      
+                      
+                      {% else %}
+                      <a class="nav-link" href="{{ routes.account_login_url }}">{% include 'svg-login' %}</a>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </li>
+                <li class="nav-item flex-fill text-center nav-icon">
+                 <a class="nav-link cart d-flex flex-column justify-content-around  text-center" href="{{ routes.cart_url }}" aria-label="{{ 'layout.navigation.cart' | t | escape }}">
+        			<div>
+                   {% include 'svg-cart' %}
+                   	{% if cart.item_count > 0 %}
+                   		{{ cart.item_count }}
+                   {% endif %}
+                   </div>
+      			</a>
+                </li>
+                {% comment %}
+                <li class="nav-item flex-fill text-center nav-icon">
+                    <a class="nav-link search" href="{{ routes.search_url }}" data-modal-toggle="#search-modal">
+                       <span class="arr arr--small">{% include 'svg-search' %}</span>
+                    </a>
+                </li>
+                {% endcomment %}
+              </ul>
+            </div>
+            
+<!--             original hamburger -->
+          
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "head_fixed",
+        "label": "Enable fixed position",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_home_only",
+        "label": "Home page only",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "announcement_link",
+        "label": "Link"
+      },
+      {
+        "type": "color",
+        "id": "announcement_col_bar",
+        "label": "Bar color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "announcement_col_text",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_logo_on_homepage",
+        "label": "Show the logo on the home page",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_width",
+        "label": "Logo width (px)",
+        "default": "200"
+      },
+      {
+        "type": "header",
+        "content": "Contrast logo"
+      },
+      {
+        "type": "paragraph",
+        "content": "Optional alternate logo to show over the home page slideshow, and over the navigation"
+      },
+      {
+        "type": "image_picker",
+        "id": "alt_logo",
+        "label": "Image"
+      },
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "nav_show_breadcrumb",
+        "label": "Show menu breadcrumb",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Collection menus"
+      },
+      {
+        "type": "paragraph",
+        "content": "These show at the top of the navigation, in a column layout, including their featured images."
+      },
+      {
+        "type": "checkbox",
+        "id": "nav_horizonal_show_title",
+        "label": "Show menu titles",
+        "default": true
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_1",
+        "label": "Menu 1"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_2",
+        "label": "Menu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_3",
+        "label": "Menu 3"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_horizontal_4",
+        "label": "Menu 4"
+      },
+      {
+        "type": "header",
+        "content": "Language Selector",
+        "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_locale_selector",
+        "label": "Show language selector",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Currency Selector",
+        "info": "To add a currency, go to your [payment settings.](/admin/settings/payments)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_currency_selector",
+        "label": "Show currency selector",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

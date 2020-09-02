@@ -1,0 +1,66 @@
+<section id="findus" class=" shopify-section bg--white border-bottom-0 py-5 bg--white">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12 align-left">
+       <h1 class="feature-header h2 align-left feature-header--visible pt-3">FIND OUR HOLES</h1>
+         
+        <p class="mw-700 my-2">Good news: There are a ton of sweet locations around Nebraska where you can snag our protein donuts! Find your fave below, and put the pedal to the metal. </div>
+    </div>
+    <div class="row mt-3 mb-2">
+      <div class="col-12 align-left text-left">
+        <h3 class="text-left align-left" >OMAHA, NE</h3>
+      </div>
+    </div>
+    <div class="row row-cols-2 row-cols-md-3">
+     
+      {% include 'findus-omaha' %}
+    </div>
+    
+    <div class="row mt-3 mb-2">
+      <div class="col-12 align-left text-left">
+        <h3 class="text-left align-left" >LINCOLN, NE</h3>
+      </div>
+    </div>
+    <div class="row row-cols-2 row-cols-md-3">
+     
+      {% include 'findus-lincoln' %}
+    </div>
+    
+    <div class="row mt-3 ">
+      <div class="col-12 col-md-6 align-left text-left">
+        <h3 class="text-left align-left text-uppercase mb-2" >Bellevue, NE</h3>
+        <div class="row row-cols-1 row-cols-md-1">
+          {% include 'findus-bellevue' %}
+      	</div>
+      </div>
+      <div class="col-12 col-md-6 align-left text-left">
+        <h3 class="text-left align-left text-uppercase mb-2" >VALLEY, NE</h3>
+        <div class="row row-cols-1 row-cols-md-1">
+          {% include 'findus-valley' %}
+      	</div>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+         
+
+{% schema %}
+  {
+    "name": "About - Find Us",
+    "settings": [],
+ 	"presets": [
+    {
+      "name": "About - Find Us",
+      "category": "About Page"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

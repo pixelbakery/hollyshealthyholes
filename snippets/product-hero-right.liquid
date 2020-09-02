@@ -1,0 +1,169 @@
+<div class="container h-100 p-1 p-lg-2 p-xl-4">
+  <div class="row h-100 mx-auto">
+      <div class="col-12 d-flex flex-column justify-content-between ">
+		
+		
+		
+		
+ 		{% include 'breadcrumbs' %}
+        <h1 class="product-title feature-header align-left feature-header--visible mb-2">{{ product.title }}</h1>
+        <h4 class="font-italic align-left">
+          {% for collection in product.collections limit: 1 %}
+    		{% assign temp1 = collection.title %}
+        	{% assign temp1size = temp1 | size | minus: 1 %}
+        	{{ temp1 | slice: 0, temp1size }}
+          {% endfor %}
+        </h4>
+        <div class="price-area my-1">
+          {% if variant.compare_at_price > variant.price %}
+          <span class="was-price theme-money">{{ variant.compare_at_price | money }}</span>
+          {% endif %}
+          <span class="price theme-money">{{ variant.price | money }}</span>
+
+          {% include 'unit-price' %}
+        </div>
+
+        {%- if section.settings.show_tax_and_shipping -%}
+          {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+            <div class="product-policies rte">
+              {%- if shop.taxes_included -%}
+                {{ 'products.general.include_taxes' | t }}
+              {%- endif -%}
+              {%- if shop.shipping_policy.body != blank -%}
+                {{ 'products.general.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+
+	<a href="#looxReviews" class="my-1">
+          <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}">
+          </div>
+        </a>
+	<div class="mt-4 product-description mw-lg-50">
+      {{ product.description}}
+      </div>
+    <div class="mt-4 flex-fill">
+      {% capture product_form_class %}feedback-{{ section.settings.cart_add }}{% endcapture %}
+      {% form 'product', product, class: product_form_class, data-ajax-add-to-cart: true, data-product-id: product.id, data-enable-history-state: 'true' %}
+    
+          <div class="h-100 d-flex flex-column h-100">
+            {% if product.variants.size > 1 %}
+              <div class="option-selectors options-{{ product.options_with_values | size }} mb-2">
+                {% for option in product.options_with_values %}
+                  <div class="selector-wrapper">
+                    {% capture size_chart_html %}
+
+                      {%- assign option_name_lower = option.name | downcase -%}
+                      {%- assign target_option_name_lower = section.settings.size_chart_variant | downcase -%}
+                      {%- if section.settings.show_size_chart and option_name_lower == target_option_name_lower -%}
+                        <span class="size-chart-container">
+                          <a href="#size-chart-content" class="size-chart-link">{{ 'products.product.size_chart' | t }}</a>
+                          <div id="size-chart-content" class="hidden">
+                            <div class="size-chart">
+                              <div class="size-chart__inner rte">
+                                <h2>{{ pages[section.settings.size_chart_page].title }}</h2>
+                                {{ pages[section.settings.size_chart_page].content }}
+                              </div>
+                            </div>
+                          </div>
+                        </span>
+                      {%- endif -%}
+                    {% endcapture %}
+                    <label {% if option.name == 'default' %}class="hidden"{% endif %} for="option-{{ option.name | handle }}">
+                      {{ option.name }}
+                      {% if section.settings.variant_style == 'underlined' %}{{ size_chart_html }}{% endif %}
+                    </label>
+                    <select id="option-{{ option.name | handle }}" {% if section.settings.variant_style == 'underlined' %}class="noreplace" data-make-box{% endif %}>
+                      {% for value in option.values %}
+                      <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                    {% if section.settings.variant_style == 'dropdown' %}{{ size_chart_html }}{% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+
+              <select name="id" class="original-selector" aria-label="{{ 'products.product.selector_label' | t | escape }}">
+                {% for variant in product.variants %}
+                  <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %} data-stock="{% if variant.inventory_management == 'shopify' and variant.inventory_quantity <= 0 %}out{% endif %}">{{ variant.title | escape }}</option>
+                {% endfor %}
+              </select>
+
+            {% else %}
+              {% unless show_single_variant_details == false or product.has_only_default_variant %}
+                <div class="selector-wrapper single-option ">
+                  {%- for option in product.options -%}
+                    {%- if option != 'Title' -%}
+                      {%- assign opt_idx = 'option' | append: forloop.index -%}
+                      <div>
+                        <label>
+                          {{ option }}
+                          {%- assign option_name_lower = option.name | downcase -%}
+                          {%- assign target_option_name_lower = section.settings.size_chart_variant | downcase -%}
+                          {%- if section.settings.show_size_chart and option_name_lower == target_option_name_lower -%}
+                            <span class="size-chart-container">
+                              <a href="#size-chart-content" class="size-chart-link">{{ 'products.product.size_chart' | t }}</a>
+                              <div id="size-chart-content" class="hidden">
+                                <div class="size-chart">
+                                  <div class="size-chart__inner rte">
+                                    <h2>{{ pages[section.settings.size_chart_page].title }}</h2>
+                                    {{ pages[section.settings.size_chart_page].content }}
+                                  </div>
+                                </div>
+                              </div>
+                            </span>
+                          {%- endif -%}
+                        </label>
+                        {{ product.variants.first[opt_idx] }}
+                      </div>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              {% endunless %}
+		
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+            {% endif %}
+
+            {% if product.available %}
+              {% if section.settings.show_quantity %}
+            <div class="my-1 my-xl-3">
+            <label> Quantity </label>
+              <div class="quantity-wrapper">
+                
+                <a href="#" data-quantity="down">-</a>
+                <input aria-label="{{ 'products.product.quantity' | t }}" class="select-on-focus" id="quantity" name="quantity" value="1" />
+                <a href="#" data-quantity="up">+</a>
+              </div>
+              {% else %}
+              <input type="hidden" id="quantity" name="quantity" value="1" />
+            </div>
+              {% endif %}
+            {% endif %}
+            
+          </div>
+			
+          {% if product.available %}
+            <div class="">
+              <button class="button mt-4 w-100 button--addcart" type="submit" name="add">{{ 'products.product.add_to_cart' | t }}</button>
+              
+            </div>
+          {% else %}
+            <h5>{{ 'products.product.product_unavailable' | t }}</h5>
+          {% endif %}
+       
+
+        {% if section.settings.show_backorder_text == true %}
+          {% include 'backorder' %}
+        {% endif %}
+      {% endform %}
+    </div>
+
+        {% if section.settings.show_sharing_icons %}
+      <div class="align-left product-detail__detail m-0">
+        {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+      </div>
+    {% endif %}
+  </div>
+  </div>
+</div>

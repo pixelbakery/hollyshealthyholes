@@ -1,0 +1,52 @@
+{% comment %}Is this product on sale?{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign product_url = product.url | within: collection %}
+
+<div class="h-100 product-block{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %} hover-{{ section.settings.hover_effect }} {% if product.tags contains 'meta-layout-right' %}layout-right{% endif %} {{ product_class }}" data-loop-index="{{forloop.index}}">
+  <div class="product-block__inner">
+    <div class="image h-100 {% if section.settings.hover_effect == 'image' and product.media.size > 1 %}image--hover-second {% if product.featured_media.preview_image.aspect_ratio == product.media[1].preview_image.aspect_ratio %}image--same-aspect-ratio{% endif %}{% endif %}">
+      <a class="image-inner h-100" href="{{ product_url }}">
+        <div class="image__first">
+          {% include 'responsive-image', image: product.featured_media.preview_image %}
+        </div>
+
+        {% if section.settings.hover_effect == 'image' and product.media.size > 1 %}
+        <div class="image__second">
+          {% include 'responsive-image', image: product.media[1].preview_image, aspect_ratio: product.featured_media.preview_image.aspect_ratio %}
+        </div>
+        {% endif %}
+
+        {% if product.available == false and settings.show_sold_out_label %}
+        <span class="product-label unavailable"><span>{{ 'products.listing.sold_out' | t }}</span></span>
+        {% elsif product.compare_at_price > product.price and settings.show_sale_label %}
+        <span class="product-label sale"><span>{{ 'products.product.sale' | t }}</span></span>
+        {% endif %}
+      </a>
+    </div>
+    <div class="caption upper bg--light-yellow align-center py-1 my-0 pt-0">
+      <a href="{{ product_url }}" class="title py-1">{{ product.title }}    
+<!--         {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
+        {% unless the_snippet_review_avg contains 'Liquid error' %}
+        {{ the_snippet_review_avg }}
+        {% endunless %}    -->
+      </a>
+
+      <a href="{{ product_url }}" class="price">
+        {% if product.price_varies %}{{ 'products.listing.from' | t }}{% endif %}
+        <span class="theme-money">{{ product.price | money }}</span>
+        {% if on_sale %}<span class="was-price theme-money">{{ product.compare_at_price | money }}</span>{% endif %}
+
+        {%- assign variant = product.variants | sort: 'price' | first -%}
+        {% include 'unit-price' %}
+      </a>
+
+      <div class="themed-product-reviews">
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      </div>
+    </div>
+  </div>
+</div>

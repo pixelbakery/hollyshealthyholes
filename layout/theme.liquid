@@ -1,0 +1,176 @@
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+ <link rel="stylesheet" href="https://use.typekit.net/knv1bkx.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <meta charset="utf-8" />
+  <!-- Showcase 3.0.4 -->
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}" />
+  {% endif %}
+
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="{{ settings.col_btn_bg }}">
+
+  {% if settings.favicon != blank and settings.favicon contains '.png' %}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/png" />
+  {% elsif settings.favicon != blank and settings.favicon contains '.ico' %}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/x-icon" />
+  {% endif %}
+
+  {% include 'social-meta-tags' %}
+
+  {{ content_for_header }}
+
+
+
+
+  {{ 'styles.css' | asset_url | stylesheet_tag }}
+
+   <!-- PIXEL BAKERY STYLE SHEET -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css" integrity="sha512-LMGcbvpWnitRvWjsAg5NDYKsWo4DU+64irr2ndxWG8MhsEQ5T4f5QKvh9sLd2iA2oUg9iernfBs3yIc0NcRjwQ==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.typekit.net/knv1bkx.css">
+  {{ 'mobile-nav.scss' | asset_url | stylesheet_tag }}
+   {{ 'pb-styles-fork.scss' | asset_url | stylesheet_tag }}
+  {{ 'pb-style.css' | asset_url | stylesheet_tag }}
+  {{ 'sprinkle-styles.scss.css' | asset_url | stylesheet_tag }}
+
+  <!-- END PB STYLE CODE  -->
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' | script_tag }}
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', '');
+    window.theme = window.theme || {};
+    theme.jQuery = jQuery;
+    theme.money_format = {{ shop.money_format | json }};
+    theme.money_container = '.theme-money';
+    theme.strings = {
+      previous: {{ 'general.accessibility_labels.previous' | t | json }},
+      next: {{ 'general.accessibility_labels.next' | t | json }},
+      close: {{ 'general.accessibility_labels.close' | t | json }},
+      addressError: {{ 'map.errors.address_error' | t | json }},
+      addressNoResults: {{ 'map.errors.address_no_results' | t | json }},
+      addressQueryLimit: {{ 'map.errors.address_query_limit_html' | t | json }},
+      authError: {{ 'map.errors.auth_error_html' | t | json }},
+      back: {{ 'layout.navigation.back' | t | json }},
+      cartConfirmation: {{ 'cart.terms.confirmation' | t | json }},
+      loadMore: {{ 'general.accessibility_labels.load_more' | t | json }},
+      infiniteScrollNoMore: {{ 'collections.general.infinite_scroll_no_more' | t | json }},
+      priceNonExistent: {{ 'products.variant.non_existent' | t | json }},
+      buttonDefault: {{ 'products.product.add_to_cart' | t | json }},
+      buttonNoStock: {{ 'products.variant.out_of_stock' | t | json }},
+      buttonNoVariant: {{ 'products.variant.non_existent' | t | json }},
+      variantNoStock: {{ 'products.variant.no_stock' | t | json }},
+      unitPriceSeparator: {{ 'products.product.unit_price_separator' | t | json }},
+      colorBoxPrevious: {{ 'general.lightbox.previous' | t | json }},
+      colorBoxNext: {{ 'general.lightbox.next' | t | json }},
+      colorBoxClose: {{ 'general.lightbox.close' | t | json }},
+      navigateHome: {{ 'layout.navigation.home' | t | json }},
+      productAddingToCart: {{ 'products.product.adding_to_cart' | t | json }},
+      productAddedToCart: {{ 'products.product.added_to_cart' | t | json }},
+      popupWasAdded: {{ 'products.product.popup_was_added' | t | json }},
+      popupCheckout: {{ 'products.product.popup_checkout' | t | json }},
+      popupContinueShopping: {{ 'products.product.popup_continue_shopping' | t | json }}
+    };
+    theme.routes = {
+      search_url: '{{ routes.search_url }}',
+      cart_url: '{{ routes.cart_url }}',
+      cart_add_url: '{{ routes.cart_add_url }}'
+    };
+    (function($){
+      var $ = jQuery = $;
+      theme.checkViewportFillers = function(){
+        var toggleState = false;
+        var $pageContent = $('#page-content');
+        if($pageContent.length) {
+          var $overlapSection = $pageContent.find('.header-overlap-section:first');
+          if ($overlapSection.length) {
+            var padding = parseInt($pageContent.css('padding-top'));
+            toggleState = ((Math.round($overlapSection.position().top) - padding) === 0);
+          }
+        }
+        $('body').toggleClass('header-section-overlap', toggleState);
+      };
+      theme.assessAltLogo = function(){
+        var $overlappers = $('.needs-alt-logo');
+        var useAltLogo = false;
+        if($overlappers.length) {
+          var headerMid = $('#site-control .site-control__inner').offset().top + $('#site-control .site-control__inner').outerHeight() / 2;
+          $overlappers.each(function(){
+            var thisTop = $(this).offset().top;
+            var thisBottom = thisTop + $(this).outerHeight();
+            if(headerMid > thisTop && headerMid < thisBottom) {
+              useAltLogo = true;
+              return false;
+            }
+          });
+        }
+        $('body').toggleClass('use-alt-logo', useAltLogo);
+      };
+    })(theme.jQuery);
+  </script>
+
+
+  {% include "storepickup" %}
+<!-- Zapiet | Store Pickup + Delivery -->
+
+
+	{{ shop.metafields.loox["global_html_head"] }}
+</head>
+
+<body id="page-{{ page_title | handle }}" class="hero-anime {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if template.suffix != blank %} template-suffix-{{ template.suffix }}{% endif %}{% if template contains 'customers' %} template-customer-area{% endif %}{% if logo_html contains 'img' %} has-logo{% endif %}" >
+{% capture the_snippet_content %}{% render 'socialshopwave-helper' %}{% endcapture %}
+            {% unless the_snippet_content contains 'Liquid error' %}
+              {{ the_snippet_content }}
+            {% endunless %}
+  <a class="skip-link visually-hidden" href="#page-content">{{ 'general.accessibility_labels.skip_to_content' | t }}</a>
+
+  {% include 'page-background' %}
+
+  {% section 'updated-header' %}
+
+  <main id="page-content" role="main">
+    {{ content_for_layout }}
+  </main>
+  {% section 'footer' %}
+
+  <!-- Search form -->
+  <div id="search-modal" class="theme-modal" tabindex="-1">
+    <div class="inner">
+      <div class="container growth-area">
+        <h2 class="h1">{{ 'general.search.title' | t }}</h2>
+          <form action="{{ routes.search_url }}" method="get" class="search-form" role="search">
+            {% comment %} Remove the following line to search everything, not just products {% endcomment %}
+            <input type="hidden" name="type" value="product">
+
+            <div class="inline-mini-form">
+              <input type="text" name="q" value="{{ search.terms | escape }}" aria-label="{{ 'general.search.input_label' | t | escape }}" autocomplete="off" required /><button class="compact" type="submit">{{ 'general.search.submit' | t }}</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {{ 'logo-engine.js'  | asset_url | script_tag }}
+  {{ 'vendor.js'  | asset_url | script_tag }}
+  {{ 'theme.js'  | asset_url | script_tag }}
+  {{ 'sprinkle-engine.js'  | asset_url | script_tag }}
+
+
+  
+
+
+	{{ shop.metafields.loox["global_html_body"] }}
+</body>
+</html>
