@@ -18,7 +18,51 @@
 }
 #shopify-section-about-kitchen{
   border-bottom-width: 0px;
+
 }
-  .featured-header{
-   color:  var(--hhh-color-darkblue);
-  }
+.featured-header{
+    color:  var(--hhh-color-darkblue);
+}
+a.button--contact{
+  border: 3px solid var(--hhh-color-lightpink);
+  border-radius: 4px;
+}
+.img-right, .img-left{
+  min-height: 50vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+}
+.img-right img, .img-left img{
+  
+    height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#kitchen{
+  
+}
+@media (min-width: 768px) {
+  .h-md-100 {height: 100vh;}
+}
+.btn-round { border-radius: 30px;}
+.bg-indigo {background: indigo;}
+.text-cyan { color: #35bdff;}
+  
+img.object-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mh-75{
+ max-height: 75vh; 
+}
+.anchor-bottom{
+  object-position: 50% 100%;
+}
+.anchor-top{
+  object-position: 50% 25%;
+}
