@@ -1,20 +1,20 @@
 :root{
-	--hhh-color-pink: #FA9295; 
-	--hhh-color-lightpink: #F7BAC0; 
+	--hhh-color-pink: #FA9295;
+	--hhh-color-lightpink: #F7BAC0;
   	--hhh-color-forestgreen: #526851;
     --hhh-color-lightgreen: #78A077;
   	--hhh-color-lighteryellow: #FFFCF2;
     --hhh-color-darkblue: #464654;
     --hhh-color-lightyellow: #FBE99E;
     --hhh-color-burntyellow: #FFBC00;
-  	--hhh-color-brown: #774D4B; 
+  	--hhh-color-brown: #774D4B;
   	--hhh-color-white: #FDFFFC;
-      
+
     --nav-height: 130px;
 }
-  
+
 .bg--light-pink{
- background-color: var(--hhh-color-lightpink); 
+ background-color: var(--hhh-color-lightpink);
 }
 #shopify-section-about-kitchen{
   border-bottom-width: 0px;
@@ -37,13 +37,13 @@ a.button--contact{
 
 }
 .img-right img, .img-left img{
-  
+
     height: 100%;
   width: 100%;
   object-fit: cover;
 }
 #kitchen{
-  
+
 }
 @media (min-width: 768px) {
   .h-md-100 {height: 100vh;}
@@ -51,18 +51,21 @@ a.button--contact{
 .btn-round { border-radius: 30px;}
 .bg-indigo {background: indigo;}
 .text-cyan { color: #35bdff;}
-  
+
 img.object-fit {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 .mh-75{
- max-height: 75vh; 
+ max-height: 75vh;
 }
 .anchor-bottom{
   object-position: 50% 100%;
 }
 .anchor-top{
   object-position: 50% 25%;
+}
+button.btn-block{
+	outline: none !important;
 }
