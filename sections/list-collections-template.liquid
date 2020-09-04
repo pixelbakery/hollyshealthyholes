@@ -7,10 +7,13 @@
   {% case forloop.index %}
     {% when 1 %}
       {% assign section_icon = 'HHH_Donut1.svg' | asset_url   %}
+      {% assign delay = '-1s'   %}
     {% when 2 %}
       {% assign section_icon = 'HHH_Donut2.svg' | asset_url %}
+      {% assign delay = '-2s'   %}
     {% when 3 %}
       {% assign section_icon = 'HHH_Donut3.svg' | asset_url %}
+      {% assign delay = '-3s'   %}
   {% endcase %}
 <section  class="container-fluid bg--white section-border-bottom">
   <div class="row no-gutter d-flex split-section">
@@ -22,10 +25,10 @@
 
           <div class="col-12 align-center mx-auto">
 
-            <img src="  {{section_icon}}" alt="{{collection.title}} illustration" class="my-3 collection-icon"/>
+            <img src="  {{section_icon}}" alt="{{collection.title}} illustration" class="my-3 collection-icon" style="animation-delay: {{delay}};"/>
             <h1 class="feature-header h2 feature-header--visible pt-3"> {{collection.title}}</h1>
             <p class=" px-1 px-md-5 my-5 align-center">{{collection.description}}</p>
-            <a class="btn btn-primary align-center" href=""><span class="material-icons">
+            <a class="btn btn-primary align-center" href="{{ collection.url }}"><span class="material-icons">
 shopping_cart
 </span> Peruse {{collection.title}}</a>
 

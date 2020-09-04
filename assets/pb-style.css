@@ -152,14 +152,13 @@ main#page-content {
   font-size: 1.333em;
   font-weight: bold;
   margin-bottom: 1em;
-  text-align: left;
   display: block;
  }
 
 .footer-nav ul li .social-links ul.social-links__list{
 	color: var(--hhh-color-brown);
   margin-left: 0;
-   text-align: left;
+
  }
  .footer-nav ul li .social-links ul.social-links__list li{
 	 color: var(--hhh-color-brown);
