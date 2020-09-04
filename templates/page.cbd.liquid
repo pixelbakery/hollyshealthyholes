@@ -1,9 +1,13 @@
 {% section 'sprinkles-sm-header' %}
-<div class="central content">
+<section class="container-fluid  bg--white py-3">
+  <div class="container my-5 py-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="rte">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+</section>
 
-
-  <div class="rte">
-    {{ page.content }}
-  </div>
-</div>
-{% section 'cbd-faq' %}
+{% section 'section-faq' %}

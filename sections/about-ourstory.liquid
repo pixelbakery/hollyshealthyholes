@@ -1,31 +1,60 @@
-
- <section id="ourstory" class="container-fluid bg--light-pink">
+{%- assign ourstory_enable = section.settings.ourstory_enable -%}
+{% if ourstory_enable %}
+<section id="ourstory" class="container-fluid bg--light-pink">
+   {%- assign ourstory_header = section.settings.ourstory_header -%}
+   {%- assign ourstory_subhead = section.settings.ourstory_subhead -%}
+   {%- assign ourstory_blurb = section.settings.ourstory_blurb -%}
   <div class="row no-gutter d-flex ">
     <div class="col-12 col-md-8 col-xl-6 left order-last flex-fill">
       <div class="container  p-5 d-flex flex-column justify-content-center  h-100">
-
         <div class="row mx-3 mb-3 pb-3">
           <div class="col-12 col text-left">
-            <h1 class="feature-header h2 align-center feature-header--visible py-5">Hey, I'm Holly Wiess.</h1>
-            <p class="text-bold lead">Hey, I'm Holly Wiess.</p>
-          	<p>Donuts are my bliss.  They have always been the object of her affection, and even during her competitive bodybuilding years, one of her favorite “cheat” foods.  </p>
-          <p>Now, as a certified Holistic Health Coach with the Institute for Integrative Nutrition, and a certified personal trainer with the American College of Sports Medicine, Holly practices and teaches about balance. </p>
-          <p>I believe in delicious pastries and that health is our own responsibility.  She thinks just because you have a food sensitivity, allergy or health goal doesn’t mean you should be left out.  Holly’s vision is to contribute to her community by providing healthy pastry options we didn’t know existed, and more scrumptious options to make self-respecting choices as we take our wellness into our own hands.</p>     
-        
+            <h1 class="feature-header h2 align-center feature-header--visible py-5">{{ourstory_header}}</h1>
+            <p class="text-bold lead">{{ ourstory_subhead }}</p>
+            <div class="rte">
+            {{ ourstory_blurb }}
           </div>
-        </div>
+          </div>
+
       </div>
-    </div>
+      </div>
+  </div>
     <div class="col-12 col-md-4 col-xl-6 right  order-md-first mh-75 p-0">
       <img class="object-fit anchor-top" alt="" src="https://media.pixelbakery.com/HHH/images/PB-5423.jpg" />
     </div>
   </div>
-</section> 
+</section>
+{% endif %}
+
 
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Our Story",
+    "settings": [
+    {
+      "type": "checkbox",
+      "id": "ourstory_enable",
+      "label": "Enable Section?",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "ourstory_header",
+      "label": "Our Story Title",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "ourstory_subhead",
+      "label": "Our Story Subtitle",
+      "default": "Hey, I'm Holly Wiess."
+    },
+    {
+      "type": "richtext",
+      "id": "ourstory_blurb",
+      "label": "Our Story Body Copy"
+    }
+    ]
   }
 {% endschema %}
 
