@@ -340,7 +340,7 @@ a.btn.button-outline:hover{
 input.checkout-btn,
 a.button--contact,
 a.button--contact:visited,
-input.checkout-btn:vistied,
+input.checkout-btn:visited,
 a.button--contact:focus,
 input.checkout-btn:focus,
 input.checkout-btn:active,
@@ -358,6 +358,42 @@ a.button--contact:active{
     vertical-align: middle;
   justify-content: center;
   align-items: center;
+	outline: none !important;
+}
+a.btn.btn-primary,
+a.btn.btn-primary:visited,
+a.btn.btn-primary:focus,
+a.btn.btn-primary:active{
+	font-family: 'Raleway', sans-serif;
+	background-color: var(--hhh-color-lightpink);
+	color: var(--hhh-color-darkblue);
+	font-size: 1.1em ;
+	font-weight: 600;
+	border-width: 2px;
+	border-color: var(--hhh-color-lightpink);
+	border-radius: 3px ;
+	padding-left: 4em;
+	padding-right: 4em;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	text-decoration: none;
+	line-height: 1.2em;
+	transition: all .33s ease;
+	vertical-align: middle;
+	justify-content: center;
+	align-items: center;
+	outline: none !important;
+}
+a.btn.btn-primary span{
+	font-size: 1.1em ;
+	line-height: 1.2em;
+	vertical-align: middle;
+	justify-content: center;
+	align-items: center;
+}
+a.btn.btn-primary:hover{
+	border-color: var(--hhh-color-brown);
+	color: var(--hhh-color-brown);
 }
 input.checkout-btn, button.button--addcart{
  color: var(--hhh-color-darkblue) !important;
@@ -885,7 +921,7 @@ a.rec--link:hover{
   color: var(--hhh-color-lightyellow);
 
 }
-  .card-header:hover
-  {
-   background-color: var(--hhh-color-pink);
-  }
+.card-header:hover
+{
+ background-color: var(--hhh-color-pink);
+}
