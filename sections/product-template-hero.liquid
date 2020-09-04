@@ -8,10 +8,57 @@
   <div class="right ">
     {% include 'product-hero-right' %}
   </div>
-  
+
 </section>
 
+{% if product.metafields.global.nutrition %}
+{% assign nutrition = product.metafields.global.nutrition %}
 
+  <section class="shopify-section bg--white py-3" id="nutrition">
+    <div class="container my-5 py-5">
+      <div class="row">
+        <div class="col-6">{{ product.metafields.global.Fat }}
+          <h3 class="feature-header h2 align-left feature-header--visible py-4"> Nutritional Information</h3>
+          <p class="lead">Nutritional numbers are listed as per donut based on a 2,000 calorie daily diet </p>
+          <ul class="list-group list-group-flush">
+
+            {% comment %} Display Protein {% endcomment %}
+            {% if product.metafields.global.protein %}
+              {% assign protein = product.metafields.global.protein | plus: 0.00 %}
+              {% assign protein_dv = protein | divided_by: 50.000  |  times: 100.00 | round: 2 %}
+              <li class="list-group-item">
+                <span class="float-left "><span class="font-weight-bold">Protein: </span>{{protein}} grams</span>
+                <span class="float-right">{{protein_dv}}% of daily value</span>
+              </li>
+            {% endif %}
+
+            {% comment %} Display Net Carbs {% endcomment %}
+            {% if product.metafields.global.carbs %}
+              {% assign carbs = product.metafields.global.carbs | plus: 0.00 %}
+              {% assign carbs_dv = carbs | divided_by: 275.000 |  times: 100.00  | round: 2 %}
+              <li class="list-group-item">
+                <span class="float-left "><span class="font-weight-bold">Net Carbs: </span>{{carbs}} grams</span>
+                <span class="float-right">{{carbs_dv}}% of daily value</span>
+              </li>
+            {% endif %}
+
+            {% comment %} Display Fat {% endcomment %}
+            {% if product.metafields.global.fat %}
+              {% assign fat = product.metafields.global.fat | plus: 0.00 %}
+              {% assign fat_dv = fat | divided_by: 275.000 |  times: 100.00  | round: 2 %}
+              <li class="list-group-item">
+                <span class="float-left "><span class="font-weight-bold">Fat: </span>{{fat}} grams</span>
+                <span class="float-right">{{fat_dv}}% of daily value</span>
+              </li>
+            {% endif %}
+
+      </div>
+      <div class="col-6">
+        Tagged indicators go here
+      </div>
+    </div>
+  </section>
+{% endif %}
 
 
 
@@ -203,3 +250,19 @@
     ]
   }
 {% endschema %}
+
+{% if product.metafields.loox.num_reviews %}
+<script id="looxSchemaJson" type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Product",
+	"@id": {{ canonical_url | json }},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "{{ product.metafields.loox.avg_rating }}",
+		"reviewCount": "{{ product.metafields.loox.num_reviews }}"
+	},
+	"name": {{ product.title | json }}
+}
+</script>
+{% endif %}
