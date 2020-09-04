@@ -10,4 +10,5 @@
 <ul>
   <li>highlight-gluten-free</li>
   <li>highlight-vegan</li>
+  <li>highlight-yummy</li>
 </ul>
