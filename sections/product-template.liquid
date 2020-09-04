@@ -1,6 +1,13 @@
 {%- assign variant = product.selected_or_first_available_variant -%}
 {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
-
+{%- assign tabs = product.metafields.tabs -%}
+<ul class="tabs">
+    {% include 'product-description' %}
+    {%- for field in tabs -%}
+        <li><h2>{{ field | first }}</h2>{{ field | last }}</li>
+    {%- endfor -%}
+    {% include 'related-products' %}
+</ul>
 <section class="product-area {% if section.settings.header_overlay contains 'overlay' %}header-overlap-section{% endif %} container" data-section-type="product-template">
   <style type="text/css">
   {% for media in product.media %}
@@ -98,7 +105,7 @@
 
 
 
- 
+
         <h1 class="product-title feature-header h2 align-left feature-header--visible">{{ product.title }}</h1>
 
         <div class="price-area">
@@ -205,7 +212,7 @@
                   {%- endfor -%}
                 </div>
               {% endunless %}
-		
+
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
             {% endif %}
 
@@ -213,7 +220,7 @@
               {% if section.settings.show_quantity %}
             <label> Quantity </label>
               <div class="quantity-wrapper">
-                
+
                 <a href="#" data-quantity="down">-</a>
                 <input aria-label="{{ 'products.product.quantity' | t }}" class="select-on-focus" id="quantity" name="quantity" value="1" />
                 <a href="#" data-quantity="up">+</a>
@@ -224,11 +231,11 @@
             {% endif %}
             <div id="upsell-container"></div>
           </div>
-			
+
           {% if product.available %}
             <div class="">
               <button class="button mt-4 w-100" type="submit" name="add">{{ 'products.product.add_to_cart' | t }}</button>
-              
+
             </div>
           {% else %}
             <h5>{{ 'products.product.product_unavailable' | t }}</h5>
@@ -248,7 +255,7 @@
 
 
 
- 
+
   </div>
     <div class="col-12 col-md-6">
             {% if section.settings.show_sharing_icons %}
@@ -261,6 +268,18 @@
 
 </section>
 
+{% if product.metafields.nutrition %}
+  <section class="bg--white" id="nutrition">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <h3> Nutritional Information</h3>
+      </div>
+    </div>
+  </section>
+{% endif %}
+<section>
+</section>
 <section class="container my-3">
   <div class="row">
     <div class="col-12">
@@ -277,7 +296,7 @@
       <a href="/pages/donuts" class="btn button-outline px-4 align-middle"><span class="material-icons align-middle mr-2">
 keyboard_backspace
 </span> Back To All Donuts</a>
- 
+
   </div>
 </section>
 <section class="container my-3">
@@ -518,7 +537,14 @@ keyboard_backspace
     ]
   }
 {% endschema %}
-
+{
+  "metafield": {
+    "namespace": "inventory",
+    "key": "warehouse",
+    "value": 25,
+    "value_type": "integer"
+  }
+}
 
 {% if product.metafields.loox.num_reviews %}
 <script id="looxSchemaJson" type="application/ld+json">

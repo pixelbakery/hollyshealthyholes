@@ -1,0 +1,878 @@
+{
+  "current": {
+    "col_text": "#464654",
+    "col_headings": "#161e26",
+    "col_links": "#774d4b",
+    "col_mod_bg": "#fa9295",
+    "use_mod_bg_op": false,
+    "col_content_bg": "#fbe99e",
+    "use_content_bg_trans": false,
+    "col_head_links": "#161e26",
+    "col_head_links_alt": "#fbe99e",
+    "col_nav_prim": "#78a077",
+    "col_nav_sec": "#fbe99e",
+    "col_btn": "#526851",
+    "col_btn_bg": "#ffbc00",
+    "col_select_bg": "#fbe99e",
+    "col_select_txt": "#78a077",
+    "show_sale_label": true,
+    "show_sold_out_label": true,
+    "coll_col_sale": "#fa9295",
+    "coll_col_sold": "#78a077",
+    "footer_text": "#fbe99e",
+    "footer_background": "#f7bac0",
+    "col_page_bg": "#78a077",
+    "bg_image": "",
+    "bg_image_method": "repeat top center",
+    "type_base_font": "raleway_n4",
+    "type_heading_font": "gill_sans_nova_n7",
+    "type_nav_font": "gill_sans_nova_n4",
+    "type_logo_font": "gill_sans_nova_n7",
+    "font_size_base_int": 16,
+    "font_size_nav_int": 50,
+    "font_size_nav_sub_int": 25,
+    "share_image": "",
+    "social_twitter_url": "",
+    "social_facebook_url": "https:\/\/www.facebook.com\/hollyshealthyholes\/",
+    "social_pinterest_url": "",
+    "social_vimeo_url": "",
+    "social_youtube_url": "",
+    "social_instagram_url": "https:\/\/www.instagram.com\/hollys_healthy_holes\/",
+    "social_custom_icon": "shopify:\/\/shop_images\/70649593_2764951886857504_6325074989653426176_o.jpg",
+    "social_custom_url": "",
+    "favicon": "",
+    "checkout_header_image": "shopify:\/\/shop_images\/HHH_yellowcard_small_v1_b8733afd-4f50-4c38-9a86-2ef0638f9dd5.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/HHH_Logo_Badge_Horizontal_Pink_copy_v1_335580ac-c06d-4e15-b6e8-281336cd6a93.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fa9295",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#f7bac0",
+    "checkout_heading_font": "Roboto",
+    "checkout_body_font": "Source Sans Pro",
+    "checkout_accent_color": "#526851",
+    "checkout_button_color": "#f7bac0",
+    "checkout_error_color": "#e32c2b",
+    "prod_label_col": "#2ba99f",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "head_fixed": false,
+          "show_announcement": true,
+          "announcement_home_only": true,
+          "announcement_text": "BE SAFE!  STAY HOME!  FREE DELIVERY TO ANY OMAHA ADDRESS WHEN YOU SPEND $28 OR MORE!  USE CODE FREESHIPPING",
+          "announcement_link": "",
+          "announcement_col_bar": "#fbe99e",
+          "announcement_col_text": "#774d4b",
+          "show_logo_on_homepage": true,
+          "logo": "shopify:\/\/shop_images\/Logo_Badge_Horizontal_yellow_v1.png",
+          "logo_width": "300",
+          "alt_logo": "shopify:\/\/shop_images\/HHH_Logo_Badge_Horizontal_Pink_copy_v1_335580ac-c06d-4e15-b6e8-281336cd6a93.png",
+          "menu_linklist": "main-menu",
+          "nav_show_breadcrumb": true,
+          "nav_horizonal_show_title": true,
+          "nav_horizontal_1": "",
+          "nav_horizontal_2": "",
+          "nav_horizontal_3": "",
+          "nav_horizontal_4": "",
+          "show_locale_selector": false,
+          "show_currency_selector": false
+        }
+      },
+      "1482141870755": {
+        "type": "slideshow",
+        "disabled": true,
+        "blocks": {
+          "1482141870755-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/HHH_Artboard_27_v1.jpg",
+              "image_mobile": "",
+              "bg_color": "#000000",
+              "bg_opacity": 0,
+              "image_alignment": "center center",
+              "heading": "",
+              "subheading": "",
+              "button_text": "",
+              "position": "middle",
+              "text_color": "#ffffff",
+              "link_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "1482141870755-1"
+        ],
+        "settings": {
+          "layout": "fill",
+          "transition": "fade",
+          "background": "#fa9295"
+        }
+      },
+      "1572968682511": {
+        "type": "featured-text",
+        "settings": {
+          "title": "NO ARTIFICIAL SUGARS,    NO RIDICULOUSNESS.",
+          "text": "<p>We make protein-rich, nutrient-dense donuts that are freaking delicious. They are free of processed sugars and fats, gluten, lactose, casein, and artificial ingredients.<\/p>",
+          "button_text": "EAT A DONUT",
+          "button_url": "",
+          "button_text2": "",
+          "button_url2": "",
+          "text_color": "#fbe99e",
+          "text_background": "#78a077"
+        }
+      },
+      "1483454352367": {
+        "type": "text-beside-image",
+        "settings": {
+          "layout": "right",
+          "image": "shopify:\/\/shop_images\/96731302_883141598795532_5536068117762927954_n_f15da12b-3c6e-4956-8601-0437c573e0f6.jpg",
+          "image_url": "",
+          "color_bg": "#fbe99e",
+          "title": "DONUTS MADE WITH STUFF YOU ACTUALLY RECOGNIZE",
+          "text": "<p>Competently unleash value-added bandwidth after flexible intellectual capital. Synergistically orchestrate extensible vortals for enterprise-wide models.<\/p>",
+          "button_text": "GET SUM",
+          "button_url": "",
+          "text_alignment": "center"
+        }
+      },
+      "1499427088545": {
+        "type": "text-beside-image",
+        "settings": {
+          "layout": "left",
+          "image": "shopify:\/\/shop_images\/67700304_2677558162263544_3156935498115579904_o.jpeg",
+          "image_url": "",
+          "color_bg": "#78a077",
+          "title": "HERE'S THE SKINNY",
+          "text": "<p><\/p>\n<p><\/p>\n<p>We believe people shouldn&rsquo;t be deprived of donuts because they aren&rsquo;t in alignment with your health goals, and that you should be able to #cheateveryday. So we&nbsp;created a protein donut that tastes so good you wouldn&rsquo;t know it&rsquo;s anything but a good freaking donut.<\/p>",
+          "button_text": "",
+          "button_url": "",
+          "text_alignment": "center"
+        }
+      },
+      "1572967256716": {
+        "type": "featured-collections",
+        "blocks": {
+          "1572967256716-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "vegan-donuts"
+            }
+          },
+          "1590107795525": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "1590107804581": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "1590107813041": {
+            "type": "collection",
+            "settings": {
+              "collection": "merch"
+            }
+          },
+          "1590107827344": {
+            "type": "collection",
+            "settings": {
+              "collection": "unique-donuts"
+            }
+          }
+        },
+        "block_order": [
+          "1572967256716-1",
+          "1590107795525",
+          "1590107804581",
+          "1590107813041",
+          "1590107827344"
+        ],
+        "settings": {
+          "title": "WHATCHU WANT?",
+          "coll_layout": "columns",
+          "coll_layout_per_row_int": 2,
+          "hover_effect": "",
+          "show_count": false
+        }
+      },
+      "1572968682510": {
+        "type": "featured-text",
+        "settings": {
+          "title": "#CheatEveryDay",
+          "text": "<p>What you eat matters. How good it makes you feel matters. And whether or not it tastes good enough to make you want to continue doing it for the consistency of your lifestyle is important. Using food as medicine, and as a form of love and respect to your own self matters to us, too.<\/p>",
+          "button_text": "",
+          "button_url": "",
+          "button_text2": "",
+          "button_url2": "",
+          "text_color": "#774d4b",
+          "text_background": "#fa9295"
+        }
+      },
+      "1553007310559": {
+        "type": "text-over-image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/HHH_yellowcard_small_v1_b8733afd-4f50-4c38-9a86-2ef0638f9dd5.jpg",
+          "image_mobile": "",
+          "bg_color": "#000000",
+          "bg_opacity": 0,
+          "title": "YEAH, WE KNOW OUR NAME IS AN INNUENDO",
+          "subheading": "We like it that way.",
+          "button_text": "Wanna Know Why?",
+          "position": "position--hcenter position--vcenter",
+          "text_color": "#78a077",
+          "link_url": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "link_list": "footer",
+          "show_locale_selector": false,
+          "show_currency_selector": false
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "show_backorder_text": false,
+          "cart_terms_show": false,
+          "cart_terms_page": "",
+          "cart_note_show": true,
+          "show_tax_and_shipping": true,
+          "show_additional_checkout_buttons": true
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "coll_content_bg_show": true,
+          "coll_show_tags": true,
+          "coll_show_sort": true,
+          "coll_show_feat": true,
+          "coll_layout": "rows",
+          "coll_layout_per_row_int": 3,
+          "coll_num_prods_int": 12,
+          "hover_effect": "info",
+          "coll_infiniscroll": true
+        }
+      },
+      "1590109045289": {
+        "type": "featured-product",
+        "settings": {
+          "product": "gift-card-1",
+          "background_color": "#774d4b",
+          "text_align": "center",
+          "show_tax_and_shipping": false,
+          "show_quantity": false,
+          "variant_style": "dropdown",
+          "cart_add": "",
+          "enable_payment_button": true,
+          "show_backorder_text": false,
+          "show_all_images": false,
+          "enable_video_looping": false,
+          "show_arrows": false,
+          "layout": "left",
+          "image_fill": "frame",
+          "text": "<p><em>Give that wholesome goodness to someone you love.<\/em><\/p>"
+        }
+      },
+      "1590109526702": {
+        "type": "map",
+        "settings": {
+          "color_bg": "#fa9295",
+          "heading": "HIT US UP",
+          "address": "<p><strong>CALL US&nbsp; &nbsp;<\/strong>&nbsp;<br><a href=\"tel:5157088285\" title=\"tel:5157088285\">515-708-8285<\/a><\/p>\n<p><br><strong>WRITE US<br><\/strong>hey@hollyshealthyholes.com<\/p>\n<p><\/p>\n<p><\/p>\n<p><strong>SEE US<br><\/strong>2215&nbsp;Leavenworth St<br>Omaha, NE 68102&nbsp;<br><br><\/p>\n<p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm<\/p>",
+          "button": "Directions",
+          "text_alignment": "center",
+          "map_address": "2215 Leavenworth St, Omaha, NE 68102",
+          "api_key": "",
+          "map_style": "silver",
+          "image": "shopify:\/\/shop_images\/96382084_3282823911736963_1385874749715906560_o.jpg"
+        }
+      },
+      "1590110803744": {
+        "type": "newsletter",
+        "settings": {
+          "title": "Newsletter",
+          "text": "<p>Sign up to our newsletter and we’ll keep you up to date with the latest arrivals<\/p>",
+          "background_color": "#fa9295"
+        }
+      },
+      "1590111326666": {
+        "type": "image-beside-image",
+        "settings": {
+          "left_image": "shopify:\/\/shop_images\/70649593_2764951886857504_6325074989653426176_o_85b380ac-553b-4954-b569-f24353e2d477.jpg",
+          "left_bg_color": "#464654",
+          "left_bg_opacity": 60,
+          "left_url": "",
+          "left_title": "ORDER ONLINE",
+          "left_subheading": "Direct delivery to anywhere in Omaha for $8.00 or to a partnering pickup location for free.",
+          "left_button_text": "GET YOUR DONUTS",
+          "left_position": "position--hcenter position--vcenter",
+          "left_text_color": "#fbe99e",
+          "right_image": "shopify:\/\/shop_images\/69487150_2734388416580518_1167474601857384448_o_0ef5dfd2-c0c4-4f6f-9b4e-68b5489d1ee5.jpg",
+          "right_bg_color": "#464654",
+          "right_bg_opacity": 60,
+          "right_url": "",
+          "right_title": "ORDER IN PERSON",
+          "right_subheading": "We are honored to partner with the following local retailers who carry our donuts for sale!",
+          "right_button_text": "SEE RETAILERS",
+          "right_position": "position--hcenter position--vcenter",
+          "right_text_color": "#fbe99e"
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "1592864109077": {
+            "type": "image",
+            "settings": {
+              "collection": "unique-donuts"
+            }
+          },
+          "1592864121807": {
+            "type": "image",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "1592864088653": {
+            "type": "image",
+            "settings": {
+              "collection": "vegan-donuts"
+            }
+          },
+          "1592864165619": {
+            "type": "image",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "1592864109077",
+          "1592864121807",
+          "1592864088653",
+          "1592864165619"
+        ],
+        "settings": {
+          "title": "Collections",
+          "display_type": "selected",
+          "coll_layout": "rows",
+          "coll_layout_per_row_int": 3,
+          "hover_effect": "",
+          "show_count": false
+        }
+      },
+      "1596561395879": {
+        "type": "sprinkles-hero",
+        "settings": {}
+      },
+      "sprinkles-sm-header": {
+        "type": "sprinkles-sm-header",
+        "settings": {}
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "header_overlay": "overlay",
+          "show_tax_and_shipping": false,
+          "prod_show_sku": false,
+          "show_brand": true,
+          "show_type": true,
+          "show_quantity": true,
+          "variant_style": "underlined",
+          "description_alignment": "align-center",
+          "cart_add": "",
+          "enable_payment_button": false,
+          "show_backorder_text": true,
+          "show_sharing_icons": true,
+          "enable_video_looping": false,
+          "show_size_chart": false,
+          "size_chart_variant": "Size",
+          "size_chart_page": ""
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "recommendations_title": "You may also like",
+          "show_recommendations": true,
+          "recommended_per_row_int": 3,
+          "hover_effect": "info"
+        }
+      }
+    },
+    "content_for_index": [
+      "1596561395879",
+      "1482141870755",
+      "1572968682511",
+      "1483454352367",
+      "1499427088545",
+      "1572968682510",
+      "1590111326666",
+      "1572967256716",
+      "1590109045289",
+      "1590109526702",
+      "1553007310559",
+      "1590110803744"
+    ]
+  },
+  "presets": {
+    "Beard": {
+      "col_text": "#454f5b",
+      "col_headings": "#212b36",
+      "col_links": "#c4161c",
+      "col_mod_bg": "#212b36",
+      "use_mod_bg_op": true,
+      "col_content_bg": "#ffffff",
+      "use_content_bg_trans": true,
+      "col_head_links": "#c4161c",
+      "col_head_links_alt": "#c4161c",
+      "col_nav_prim": "#ffffff",
+      "col_nav_sec": "#ffffff",
+      "col_btn": "#ffffff",
+      "col_btn_bg": "#c4161c",
+      "col_select_bg": "#ffffff",
+      "col_select_txt": "#999999",
+      "prod_label_col": "#c4161c",
+      "footer_text": "#ebe9ec",
+      "footer_background": "#231f20",
+      "col_page_bg": "#ffffff",
+      "bg_image_method": "repeat top center",
+      "type_base_font": "alegreya_sans_n4",
+      "type_heading_font": "asul_n4",
+      "type_nav_font": "asul_n4",
+      "type_logo_font": "asul_n4",
+      "font_size_base_int": 16,
+      "font_size_nav_int": 40,
+      "font_size_nav_sub_int": 30,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_width": "65"
+          }
+        },
+        "1482141870755": {
+          "type": "slideshow",
+          "blocks": {
+            "1482141870755-1": {
+              "type": "image",
+              "settings": {
+                "bg_opacity": 0,
+                "position": "lower-left",
+                "text_color": "#231f20"
+              }
+            },
+            "1482141870755-0": {
+              "type": "image",
+              "settings": {
+                "bg_opacity": 0,
+                "position": "lower-left",
+                "text_color": "#231f20"
+              }
+            },
+            "1499426736627": {
+              "type": "image",
+              "settings": {
+                "bg_opacity": 0,
+                "position": "lower-left",
+                "text_color": "#231f20"
+              }
+            }
+          },
+          "block_order": [
+            "1482141870755-1",
+            "1482141870755-0",
+            "1499426736627"
+          ],
+          "settings": {}
+        },
+        "1482141883577": {
+          "type": "featured-products",
+          "settings": {}
+        },
+        "1483454352367": {
+          "type": "text-beside-image",
+          "settings": {
+            "layout": "left",
+            "color_bg": "#ebe9ec"
+          }
+        },
+        "1499427088545": {
+          "type": "text-beside-image",
+          "settings": {
+            "color_bg": "#ebe9ec"
+          }
+        },
+        "1483454415373": {
+          "type": "text-over-image",
+          "settings": {}
+        },
+        "1521463536014": {
+          "type": "map",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "1482141870755",
+        "1482141883577",
+        "1483454352367",
+        "1499427088545",
+        "1483454415373",
+        "1521463536014"
+      ]
+    },
+    "Native": {
+      "col_text": "#464654",
+      "col_headings": "#161e26",
+      "col_links": "#2ba99f",
+      "col_mod_bg": "#f8bddb",
+      "use_mod_bg_op": false,
+      "col_content_bg": "#f8f8f8",
+      "use_content_bg_trans": true,
+      "col_head_links": "#161e26",
+      "col_head_links_alt": "#ffffff",
+      "col_nav_prim": "#ffffff",
+      "col_nav_sec": "#ffffff",
+      "col_btn": "#ffffff",
+      "col_btn_bg": "#2ba99f",
+      "col_select_bg": "#ffffff",
+      "col_select_txt": "#161e26",
+      "prod_label_col": "#2ba99f",
+      "footer_text": "#161e26",
+      "footer_background": "#ffffff",
+      "col_page_bg": "#f8f8f8",
+      "bg_image_method": "repeat top center",
+      "type_base_font": "neue_haas_unica_n4",
+      "type_heading_font": "gill_sans_nova_n7",
+      "type_nav_font": "gill_sans_nova_n4",
+      "type_logo_font": "gill_sans_nova_n7",
+      "font_size_base_int": 16,
+      "font_size_nav_int": 50,
+      "font_size_nav_sub_int": 25,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_width": "65"
+          }
+        },
+        "1482141870755": {
+          "type": "slideshow",
+          "blocks": {
+            "1482141870755-1": {
+              "type": "image",
+              "settings": {
+                "button_text": "See more",
+                "position": "middle"
+              }
+            },
+            "1482141870755-0": {
+              "type": "image",
+              "settings": {
+                "button_text": "See more",
+                "position": "middle"
+              }
+            },
+            "1499426736627": {
+              "type": "image",
+              "settings": {
+                "button_text": "See more",
+                "position": "middle"
+              }
+            }
+          },
+          "block_order": [
+            "1482141870755-1",
+            "1482141870755-0",
+            "1499426736627"
+          ],
+          "settings": {}
+        },
+        "1572968682511": {
+          "type": "featured-text",
+          "settings": {}
+        },
+        "1483454352367": {
+          "type": "text-beside-image",
+          "settings": {
+            "layout": "left",
+            "color_bg": "#ebe9ec"
+          }
+        },
+        "1499427088545": {
+          "type": "text-beside-image",
+          "settings": {
+            "color_bg": "#ebe9ec"
+          }
+        },
+        "1572967256716": {
+          "type": "featured-collections",
+          "blocks": {
+            "1572967256716-0": {
+              "type": "collection",
+              "settings": {}
+            },
+            "1572967256716-1": {
+              "type": "collection",
+              "settings": {}
+            },
+            "1572967256716-2": {
+              "type": "collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1572967256716-0",
+            "1572967256716-1",
+            "1572967256716-2"
+          ],
+          "settings": {}
+        },
+        "1553000703888": {
+          "type": "featured-blog",
+          "settings": {}
+        },
+        "1572968682510": {
+          "type": "featured-text",
+          "settings": {}
+        },
+        "1553007310559": {
+          "type": "text-over-image",
+          "settings": {
+            "title": ""
+          }
+        }
+      },
+      "content_for_index": [
+        "1482141870755",
+        "1572968682511",
+        "1483454352367",
+        "1499427088545",
+        "1572967256716",
+        "1553000703888",
+        "1572968682510",
+        "1553007310559"
+      ]
+    },
+    "Betty": {
+      "col_text": "#454f5b",
+      "col_headings": "#212b36",
+      "col_links": "#10079f",
+      "col_mod_bg": "#10079f",
+      "use_mod_bg_op": true,
+      "col_content_bg": "#fffdfb",
+      "use_content_bg_trans": true,
+      "col_head_links": "#212b36",
+      "col_head_links_alt": "#fffdfb",
+      "col_nav_prim": "#fffdfb",
+      "col_nav_sec": "#fffdfb",
+      "col_btn": "#fffdfb",
+      "col_btn_bg": "#000639",
+      "col_select_bg": "#ffffff",
+      "col_select_txt": "#454f5b",
+      "prod_label_col": "#10079f",
+      "footer_text": "#fffdfb",
+      "footer_background": "#000639",
+      "col_page_bg": "#fffdfb",
+      "bg_image_method": "fill",
+      "type_base_font": "avenir_next_n4",
+      "type_heading_font": "bauer_bodoni_n4",
+      "type_nav_font": "bauer_bodoni_n4",
+      "type_logo_font": "bauer_bodoni_n4",
+      "font_size_base_int": 15,
+      "font_size_nav_int": 50,
+      "font_size_nav_sub_int": 30,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_width": "65"
+          }
+        },
+        "1482141870755": {
+          "type": "slideshow",
+          "blocks": {
+            "1482141870755-1": {
+              "type": "image",
+              "settings": {
+                "position": "lower-left"
+              }
+            },
+            "1482141870755-0": {
+              "type": "image",
+              "settings": {
+                "position": "lower-left"
+              }
+            },
+            "1499426736627": {
+              "type": "image",
+              "settings": {
+                "position": "lower-left"
+              }
+            }
+          },
+          "block_order": [
+            "1482141870755-1",
+            "1482141870755-0",
+            "1499426736627"
+          ],
+          "settings": {}
+        },
+        "1572968682511": {
+          "type": "featured-text",
+          "settings": {}
+        },
+        "1483454352367": {
+          "type": "text-beside-image",
+          "settings": {
+            "layout": "left",
+            "color_bg": "#ebe9ec",
+            "text_alignment": "left"
+          }
+        },
+        "1481549128170": {
+          "type": "image-beside-image",
+          "settings": {}
+        },
+        "1480430096624": {
+          "type": "featured-products",
+          "settings": {}
+        },
+        "1553000703888": {
+          "type": "featured-blog",
+          "settings": {}
+        },
+        "1547543384843": {
+          "type": "newsletter",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "1482141870755",
+        "1572968682511",
+        "1483454352367",
+        "1481549128170",
+        "1480430096624",
+        "1553000703888",
+        "1547543384843"
+      ]
+    },
+    "Luna": {
+      "col_text": "#000000",
+      "col_headings": "#000000",
+      "col_links": "#ecb1b0",
+      "col_mod_bg": "#e3a7a6",
+      "use_mod_bg_op": false,
+      "col_content_bg": "#ffffff",
+      "use_content_bg_trans": false,
+      "col_head_links": "#000000",
+      "col_head_links_alt": "#ffffff",
+      "col_nav_prim": "#ffffff",
+      "col_nav_sec": "#ffffff",
+      "col_btn": "#ffffff",
+      "col_btn_bg": "#000000",
+      "col_select_bg": "#ffffff",
+      "col_select_txt": "#000000",
+      "prod_label_col": "#ecb1b0",
+      "footer_text": "#ffffff",
+      "footer_background": "#000000",
+      "col_page_bg": "#ffffff",
+      "bg_image_method": "fill",
+      "type_base_font": "futura_n4",
+      "type_heading_font": "futura_n4",
+      "type_nav_font": "futura_n4",
+      "type_logo_font": "futura_n4",
+      "font_size_base_int": 14,
+      "font_size_nav_int": 30,
+      "font_size_nav_sub_int": 20,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_width": "65"
+          }
+        },
+        "1482141870755": {
+          "type": "slideshow",
+          "blocks": {
+            "1482141870755-1": {
+              "type": "image",
+              "settings": {
+                "button_text": "see more",
+                "position": "lower-left"
+              }
+            },
+            "1482141870755-0": {
+              "type": "image",
+              "settings": {
+                "button_text": "see more",
+                "position": "lower-left"
+              }
+            },
+            "1499426736627": {
+              "type": "image",
+              "settings": {
+                "button_text": "see more",
+                "position": "lower-left"
+              }
+            }
+          },
+          "block_order": [
+            "1482141870755-1",
+            "1482141870755-0",
+            "1499426736627"
+          ],
+          "settings": {}
+        },
+        "1572968682511": {
+          "type": "featured-text",
+          "settings": {
+            "text_color": "#000000",
+            "text_background": "#eeeeee"
+          }
+        },
+        "1480430096624": {
+          "type": "featured-products",
+          "settings": {}
+        },
+        "1483454352367": {
+          "type": "text-beside-image",
+          "settings": {
+            "color_bg": "#ebe9ec",
+            "button_text": "see more"
+          }
+        },
+        "1483454352368": {
+          "type": "text-beside-image",
+          "settings": {
+            "layout": "left",
+            "color_bg": "#ebe9ec",
+            "button_text": "see more"
+          }
+        },
+        "1483454415373": {
+          "type": "text-over-image",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "1482141870755",
+        "1572968682511",
+        "1480430096624",
+        "1483454352367",
+        "1483454352368",
+        "1483454415373"
+      ]
+    }
+  }
+}

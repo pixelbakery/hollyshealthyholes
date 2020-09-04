@@ -1,0 +1,90 @@
+{%- assign enable_section = section.settings.enable_section -%}
+{% if enable_section %}
+<section class="shopify-section bg--white border-bottom-0 py-3" id="faq">
+  {%- assign faq_header = section.settings.faq_header -%}
+  {%- assign faq_blurb = section.settings.faq_blurb -%}
+  {%- assign expand_questions = section.settings.expand_questions -%}
+  <div class="container my-5 py-5">
+    <h1 class="feature-header h2 align-left feature-header--visible pt-3">{{faq_header}}</h1>
+    <div class="mw-700 my-2 rte">{{faq_blurb}}</div>
+
+    <div class="accordion my-5" id="{{section.id}}">
+      {%- for block in section.blocks -%}
+    <div class="card">
+      <div class="card-header" id="faq-heading{{forloop.index}}">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#faq-collapse{{forloop.index}}" aria-expanded="true" aria-controls="faq-collapse{{forloop.index}}">
+            {{ block.settings.title }}
+          </button>
+        </h2>
+      </div>
+
+      <div id="faq-collapse{{forloop.index}}" class="collapse {% unless expand_questions %}show{% endunless %}" aria-labelledby="faq-heading{{forloop.index}}" data-parent="{{section.id}}">
+        <div class="card-body rte">
+          {{ block.settings.answer }}
+        </div>
+      </div>
+    </div>
+  {%- endfor -%} 
+
+  </div>
+  </div>
+</section>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "FAQs",
+    "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Enable Section?",
+      "default": false
+    },
+      {
+        "type": "checkbox",
+        "id": "expand_questions",
+        "label": "Expand all questions by default",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "faq_header",
+        "label": "Section Title"
+      },
+      {
+        "type": "richtext",
+        "id": "faq_blurb",
+        "label": "Section Blurb"
+      }
+  ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "Question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
