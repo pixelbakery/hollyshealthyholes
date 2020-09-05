@@ -139,6 +139,7 @@
   {% section 'updated-header' %}
 
   <main id="page-content" role="main">
+    <a href="#" class="scroll-top" id="scroll-top"><span></span></a>
     {{ content_for_layout }}
   </main>
   {% section 'footer' %}
@@ -166,7 +167,7 @@
   {{ 'vendor.js'  | asset_url | script_tag }}
   {{ 'theme.js'  | asset_url | script_tag }}
   {{ 'sprinkle-engine.js'  | asset_url | script_tag }}
-
+  {{ 'backtotop.js'  | asset_url | script_tag }}
 
 
 

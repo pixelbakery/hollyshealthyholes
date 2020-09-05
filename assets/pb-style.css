@@ -18,6 +18,7 @@ body{
  overflow: none;
   overflow-x: hidden;
  background-color: var(--hhh-color-white);
+ color: var(--hhh-color-darkblue);
 
 }
 main, .template-product #page-content {
@@ -55,14 +56,25 @@ a:hover {
 a.sharing-link:hover span svg{
   fill: var(--hhh-color-pink);
 }
-h1, h2, h3, h4, blockquote, .under-cart .subtotal, h5, h6 {
+blockquote, .under-cart .subtotal,  h4, h5, h6{
   font-family: "raleway", sans-serif;
   font-weight: 700;
   font-style: normal;
-
+	color: var(--hhh-color-darkblue);
 
   margin: 0;
   text-align: center;
+}
+h1, h2, h3{
+	font-family: "grover", sans-serif;
+	font-weight: 800;
+  font-style: normal;
+  margin: 0;
+	color: var(--hhh-color-darkblue);
+
+}
+h2, .h2{
+	text-transform: uppercase;
 }
  #faq, #shopify-section-about-valueprops{
    min-height: 50vh;
