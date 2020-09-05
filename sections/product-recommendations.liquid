@@ -1,4 +1,5 @@
-
+{%- assign recommendations_title = section.settings.recommendations_title -%}
+{%- assign recommendations_blurb = section.settings.recommendations_blurb -%}
 {% if section.settings.show_recommendations %}
 	<section class="container my-0 py-5 border-bottom-0">
   <div
@@ -10,14 +11,15 @@
      {%- if recommendations.products_count > 0 -%}
     <div class="row">
       <div class="col-12  pb-3">
-       <h2 class="feature-header align-left feature-header--visible mb-3">You may also like</h2>
+       <h2 class="feature-header align-left feature-header--visible mb-3">{{recommendations_title}}</h2>
+			 <p class="lead ">{{recommendations_blurb}}</p>
       </div>
     </div>
      <div class="row card-deck">
        {%- for product in recommendations.products -%}
 
        <div class="col-6 col-md-4 col-lg-4 mx-0">
-       
+
          <a class="rec--link" href="{{ product.url }}">
            <div class="card rec--card mx-0">
            <img
@@ -34,7 +36,7 @@
     	</div>
        {%- endfor -%}
     </div>
-     
+
      {%- endif -%}
    </div>
 </section>
@@ -85,8 +87,14 @@
         "type": "text",
         "id": "recommendations_title",
         "label": "Heading",
-        "default": "You may also like"
+        "default": "OH YEAH, MORE OF THAT"
       },
+			{
+				"type": "textarea",
+				"id": "recommendations_blurb",
+				"label": "Heading",
+				"default": "We think you'll like these, too."
+			},
       {
         "type": "checkbox",
         "id": "show_recommendations",

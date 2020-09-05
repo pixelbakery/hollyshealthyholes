@@ -1,26 +1,41 @@
-<div class="shopify_explorer__content">
+{%- assign enable_section = section.settings.enable_section -%}
+{% if enable_section %}
+<section class="shopify-section bg--white border-bottom-0 py-3" id="faq">
+  {%- assign faq_header = section.settings.faq_header -%}
+  {%- assign faq_blurb = section.settings.faq_blurb -%}
   {%- assign expand_questions = section.settings.expand_questions -%}
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when 'separator' -%}
-        <h3 class="shopify_explorer_faq__separator h3" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h3>
-      {%- when 'question' -%}
-        <div class="shopify_explorer_faq__item {% unless expand_questions %}shopify_explorer_faq__item--expandable{% endunless %}" {{ block.shopify_attributes }}>
-          <h3 class="shopify_explorer_faq__question h5 {% unless expand_questions %}link{% endunless %}">{{ block.settings.title }}</h3>
-          <div class="shopify_explorer_faq__answer rte">
-            {{ block.settings.answer }}
-          </div>
+  <div class="container my-5 py-5">
+    <h1 class="feature-header h2 align-left feature-header--visible pt-3">{{faq_header}}</h1>
+    <div class="mw-700 my-2 rte">{{faq_blurb}}</div>
+
+    <div class="accordion my-5" id="{{section.id}}">
+      {%- for block in section.blocks -%}
+    <div class="card">
+      <div class="card-header" id="faq-heading{{forloop.index}}">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#faq-collapse{{forloop.index}}" aria-expanded="true" aria-controls="faq-collapse{{forloop.index}}">
+            {{ block.settings.title }}
+          </button>
+        </h2>
+      </div>
+
+      <div id="faq-collapse{{forloop.index}}" class="collapse {% if expand_questions %}show{% endif %}" aria-labelledby="faq-heading{{forloop.index}}" data-parent="{{section.id}}">
+        <div class="card-body rte">
+          {{ block.settings.answer }}
         </div>
-    {%- endcase -%}
+      </div>
+    </div>
   {%- endfor -%}
-</div>
 
-
+  </div>
+  </div>
+</section>
+{% endif %}
 
 
 {% schema %}
   {
-    "name": "FAQs",
+    "name": "CBD FAQs",
     "settings": [
     {
       "type": "checkbox",
@@ -37,26 +52,15 @@
       {
         "type": "text",
         "id": "faq_header",
-        "label": "FAQ Section Title"
+        "label": "Section Title"
       },
       {
-        "type": "textarea",
+        "type": "richtext",
         "id": "faq_blurb",
-        "label": "FAQ Body Copy"
+        "label": "Section Blurb"
       }
   ],
     "blocks": [
-      {
-        "type": "separator",
-        "name": "Section separator",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading"
-          }
-        ]
-      },
       {
         "type": "question",
         "name": "Question",
@@ -76,6 +80,7 @@
     ]
   }
 {% endschema %}
+
 
 
 {% stylesheet %}

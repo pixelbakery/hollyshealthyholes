@@ -19,13 +19,13 @@
         </h2>
       </div>
 
-      <div id="faq-collapse{{forloop.index}}" class="collapse {% unless expand_questions %}show{% endunless %}" aria-labelledby="faq-heading{{forloop.index}}" data-parent="{{section.id}}">
+      <div id="faq-collapse{{forloop.index}}" class="collapse {% if expand_questions %}show{% endif %}" aria-labelledby="faq-heading{{forloop.index}}" data-parent="{{section.id}}">
         <div class="card-body rte">
           {{ block.settings.answer }}
         </div>
       </div>
     </div>
-  {%- endfor -%} 
+  {%- endfor -%}
 
   </div>
   </div>

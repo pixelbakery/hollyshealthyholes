@@ -1,53 +1,58 @@
-<div class="central">
-  <div class="content {% unless settings.coll_content_bg_show %}transparent{% endunless %}">
-    <h1 class="feature-header">
-      {{ section.settings.title | escape }}
-    </h1>
-  </div>
-</div>
+{% assign  normal_order = 'order-last order-sm-last' %}
+{% assign reverse_order = 'order-last order-sm-first'  %}
 
-<div class="wide-container double-gutter" data-section-type="list-collections">
-  {%- if section.settings.coll_layout == 'rows' -%}
-    {%- if section.settings.coll_layout_per_row_int == 2 -%}
-      {%- assign product_class = 'column half' -%}
-    {%- elsif section.settings.coll_layout_per_row_int == 3 -%}
-      {%- assign product_class = 'column third' -%}
-    {%- else -%}
-      {%- assign product_class = 'column quarter' -%}
-    {%- endif -%}
-  {%- endif -%}
 
-  {% if section.settings.display_type == 'all' %}
+{% for block in section.blocks %}
+  {%- assign collection = collections[block.settings.collection] -%}
+  {% case forloop.index %}
+    {% when 1 %}
+      {% assign section_icon = 'HHH_Donut1.svg' | asset_url   %}
+      {% assign delay = '-1s'   %}
+    {% when 2 %}
+      {% assign section_icon = 'HHH_Donut2.svg' | asset_url %}
+      {% assign delay = '-2s'   %}
+    {% when 3 %}
+      {% assign section_icon = 'HHH_Donut3.svg' | asset_url %}
+      {% assign delay = '-3s'   %}
+  {% endcase %}
+<section  class="container-fluid bg--white section-border-bottom">
+  <div class="row no-gutter d-flex split-section">
+    <div class=" py-2 col-12 col-md-8 col-xl-6 left split-text-50 {% cycle reverse_order, normal_order  %}">
+      <div class="container p-2 p-md-5 d-flex flex-column justify-content-center  h-100">
 
-    {%- paginate collections by 26 -%}
-      <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row_int }}{% else %}grid--uniform{% endif %}">
-        {%- for collection in collections -%}
-          {%- include 'collection-block' -%}
-        {%- endfor -%}
-      </div>
 
-      {%- if paginate.pages > 1 -%}
-        <div class="pagination">
-          {{ paginate | default_pagination }}
+        <div class="row mx-3 ">
+
+          <div class="col-12 align-center mx-auto">
+
+            <img src="  {{section_icon}}" alt="{{collection.title}} illustration" class="my-3 collection-icon" style="animation-delay: {{delay}};"/>
+            <h1 class="feature-header h2 feature-header--visible pt-3"> {{collection.title}}</h1>
+            <p class=" px-1 px-md-5 my-5 align-center">{{collection.description}}</p>
+            <a class="btn btn-primary align-center" href="{{ collection.url }}"><span class="material-icons">
+shopping_cart
+</span> Peruse {{collection.title}}</a>
+
+          </div>
         </div>
-      {%- endif -%}
-    {%- endpaginate -%}
-
-  {% else %}
-
-      <div class="product-list {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row_int }}{% else %}grid--uniform{% endif %}">
-        {% for block in section.blocks %}
-          {%- assign collection = collections[block.settings.collection] -%}
-          {%- if collection == blank -%}
-            {%- include 'onboarding-collection-block' -%}
-          {% else %}
-            {%- include 'collection-block' -%}
-          {% endif %}
-        {%- endfor -%}
       </div>
+    </div>
 
-  {% endif %}
-</div>
+    <div class="col-12 col-md-4 col-xl-6 right  flex-shrink  p-0">
+      {% capture collection_image %}{% if collection.image %}{{ collection.image | img_url: 'master' }}{% endif %} {% endcapture %}
+      <div class="split-image" href="{{ collection.url }}">
+      <a href="{{ collection.url }}">
+        <img class="object-fit " alt="{{ collection.title | escape }}" src="{{ collection_image }}">
+      </a>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+{%- endfor -%}
+
+
+
 
 
 {% schema %}

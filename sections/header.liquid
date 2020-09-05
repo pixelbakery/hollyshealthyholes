@@ -145,11 +145,11 @@
           </a>
         </div>
       </div>
-      
-      
+
+
 
       {% if the_snippet_auth contains 'Liquid error' %}
-      
+
         {% if shop.customer_accounts_enabled %}
         <div class="customer-links">
           {% if customer %}
@@ -163,34 +163,11 @@
           {% endif %}
         </div>
         {% endif %}
-      
+
       {% else %}
-        {% if shop.customer_accounts_enabled %}
-          <div id="ssw-topauth" class="ssw-topauth customer-links">
-            {% if customer %}
-              <div class="ssw-tprofile ssw-dropdown">
-                <a class="ssw-dropdown-toggle" data-toggle="ssw-dropdown" href="javascript:void(0);">
-                  <i class="ssw-icon-user"></i>
-                  {{ customer.first_name }}
-                  {% if customer.last_name != 'Unknown' %}
-                    {{ customer.last_name | slice:0 | upcase }}.
-                  {% endif %}
-                  <i class="ssw-icon-down-open-big"></i>
-                </a>
-                <ul class="ssw-dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li id="customer_myorders_li"><a tabindex="-1" href="/account">{{ 'socialshopwave.my_orders' | t }}</a></li>
-                  {% render 'ssw-widget-dropdown' %}
-                  <li><a id="customer_logout_link" tabindex="-1" href="/account/logout">{{ 'socialshopwave.logout' | t }}</a></li>
-                </ul>
-              </div>
-            {% else %}
-              <a id="customer_login_link" href="javascript:void(0);" data-toggle="ssw-modal" data-target="#login_modal" onclick="trackShopStats('login_popup_view', 'all')">{{ 'socialshopwave.log_in' | t }}</a>
-              |
-              <a id="customer_register_link" data-toggle="ssw-modal" data-target="#signup_modal" href="javascript:void(0);" onclick="trackShopStats('login_popup_view', 'all')">{{ 'socialshopwave.sign_up' | t }}</a>
-            {% endif %}
-          </div>
-        {% endif %}
-      {% endif %}    
+
+
+      {% endif %}
 
       {% include 'social-icons', icon_setting: settings.social_custom_icon, icon_size: 'x40' %}
 
@@ -202,7 +179,7 @@
     </div>
   </nav>
 </div>
-
+<a href="#" id="scroll" ><span></span></a>
 {% endif %}
 
 

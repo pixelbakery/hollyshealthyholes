@@ -91,7 +91,7 @@ $hhh-color-brown: #774d4b;
   }
 }
 .holesome-wrapper{
-  
+
 }
 
 figure.hhh{
@@ -118,23 +118,23 @@ figure.hhh{
   }
 }
 .scaling-svg-container {
-  position: relative; 
-  height:0; 
-  width: 100%; 
+  position: relative;
+  height:0;
+  width: 100%;
   padding: 0;
 
   /* over-ride this inline for aspect ratio other than square */
 }
 .scaling-svg {
   display:block;
-  position: absolute; 
-  height: 100%; 
-  width: 100%; 
-  left: 0; 
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
   top:0;
   margin: 0;
-  padding: 0; 
-   border: none; 
+  padding: 0;
+   border: none;
   overflow: hidden;
 }
 figure.hhh > div {
@@ -176,7 +176,7 @@ g.letter {
 }
 
 .sprinkletime-section-sm{
-  
+
   min-height: 200px;
   max-height: 400px;
   height: 35vh;
@@ -185,16 +185,16 @@ g.letter {
   background-color: $hhh-color-lightpink;
 }
 .sprinkle-header-holder{
- 
+
 }
 h1.sprinkle-header:before, .ml16:before{
   word-break: keep-all;
-  
+
 }
 h1.sprinkle-header{
   box-shadow: 0 0 10px $hhh-color-lightpink;
   background-color:  $hhh-color-lightpink;
-  font-family: "grover", sans-serif; 
+  font-family: "grover", sans-serif;
   text-transform: uppercase;
   font-weight: 800;
   font-size: 5em;
@@ -219,7 +219,7 @@ h1.sprinkle-header{
 }
 
 .ml16 {
-  
+
   text-transform: uppercase;
   letter-spacing: 0.2em;
   overflow: hidden;
@@ -228,4 +228,12 @@ h1.sprinkle-header{
 .ml16 .letter {
 
   line-height: 1em;
+}
+@media (max-width: 767.98px) {
+  h1.sprinkle-header{
+    font-size: 3em;
+  }
+  .ml16 {
+    letter-spacing: 0.1em;
+  }
 }

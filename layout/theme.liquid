@@ -27,6 +27,7 @@
   <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/x-icon" />
   {% endif %}
 
+  <link rel='icon' href='{{  'HHH_Coffee.svg' | asset_url  }}' type='image/x-icon'/ >
   {% include 'social-meta-tags' %}
 
   {{ content_for_header }}
@@ -138,6 +139,7 @@
   {% section 'updated-header' %}
 
   <main id="page-content" role="main">
+    <a href="#" class="scroll-top" id="scroll-top"><span></span></a>
     {{ content_for_layout }}
   </main>
   {% section 'footer' %}
@@ -158,16 +160,16 @@
         </div>
     </div>
   </div>
-	
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   {{ 'logo-engine.js'  | asset_url | script_tag }}
   {{ 'vendor.js'  | asset_url | script_tag }}
   {{ 'theme.js'  | asset_url | script_tag }}
   {{ 'sprinkle-engine.js'  | asset_url | script_tag }}
+  {{ 'backtotop.js'  | asset_url | script_tag }}
 
 
-  
 
 
 	{{ shop.metafields.loox["global_html_body"] }}

@@ -93,6 +93,8 @@
   {%- assign is_image = true -%}
 {%- endif -%}
 
+<div class="container-fluid bg--white">
+  
 <div class="section-id-{{ section.id }} featured-product product-area featured-product--images-{{ section.settings.layout }} featured-product--images-{{ section.settings.image_fill }} {% if is_single_gallery and is_image %} featured-product--with-image {% else %} featured-product--with-gallery {% endif %}" data-section-type="featured-product">
   {% capture image_html %}
     <div class="featured-product__gallery theme-gallery {% if is_single_gallery %}featured-product__gallery--single{% endif %}">
@@ -279,7 +281,7 @@
 
   {% if section.settings.layout == 'right' %}{{ image_html }}{% endif %}
 </div>
-
+</div>
 {% if product != blank %}
 <script type="application/json" id="ProductJson-{{ product.id }}">
   {{ product | json }}
