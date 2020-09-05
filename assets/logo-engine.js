@@ -3,13 +3,13 @@ $(function () {
 
   $(window).scroll(function () {
     if ($(this).scrollTop() > 500) {
-      logo.attr("src", "https://media.pixelbakery.com/HHH/logos/PB_AspectRatio_HHH_PrimaryLogo_Pink_v1.svg");
-      $('.nav-link').css("color" , "var(--hhh-color-lighteryellow)");
-      $('.nav-link svg').css("fill" , "var(--hhh-color-lighteryellow)");
+      logo.attr("src", "https://media.pixelbakery.com/HHH/HHH_Logo_AltBrown.svg");
+      $('.nav-link').css("color" , "var(--hhh-color-brown)");
+      $('.nav-link svg').css("fill" , "var(--hhh-color-brown)");
     }
     if ($(this).scrollTop() <= 500) {
-      
-      logo.attr("src", "https://media.pixelbakery.com/HHH/logos/PB_AspectRatio_HHH_PrimaryLogo_Pink_v1.svg");
+
+      logo.attr("src", "https://media.pixelbakery.com/HHH/HHH_Logo_AltBrown.svg");
 		$('.nav-link').css("color" , "var(--hhh-color-brown)");
       	$('.nav-link svg').css("fill" , "var(--hhh-color-brown)");
     }
@@ -31,7 +31,7 @@ $(function () {
 
 $(function() {
   var header = $(".start-style");
-  $(window).scroll(function() {    
+  $(window).scroll(function() {
     var scroll = $(window).scrollTop();
 
     if (scroll >= 10) {
@@ -41,7 +41,7 @@ $(function() {
     }
 
   });
-});		
+});
 
 
 

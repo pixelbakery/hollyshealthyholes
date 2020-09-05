@@ -1,119 +1,67 @@
 <section class="sprinkletime-section sprinkletime-section-sm">
     <div class="sprinkletime-container">
-
       <div class="sprinkle-holder">
         <div class="sprinkle"></div>
       </div>
       <div class="sprinkle-header-holder ">
-        
        	 <h1 class="sprinkle-header ml16 pl-4 pb-2 pt-2"> {{ collection.title }}</h1>
-       
       </div>
-
-      
     </div>
   </section>
+
 {% if collection.description != blank %}
-<section class="container my-3">
+{% assign is_donut = false %}
+{% case collection.title%}
+  {% when 'Original Donuts' %}
+    {% assign donut_icon = 'HHH_Donut1.svg' | asset_url   %}
+    {% assign is_donut = true %}
+  {% when 'Specialty Donuts' %}
+    {% assign donut_icon = 'HHH_Donut2.svg' | asset_url   %}
+    {% assign is_donut = true %}
+  {% when 'Vegan Donuts' %}
+    {% assign donut_icon = 'HHH_Donut3.svg' | asset_url   %}
+    {% assign is_donut = true %}
+{% endcase %}
+<section class="container-fluid bg--white py-3">
+  <div class="container my-5 py-5">
   <div class="row">
-    <div class="col-12">
-      <h1 class="feature-header">{{ collection.title }}</h1>
+    <div class="col-3 d-flex flex-column justify-content-center">
+      <img src="{{ donut_icon }}" alt="{{ collection.title }}" class="donut-icon float" />
+    </div>
+    <div class="col-12 col-md-6 offset-md-2 text-center">
+      <h1 class="feature-header h2">All About {{ collection.title }}</h1>
+      <p class="lead text-left my-3">{{ collection.description }}</p>
+      {% if is_donut %}
+        <a class="btn button-outline my-3" href="/pages/nutrition">View Nutritional Info</a>
+      {% endif %}
     </div>
   </div>
 </section>
  {% endif %}
 
+ <section class="product-list cf container-fluid container-lg py-3 my-3 px-md-5" id="CollectionSection-{{ block.id }}" data-section-id="{{ block.id }}" data-section-type="collection-template">
+   <div class="row">
+     <div class="col-12 align-left">
+       <h1 class="feature-header h2 align-left feature-header--visible pt-3">{{ collection.title }}</h1>
+     </div>
+     {% unless collection.products.size > 0 %}
+       <div class="col-12"><p class="align-centre"><em>{{ 'collections.general.no_matches' | t }}</em></p></div>
+     {% endunless %}
+   </div>
+   <div class="row row-cols-1 row-cols-md-1 row-cols-xl-2">
+     {% for product in collection.products limit: '24'%}
+       {% include 'product-block-horiz' %}
+     {% endfor %}
+   </div>
+ </section>
 
-
-<div data-section-type="collection-template">
-  {% paginate collection.products by section.settings.coll_num_prods_int %}
-
-  {%- unless collection.url contains "/vendors" or collection.url contains "/types" -%}
-    <div class="filter">
-      {% if section.settings.coll_show_tags %}
-      {% if collection.url.size == 0 %}
-      {% assign collection_url = routes.all_products_collection_url %}
-      {% else %}
-      {% assign collection_url = collection.url %}
-      {% endif %}
-      {% assign show_tag_filter = false %}
-      {% capture tag_filter_html %}
-      <span class="option">
-        <label for="filter-by">{{ 'collections.filtering.filter_by' | t }}</label>
-        <select id="filter-by" class="redirecter">
-          <option value="{{ collection_url }}">{{ 'collections.filtering.all' | t }}</option>
-          {% for tag in collection.all_tags %}
-          {% unless tag contains 'meta-' %}
-          <option value="{{ collection_url }}/{{ tag | handle }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag | capitalize }}</option>
-          {% assign show_tag_filter = true %}
-          {% endunless %}
-          {% endfor %}
-        </select>
-      </span>
-      {% endcapture %}
-      {% if show_tag_filter %}{{ tag_filter_html }}{% endif %}
-      {% endif %}
-
-      {% if section.settings.coll_show_sort %}
-      <span class="option">
-        <label for="sort-by">{{ 'collections.sorting.title' | t }}</label>
-        <select id="sort-by" data-initval="{{ collection.sort_by | default: collection.default_sort_by  }}">
-          {% if section.settings.coll_show_feat %}<option value="manual">{{ 'collections.sorting.featured' | t }}</option>{% endif %}
-          <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
-          <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
-          <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
-          <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
-          <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option>
-          <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
-          <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
-        </select>
-      </span>
-      {% endif %}
-    </div>
-  {%- endunless -%}
-
-
-  {% unless collection.products.size > 0 %}<p class="align-centre"><em>{{ 'collections.general.no_matches' | t }}</em></p>{% endunless %}
-
-  <div class="wide-container double-gutter">
-    <div class="product-list cf {% if section.settings.coll_layout == 'columns' %}jiggly-split dynamic-col-{{ section.settings.coll_layout_per_row_int }}{% else %}grid--uniform{% endif %}">
-      {% if section.settings.coll_layout == 'rows' %}
-      {% if section.settings.coll_layout_per_row_int == 2 %}
-      {% assign product_class = 'column half' %}
-      {% elsif section.settings.coll_layout_per_row_int == 3 %}
-      {% assign product_class = 'column third' %}
-      {% else %}
-      {% assign product_class = 'column quarter' %}
-      {% endif %}
-      {% endif %}
-
-      {% for product in collection.products %}
-      {% include 'product-block' %}
-      {% endfor %}
-    </div>
-  </div>
-
-
-  {% comment %}
-
-  Infinite scroll option:
-
-  By default, more products will load in once you scroll to the bottom of the page.
-
-  Change 'false' to 'true' on the line below to prevent this from happening, and instead show a button at the bottom of the page.
-  Clicking this button will load in the next batch of products.
-
-  {% endcomment %}
-  {% assign show_scroll_button = false %}
-
-  {% if paginate.pages > 1 %}
-  <div class="pagination central content {% if section.settings.coll_infiniscroll %}infiniscroll{% if show_scroll_button %} wait-for-trigger{% endif %}{% endif %}  {% unless section.settings.coll_content_bg_show %}transparent{% endunless %}">
-    {{ paginate | default_pagination }}
-  </div>
-  {% endif %}
-
-  {% endpaginate %}
-</div>
+ <section class="container">
+   <div class="row">
+     <div class="col-12 mx-auto text-center my-5">
+       <a class="btn btn-primary" href="/collections">{% include 'svg-chevron-left' %} Back To All Donuts</a>
+     </div>
+   </div>
+ </section>
 
 
 {% schema %}

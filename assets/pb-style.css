@@ -325,19 +325,20 @@ section#valueprops{
   font-weight: bold;
 }
 a.btn.button-outline, button#write.lx-btn.lx-primary{
-  border-width: 2px;
+  border-width: 1px;
   border-style: solid;
   border-color: var(--hhh-color-pink);
   color: var(--hhh-color-pink) !important;
   font-size: 1em !important;
-  font-weight: 700 !important;
-  border-radius: 3px !important;
+	padding: 1em 2.5em 1em 2.5em;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
   text-decoration: none !important;
   text-transform: uppercase !important;
-  line-height: 2em !important;
+  line-height: 1.1em !important;
   letter-spacing: 1px !important;
   transition: all .33s ease;
-    vertical-align: middle;
+  vertical-align: middle;
   justify-content: center;
   align-items: center;
 }
@@ -647,9 +648,7 @@ img.product-block--img{
   transition: all 0.5s ease 0s;
 
 }
-.product-block{
-  max-height: 250px;
-}
+
 a:hover .product-block .card-body .card-title{
   text-decoration: none !important;
  color: var(--hhh-color-darkblue);
@@ -662,7 +661,7 @@ a:hover .product-block .card-body .card-title{
 }
 @media (min-width: 992px) {
 	.product-area--hero{
-       height: calc(100vh - 180px);
+       min-height: calc(100vh - 180px);
     }
 }
 .product-area--hero .right{
