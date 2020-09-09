@@ -1,6 +1,6 @@
 {%- assign recommendations_title = section.settings.recommendations_title -%}
 {%- assign recommendations_blurb = section.settings.recommendations_blurb -%}
-{% if section.settings.show_recommendations %}
+{% if section.settings.show_recommendations and recommendations.products_count > 0 %}
 	<section class="container my-0 py-5 border-bottom-0">
   <div
      class="product-recommendations"

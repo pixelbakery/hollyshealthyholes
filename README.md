@@ -11,4 +11,7 @@
   <li>highlight-gluten-free</li>
   <li>highlight-vegan</li>
   <li>highlight-yummy</li>
+  <li>highlight-dairy-free</li>
+  <li>highlight-no-nuts</li>
+  <li>highlight-low-carb</li>
 </ul>

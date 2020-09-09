@@ -5,7 +5,7 @@
     <div class="mx-auto text-center my-3">
       <img src=" {{ 'HHH_Coffee.svg' | asset_url }}" class="coffee-svg "/>
     </div>
-  <h4 class="feature-header my-3">Write us a love letter and we'll hit you back asap.</h4>
+  <h4 class="feature-header my-3">Your shop probably needs our donuts in its life. Shoot us a message, and we’ll talk wholesale. Can’t wait!</h4>
 
 
 
@@ -34,13 +34,17 @@
         <div class="col-12 my-2">
           <input aria-label="{{ 'contact.form.email' | t }}" placeholder="{{ 'contact.form.email' | t }}" type="email" class="required" id="contact_email" class="email" name="contact[email]" />
         </div>
-
-
-        <div class="col-12 my-2">
-          <input aria-label="Subject" placeholder="Subject" type="text" class="required" id="contact_subject" name="contact[Subject]" />
+        <div class="col-6 my-2">
+          <input aria-label="Phone Number" placeholder="Phone Number" type="tel" class="required" id="contact_phone" class="phone" name="contact[phone]" />
+        </div>
+        <div class="col-6 my-2">
+          <input aria-label="Date" placeholder="When Do You Want It" type="date" class="required" id="contact_date" class="date" name="contact[date]" />
         </div>
         <div class="col-12 my-2">
-          <textarea aria-label="Cupcakes Are Red, Sprinkles Are Blue... " placeholder="Tell us about your order request" id="message" class="required" name="contact[body]"></textarea>
+          <input aria-label="Name of Business / Event" placeholder="Name of Business / Event" type="text" class="required" id="contact_business" name="contact[business]" />
+        </div>
+        <div class="col-12 my-2">
+          <textarea aria-label="Tell us about your order request" placeholder="Tell us about your order request" id="message" class="required" name="contact[body]"></textarea>
         </div>
         <div class="col-12 my-2">
           <div class="wide-action">

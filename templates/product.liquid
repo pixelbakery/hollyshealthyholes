@@ -3,8 +3,15 @@
 {% section 'product-nutrition' %}
 {% section 'product-reviews' %}
 {% section 'product-recommendations' %}
-
-
+{% if product.type == 'Donut' %}
+<section class="container">
+  <div class="row">
+    <div class="col-12 mx-auto text-center my-5">
+      <a class="btn btn-primary" href="/collections">{% include 'svg-chevron-left' %} Back To All Donuts</a>
+    </div>
+  </div>
+</section>
+{% endif %}
 <script>
   theme.checkViewportFillers();
 </script>

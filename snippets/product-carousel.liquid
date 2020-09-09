@@ -1,19 +1,18 @@
 {% if product.media.size == 1 %}
-  <div class="product--single-image">
-	<img class="d-block w-100"  alt="{{product.featured_image.alt}}" src="{{  product.featured_image.src | img_url: "master" }}" >
+  <div class="split-image">
+	   <img class="object-fit"  alt="{{product.featured_image.alt}}" src="{{  product.featured_image.src | img_url: "master" }}" >
   </div>
-
 {% elsif product.media.size > 1 %}
-  <div id="ProductCarouselIndicators" class="carousel slide flex-fill " data-ride="false">
+  <div id="ProductCarouselIndicators" class="carousel slide flex-fill split-carousel" data-ride="false">
     <ol class="carousel-indicators">
       {% for image in product.images %}
       		<li data-target="#ProductCarouselIndicators" data-slide-to="{{ forloop.index0 }}" class="{% if forloop.first == true %}active{% endif %}"></li>
       {% endfor%}
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner object-fit">
       {% for image in product.images %}
-        <div class="carousel-item carousel-item--product {% if forloop.first == true %}active{% endif %} ">
-         <img class="d-block w-100"  alt="{{image.alt}}" src="{{ image.src | product_img_url: 'master' }}" >
+        <div class="carousel-item  {% if forloop.first == true %}active{% endif %} object-fit ">
+         <img class=" object-fit"  alt="{{image.alt}}" src="{{ image.src | product_img_url: 'master' }}" >
         </div>
       {% endfor%}
     </div>
@@ -27,8 +26,3 @@
     </a>
   </div>
 {% endif %}
-
-
-
-
-

@@ -3,7 +3,7 @@
 {% capture logo_html %}
  <a class="align-center order-0 order-md-1 -mx-1 -mx-md-2 -mx-xl-5" href="{{ routes.root_url }}" style="flex-shrink:1">
    <div class="navbar-brand">
-     <img src="https://media.pixelbakery.com/HHH/logos/PB_AspectRatio_HHH_PrimaryLogo_Pink_v1.svg" alt="{{ shop.name | escape }}">
+     <img src="https://media.pixelbakery.com/HHH/HHH_Logo_AltBrown.svg" alt="{{ shop.name | escape }}">
    </div>
 </a>
 {% endcapture %}
@@ -32,11 +32,11 @@
   <!--shows on screens < 992px-->
   <nav class="navbar mobile-nav  d-block d-lg-none">
     <div class="container d-flex justify-content-between h-100" style="flex-wrap:nowrap">
-      
+
       {{logo_html}}
-      
+
       <div class="h-100 d-flex flex-column justify-content-center" data-toggle="collapse">
-    
+
         {% include 'mobile-nav' %}
 
       </div>
@@ -49,7 +49,7 @@
       <div class="row">
         <div class="col-12">
           <nav class="navbar navbar-expand-md   d-flex justify-content-center ">
-            
+
             <div class="order-1 order-md-0 flex-fill navbar-left  d-none d-lg-block" id="navbarSupportedContent" style="width:50%">
               <ul class="navbar-nav d-flex justify-content-between w-100">
                 {% for link in linklists.main-menu-left.links %}
@@ -57,11 +57,11 @@
                 {% endfor %}
               </ul>
             </div>
-            
+
             <div class="text-center" style="width:40%">
               {{ logo_html }}
             </div>
-            
+
             <div class=" order-2 flex-fill navbar-right d-none d-lg-block flex-shrink-1" id="navbarSupportedContent" style="width:50%">
               <ul class="navbar-nav d-flex justify-content-between w-100">
 
@@ -99,7 +99,7 @@
                 {% endcomment %}
               </ul>
             </div>
-            
+
           </nav>
         </div>
       </div>
