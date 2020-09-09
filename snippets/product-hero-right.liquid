@@ -1,10 +1,10 @@
-<div class="container h-100 p-1 p-lg-2 p-xl-4">
-  <div class="row h-100 mx-auto">
-      <div class="col-12 d-flex flex-column justify-content-between ">
-		
-		
-		
-		
+<div class="container p-0 p-md-2 p-lg-3 d-flex flex-column justify-content-center  h-100">
+  <div class="row mx-3 mb-3 pb-3">
+      <div class="col-12  ">
+
+
+
+
  		{% include 'breadcrumbs' %}
         <h1 class="product-title feature-header align-left feature-header--visible mb-2">{{ product.title }}</h1>
         <h4 class="font-italic align-left">
@@ -46,7 +46,7 @@
     <div class="mt-4 flex-fill">
       {% capture product_form_class %}feedback-{{ section.settings.cart_add }}{% endcapture %}
       {% form 'product', product, class: product_form_class, data-ajax-add-to-cart: true, data-product-id: product.id, data-enable-history-state: 'true' %}
-    
+
           <div class="h-100 d-flex flex-column h-100">
             {% if product.variants.size > 1 %}
               <div class="option-selectors options-{{ product.options_with_values | size }} mb-2">
@@ -121,7 +121,7 @@
                   {%- endfor -%}
                 </div>
               {% endunless %}
-		
+
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
             {% endif %}
 
@@ -130,7 +130,7 @@
             <div class="my-1 my-xl-3">
             <label> Quantity </label>
               <div class="quantity-wrapper">
-                
+
                 <a href="#" data-quantity="down">-</a>
                 <input aria-label="{{ 'products.product.quantity' | t }}" class="select-on-focus" id="quantity" name="quantity" value="1" />
                 <a href="#" data-quantity="up">+</a>
@@ -140,18 +140,18 @@
             </div>
               {% endif %}
             {% endif %}
-            
+
           </div>
-			
+
           {% if product.available %}
             <div class="">
               <button class="button mt-4 w-100 button--addcart" type="submit" name="add">{{ 'products.product.add_to_cart' | t }}</button>
-              
+
             </div>
           {% else %}
             <h5>{{ 'products.product.product_unavailable' | t }}</h5>
           {% endif %}
-       
+
 
         {% if section.settings.show_backorder_text == true %}
           {% include 'backorder' %}

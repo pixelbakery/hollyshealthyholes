@@ -1,14 +1,15 @@
 {%- assign variant = product.selected_or_first_available_variant -%}
 {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
-<section class="shopify-section product-area product-area--hero d-flex flex-column flex-lg-row" data-section-type="product-template">
-  <div class="left d-flex ">
-    {% include 'product-carousel' %}
+<section class="container-fluid product-area " data-section-type="product-template">
+  <div class="row no-gutter d-flex">
+    <div class="col-12 col-md-6 col-xl-8 p-0">
+      {% include 'product-carousel' %}
+    </div>
+    <div class="col-12 col-md-6 col-xl-4  split-text-100 ">
+      {% include 'product-hero-right' %}
+    </div>
   </div>
-  <div class="right ">
-    {% include 'product-hero-right' %}
-  </div>
-
 </section>
 
 

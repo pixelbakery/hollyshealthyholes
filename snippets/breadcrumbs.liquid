@@ -1,13 +1,13 @@
 {% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
   <nav class="breadcrumb my-0 my-lg-2 pb-1 pb-lg-2" role="navigation" aria-label="breadcrumbs">
-   
+
     {% if template contains 'page' %}
-  
+
       <span>{{ page.title }}</span>
     {% elsif template contains 'product' %}
     {% if product.type contains  'Donut'  %}
-   
-        <a href="/pages/donuts">All Donuts</a>
+
+        <a href="/collections">All Donuts</a>
         {% endif %}
     {% if product.collection.url %}
       <span aria-hidden="true">&rsaquo;</span>
