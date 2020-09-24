@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+Montserrat@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 :root{
 	--hhh-color-pink: #FA9295;
 	--hhh-color-lightpink: #F7BAC0;
@@ -13,12 +15,18 @@
 
     --nav-height: 130px;
 }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 body{
  max-width: 100vw;
  overflow: none;
   overflow-x: hidden;
+	font-size: 17px;
  background-color: var(--hhh-color-white);
  color: var(--hhh-color-darkblue);
+ font-family: 'Arimo', sans-serif;
 
 }
 main, .template-product #page-content {
@@ -60,7 +68,7 @@ a.sharing-link:hover span svg{
   fill: var(--hhh-color-pink);
 }
 blockquote, .under-cart .subtotal,  h4, h5, h6{
-  font-family: "raleway", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-style: normal;
 	color: var(--hhh-color-darkblue);
@@ -69,7 +77,7 @@ blockquote, .under-cart .subtotal,  h4, h5, h6{
   text-align: center;
 }
 h1, h2, h3{
-	font-family: "grover", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-weight: 800;
   font-style: normal;
   margin: 0;
@@ -86,12 +94,12 @@ h2, .h2{
     margin:0;
   }
  #page-menu .main-nav {
-   font-family: "grover", sans-serif;
+   font-family: "Montserrat", sans-serif;
  }
  .feature-header{
  	hyphens: auto;
  	word-break: break-word;
-   font-family: "grover", sans-serif;
+   font-family: "Montserrat", sans-serif;
    font-weight: 900;
    font-style: normal;
  }
@@ -194,6 +202,10 @@ main#page-content {
  }
 .copyright{
   color: var(--hhh-color-brown);
+}
+.type-2{
+	font-size: 1.1rem;
+
 }
 .text-left{
   text-align:left !important;
@@ -389,24 +401,42 @@ a.button--contact:active{
   align-items: center;
 	outline: none !important;
 }
+a:active,
+a:focus,
+a:visited{
+	outline: none !important;
+}
+a.btn:active,
+a.btn:not(:disabled):not(.disabled):active,
+a.btn:focus,
+a.btn::selection,
+a.button,
+a.button:visited,
+a.button:focus,
+a.button:active,
+span.button,
+span.button:visited,
+span.button:focus,
+span.button:active,
 a.btn.btn-primary,
 a.btn.btn-primary:visited,
 a.btn.btn-primary:focus,
 a.btn.btn-primary:active{
-	font-family: 'Raleway', sans-serif;
-	background-color: var(--hhh-color-lightpink);
+	font-family: 'Montserrat', sans-serif;
+	background-color: var(--hhh-color-lightpink) !important;
 	color: var(--hhh-color-darkblue);
-	font-size: 1.1em ;
-	font-weight: 600;
+	font-size: .9em ;
+	font-weight: 500;
 	border-width: 2px;
-	border-color: var(--hhh-color-lightpink);
+	border-color: var(--hhh-color-lightpink) !important;
 	border-radius: 3px ;
-	padding-left: 4em;
-	padding-right: 4em;
-	padding-top: .5em;
-	padding-bottom: .5em;
+	padding-left: 5em;
+	padding-right: 5em;
+	padding-top: 1em;
+	padding-bottom: 1em;
 	text-decoration: none;
-	line-height: 1.2em;
+	text-transform: capitalize;
+	line-height: 100%;
 	transition: all .33s ease;
 	vertical-align: middle;
 	justify-content: center;
@@ -420,9 +450,13 @@ a.btn.btn-primary span{
 	justify-content: center;
 	align-items: center;
 }
+a.button:hover,
+span.button:hover,
 a.btn.btn-primary:hover{
-	border-color: var(--hhh-color-brown);
+	background-color: var(--hhh-color-lightpink) !important;
+	border-color: var(--hhh-color-brown) !important;
 	color: var(--hhh-color-brown);
+	outline: none !important;
 }
 input.checkout-btn, button.button--addcart{
  color: var(--hhh-color-darkblue) !important;
@@ -973,4 +1007,29 @@ a.rec--link:hover{
 .shopify-section-1600897803228{
 	margin-left: -15px;
 	margin-right: -15px;
+}
+.overlay__content{
+	position: absolute;
+	bottom: 0;
+	width: 100.25%;
+  margin: 0 auto;
+  left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--hhh-color-white);
+	padding-top: 3em;
+	padding-bottom: 3em;
+	overflow: hidden;
+
+
+}
+#shopify-section-1590111326666{
+	margin-top: -15px;
+}
+#shopify-section-1499427088545{
+	max-height: 100vh;
+	overflow: hidden;
+}
+.overlay__content h1.line-1, .overlay__content .line-2{
+	color: var(--hhh-color-brow) !important;
+	padding-bottom: 1rem;
 }
