@@ -1,0 +1,203 @@
+{%- assign variant = product.selected_or_first_available_variant -%}
+{%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+
+<section class="container-fluid product-area " data-section-type="product-template">
+  <div class="row no-gutter d-flex">
+    <div class="col-12 col-md-6 col-xl-8 p-0">
+      {% include 'product-carousel' %}
+    </div>
+    <div class="col-12 col-md-6 col-xl-4  split-text-100 ">
+      {% include 'product-hero-right' %}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+{% if section.settings.header_overlay contains 'tint' %}
+{%- assign background_alpha_float = 0.5 -%}
+{%- assign background_alpha_float_over_2 = background_alpha_float | divided_by: 2 -%}
+{% capture background_tint_colour %}{% if section.settings.header_overlay contains 'dark' %}000000{% else %}ffffff{% endif %}{% endcapture %}
+
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "select",
+        "id": "header_overlay",
+        "default": "overlay",
+        "label": "Header overlay style",
+        "options": [
+          {
+            "label": "Overlay",
+            "value": "overlay"
+          },
+          {
+            "label": "Overlay - with dark tint",
+            "value": "overlay-with-tint-dark"
+          },
+          {
+            "label": "Overlay - with light tint",
+            "value": "overlay-with-tint-light"
+          },
+          {
+            "label": "Overlay - with alternate logo",
+            "value": "overlay-alt-logo"
+          },
+          {
+            "label": "No overlay",
+            "value": "none"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_tax_and_shipping",
+        "label": "Show tax and shipping information",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "prod_show_sku",
+        "label": "Show SKU",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_brand",
+        "default": true,
+        "label": "Show vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_type",
+        "default": true,
+        "label": "Show type"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quantity",
+        "default": true,
+        "label": "Enable quantity selector"
+      },
+      {
+        "type": "select",
+        "id": "variant_style",
+        "default": "underlined",
+        "label": "Variant display style",
+        "options": [
+          {
+            "label": "Dropdown",
+            "value": "dropdown"
+          },
+          {
+            "label": "Underlined",
+            "value": "underlined"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "description_alignment",
+        "default": "align-center",
+        "label": "Description alignment",
+        "options": [
+          {
+            "label": "Left",
+            "value": ""
+          },
+          {
+            "label": "Middle",
+            "value": "align-center"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "cart_add",
+        "label": "Cart type",
+        "default": "",
+        "options": [
+          {
+            "value": "",
+            "label": "Stay on the same page"
+          },
+          {
+            "value": "add_in_modal",
+            "label": "Modal"
+          },
+          {
+            "value": "go_to_cart",
+            "label": "Page"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_payment_button",
+        "label": "Show dynamic checkout button",
+        "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_backorder_text",
+        "label": "Show backorder text",
+        "default": true,
+        "info": "Only shows for products which use Shopify inventory tracking and are available to purchase when out of stock."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sharing_icons",
+        "label": "Show social sharing icons",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Media"
+      },
+      {
+        "type": "paragraph",
+        "content": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_video_looping",
+        "label": {
+          "en": "Enable video looping"
+        },
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Size chart"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_size_chart",
+        "label": "Enable",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "size_chart_variant",
+        "label": "Option name",
+        "default": "Size"
+      },
+      {
+        "type": "page",
+        "id": "size_chart_page",
+        "label": "Page containing size chart"
+      }
+    ]
+  }
+{% endschema %}

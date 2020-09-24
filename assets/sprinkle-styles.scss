@@ -8,7 +8,7 @@ $hhh-color-burntyellow: #ffbc00;
 $hhh-color-brown: #774d4b;
 
 .sprinkletime-section{
-  height: 100vh;
+  max-height: calc(100vh - 150px);
   width: 100%;
   border-bottom-width: 15px;
   border-bottom-style: solid;
@@ -134,8 +134,14 @@ figure.hhh{
   top:0;
   margin: 0;
   padding: 0;
+  transform: scale(1.25);
    border: none;
   overflow: hidden;
+}
+@media screen and (max-width: 900px) {
+  .scaling-svg {
+    transform: scale(1.1);
+  }
 }
 figure.hhh > div {
     text-align: center;

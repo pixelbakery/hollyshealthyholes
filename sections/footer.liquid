@@ -1,4 +1,6 @@
+<div id="instagram-feed" class="instagram_feed pb-0 mb-0"></div>
 <footer class="page-footer px-1 px-md-5 cf bg--light-pink" data-section-type="footer">
+
   <div class="container px-1 ">
     <div class="row"><!--This is your first row-->
       <div class="col-md-4 d-flex flex-column justify-content-around  footer-col-last text-center text-md-left  my-3">
@@ -8,13 +10,14 @@
           <p class="copyright" role="contentinfo"></p>
       </div>
       <div class="col col-md-3 footer-nav p-3 h-100 text-center text-md-left" >
+        <h4 class="text-center text-md-left mx-5 mx-md-1 mr-md-3 footer-header">Poke Around</h4>
         {% if section.settings.link_list != blank %}
           <div class="nav footer-nav w-100" role="navigation" aria-label="{{ 'layout.footer.menu_aria_label' | t | escape }}">
-            <ul class="my-2 text-center text-md-left w-100">
+            <ul class="mb-2 mt-0 pt-0 text-center text-md-left w-100">
               {% for link in linklists[section.settings.link_list].links %}
-              <li class="footer-nav-links">{{ link.title | link_to: link.url }}</li>
+              <li class="footer-nav-links ml-0">{{ link.title | link_to: link.url }}</li>
               {% endfor %}
-              <li class="footer-nav-links">
+              <li class="footer-nav-links ml-0">
                 <div class="text-center text-md-left">
                   {% include 'social-icons', icon_setting: settings.social_custom_icon, icon_size: 'x40' %}
                 </div>
@@ -25,17 +28,18 @@
 
 
       </div>
-<div class="col-md-5 d-flex flex-column justify-content-between text-center text-md-left my-3">
-  <div class="footer-contact-info mb-1 pl-0">
-    <a class="" href="#" rel="nofollow" target="_blank">
-      2215 LEAVENWORTH STREET <br> OMAHA, NE, 68102
-    </a>
+<div class="col-md-5 d-flex flex-column justify-content-start text-center text-md-left my-4">
+  <h4 class="text-center text-md-left mx-5 mx-md-1 mr-md-3 footer-header">Touch Us</h4>
+  <div class="footer-contact-info pb-1 mb-1 pl-0 mx-5 mx-md-1 text-left">
+    <svg width=".75em" height=".75em" viewBox="0 0 16 16" class="bi bi-phone mr-3 fill--dark-blue text-left"  xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+  <path fill-rule="evenodd" d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg><a href="tel:1402473050" target="_blank">(402) 347-3050</a>
   </div>
-  <div class="footer-contact-info my-1 pl-0">
-    <a href="tel:1402473050" target="_blank">(402) 347-3050</a>
-  </div>
-  <div class="footer-contact-info my-1 pl-0">
-    <a href="mailto:howdy@hollyshealthyholes.com" target="_blank">howdy@hollyshealthyholes.com</a>
+  <div class="footer-contact-info  pl-0 mx-5 mx-md-1 text-left">
+    <svg width=".75em" height=".75em" viewBox="0 0 16 16" class="bi bi-envelope mr-3 fill--dark-blue text-left"  xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+</svg><a href="mailto:howdy@hollyshealthyholes.com" target="_blank">holler@hollyshealthyholes.com</a>
   </div>
 
 </div>
@@ -49,7 +53,7 @@
     </div>
     <div class="pixelbakery mt-1 text-center mt-2 small ">
       <span class="shop">&copy; {{ "now" | date: "%Y" }} <a class="" href="{{ routes.root_url }}">{{ shop.name }}</a>.</span><br>
-      <span> Website Made W/ Love & Flour by <a href="https://pixelbakery.com" class="" target="_blank" rel="nofollow">Pixel Bakery</a>.</span>
+      <span> Website Made W/ Love & Gluten-Free Flour by <a href="https://pixelbakery.com" class="" target="_blank" rel="nofollow">Pixel Bakery</a>.</span>
     </div>
   </div>
 </div>
@@ -68,7 +72,22 @@
 
 
 </footer>
-
+<script>
+    (function(){
+        new InstagramFeed({
+            'username': 'hollyshealthyholes',
+            'container': document.getElementById("instagram-feed"),
+            'display_profile': false,
+            'display_biography': false,
+            'display_gallery': true,
+            'callback': null,
+            'styling': true,
+            'items': 6,
+            'items_per_row': 6,
+            'margin': 0
+        });
+    })();
+</script>
 {% schema %}
   {
     "name": "Footer",
