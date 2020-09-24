@@ -1,4 +1,6 @@
+<div id="instagram-feed" class="instagram_feed pb-0 mb-0"></div>
 <footer class="page-footer px-1 px-md-5 cf bg--light-pink" data-section-type="footer">
+
   <div class="container px-1 ">
     <div class="row"><!--This is your first row-->
       <div class="col-md-4 d-flex flex-column justify-content-around  footer-col-last text-center text-md-left  my-3">
@@ -8,13 +10,14 @@
           <p class="copyright" role="contentinfo"></p>
       </div>
       <div class="col col-md-3 footer-nav p-3 h-100 text-center text-md-left" >
+        <h4 class="text-center text-md-left mx-5 mx-md-1 mr-md-3 footer-header">Poke Around</h4>
         {% if section.settings.link_list != blank %}
           <div class="nav footer-nav w-100" role="navigation" aria-label="{{ 'layout.footer.menu_aria_label' | t | escape }}">
-            <ul class="my-2 text-center text-md-left w-100">
+            <ul class="mb-2 mt-0 pt-0 text-center text-md-left w-100">
               {% for link in linklists[section.settings.link_list].links %}
-              <li class="footer-nav-links">{{ link.title | link_to: link.url }}</li>
+              <li class="footer-nav-links ml-0">{{ link.title | link_to: link.url }}</li>
               {% endfor %}
-              <li class="footer-nav-links">
+              <li class="footer-nav-links ml-0">
                 <div class="text-center text-md-left">
                   {% include 'social-icons', icon_setting: settings.social_custom_icon, icon_size: 'x40' %}
                 </div>
@@ -25,17 +28,13 @@
 
 
       </div>
-<div class="col-md-5 d-flex flex-column justify-content-between text-center text-md-left my-3">
-  <div class="footer-contact-info mb-1 pl-0">
-    <a class="" href="#" rel="nofollow" target="_blank">
-      2215 LEAVENWORTH STREET <br> OMAHA, NE, 68102
-    </a>
+<div class="col-md-5 d-flex flex-column justify-content-start text-center text-md-left my-3">
+  <h4 class="text-center text-md-left mx-5 mx-md-1 mr-md-3 footer-header">Touch Us</h4>
+  <div class="footer-contact-info pb-1 mb-1 pl-0">
+    <span class="mr-3">Phone: </span><a href="tel:1402473050" target="_blank">(402) 347-3050</a>
   </div>
-  <div class="footer-contact-info my-1 pl-0">
-    <a href="tel:1402473050" target="_blank">(402) 347-3050</a>
-  </div>
-  <div class="footer-contact-info my-1 pl-0">
-    <a href="mailto:howdy@hollyshealthyholes.com" target="_blank">howdy@hollyshealthyholes.com</a>
+  <div class="footer-contact-info  pl-0">
+    <span class="mr-3">Email: </span><a href="mailto:howdy@hollyshealthyholes.com" target="_blank">holler@hollyshealthyholes.com</a>
   </div>
 
 </div>
@@ -68,7 +67,22 @@
 
 
 </footer>
-
+<script>
+    (function(){
+        new InstagramFeed({
+            'username': 'hollyshealthyholes',
+            'container': document.getElementById("instagram-feed"),
+            'display_profile': false,
+            'display_biography': false,
+            'display_gallery': true,
+            'callback': null,
+            'styling': true,
+            'items': 6,
+            'items_per_row': 6,
+            'margin': 0
+        });
+    })();
+</script>
 {% schema %}
   {
     "name": "Footer",

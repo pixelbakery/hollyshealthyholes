@@ -5,31 +5,31 @@
     "col_links": "#774d4b",
     "col_mod_bg": "#fa9295",
     "use_mod_bg_op": false,
-    "col_content_bg": "#fbe99e",
+    "col_content_bg": "#fdfffc",
     "use_content_bg_trans": false,
-    "col_head_links": "#161e26",
-    "col_head_links_alt": "#fbe99e",
-    "col_nav_prim": "#78a077",
+    "col_head_links": "#464654",
+    "col_head_links_alt": "#774d4b",
+    "col_nav_prim": "#774d4b",
     "col_nav_sec": "#fbe99e",
-    "col_btn": "#526851",
-    "col_btn_bg": "#ffbc00",
+    "col_btn": "#774d4b",
+    "col_btn_bg": "#fa9295",
     "col_select_bg": "#fbe99e",
-    "col_select_txt": "#78a077",
+    "col_select_txt": "#774d4b",
     "show_sale_label": true,
     "show_sold_out_label": true,
     "coll_col_sale": "#fa9295",
     "coll_col_sold": "#78a077",
     "footer_text": "#fbe99e",
     "footer_background": "#f7bac0",
-    "col_page_bg": "#78a077",
+    "col_page_bg": "#fdfffc",
     "bg_image": "",
     "bg_image_method": "repeat top center",
     "type_base_font": "raleway_n4",
     "type_heading_font": "gill_sans_nova_n7",
     "type_nav_font": "gill_sans_nova_n4",
     "type_logo_font": "gill_sans_nova_n7",
-    "font_size_base_int": 16,
-    "font_size_nav_int": 50,
+    "font_size_base_int": 17,
+    "font_size_nav_int": 40,
     "font_size_nav_sub_int": 25,
     "share_image": "",
     "social_twitter_url": "",
@@ -132,10 +132,10 @@
           "image": "shopify:\/\/shop_images\/96731302_883141598795532_5536068117762927954_n_f15da12b-3c6e-4956-8601-0437c573e0f6.jpg",
           "image_url": "",
           "color_bg": "#fbe99e",
-          "title": "DONUTS MADE WITH STUFF YOU ACTUALLY RECOGNIZE",
-          "text": "<p>Competently unleash value-added bandwidth after flexible intellectual capital. Synergistically orchestrate extensible vortals for enterprise-wide models.<\/p>",
-          "button_text": "GET SUM",
-          "button_url": "",
+          "title": "Donuts Made with Stuff you Actually Recognize",
+          "text": "<p>You could say our little company is a lot like a donut: we&rsquo;ve got a transparent center. We make donuts with ingredients like coconut oil, egg whites, pumpkin, unsweetened applesauce, honey, apple cider vinegar&mdash;all the good stuff you can pronounce, all gluten free.<\/p>",
+          "button_text": "Peep The Full Ingredients List",
+          "button_url": "\/pages\/nutrition",
           "text_alignment": "center"
         }
       },
@@ -151,55 +151,6 @@
           "button_text": "",
           "button_url": "",
           "text_alignment": "center"
-        }
-      },
-      "1572967256716": {
-        "type": "featured-collections",
-        "blocks": {
-          "1572967256716-1": {
-            "type": "collection",
-            "settings": {
-              "collection": "vegan-donuts"
-            }
-          },
-          "1590107795525": {
-            "type": "collection",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "1590107804581": {
-            "type": "collection",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "1590107813041": {
-            "type": "collection",
-            "settings": {
-              "collection": "merch"
-            }
-          },
-          "1590107827344": {
-            "type": "collection",
-            "settings": {
-              "collection": "unique-donuts"
-            }
-          }
-        },
-        "block_order": [
-          "1572967256716-1",
-          "1590107795525",
-          "1590107804581",
-          "1590107813041",
-          "1590107827344"
-        ],
-        "settings": {
-          "title": "WHATCHU WANT?",
-          "coll_layout": "columns",
-          "coll_layout_per_row_int": 2,
-          "hover_effect": "",
-          "show_count": false
         }
       },
       "1572968682510": {
@@ -253,9 +204,9 @@
         "type": "collection-template",
         "settings": {
           "coll_content_bg_show": true,
-          "coll_show_tags": true,
+          "coll_show_tags": false,
           "coll_show_sort": true,
-          "coll_show_feat": true,
+          "coll_show_feat": false,
           "coll_layout": "rows",
           "coll_layout_per_row_int": 3,
           "coll_num_prods_int": 12,
@@ -267,7 +218,7 @@
         "type": "featured-product",
         "settings": {
           "product": "gift-card-1",
-          "background_color": "#774d4b",
+          "background_color": "#fdfffc",
           "text_align": "center",
           "show_tax_and_shipping": false,
           "show_quantity": false,
@@ -288,7 +239,7 @@
         "settings": {
           "color_bg": "#fa9295",
           "heading": "HIT US UP",
-          "address": "<p><strong>CALL US&nbsp; &nbsp;<\/strong>&nbsp;<br><a href=\"tel:5157088285\" title=\"tel:5157088285\">515-708-8285<\/a><\/p>\n<p><br><strong>WRITE US<br><\/strong>hey@hollyshealthyholes.com<\/p>\n<p><\/p>\n<p><\/p>\n<p><strong>SEE US<br><\/strong>2215&nbsp;Leavenworth St<br>Omaha, NE 68102&nbsp;<br><br><\/p>\n<p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm<\/p>",
+          "address": "<p><strong>CALL US&nbsp; &nbsp;<\/strong>&nbsp;<br><a href=\"tel:5157088285\" title=\"tel:5157088285\">515-708-8285<\/a><\/p>\n<p><br><strong>WRITE US<br><\/strong><a href=\"mailto:howdy@hollyshealthyholes.com\" title=\"mailto:howdy@hollyshealthyholes.com\">howdy@hollyshealthyholes.com<\/a><\/p>\n<p><\/p>\n<p><\/p>\n<p><strong>SEE US<br><\/strong>2215&nbsp;Leavenworth St<br>Omaha, NE 68102&nbsp;<br><br><\/p>\n<p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm<\/p>",
           "button": "Directions",
           "text_alignment": "center",
           "map_address": "2215 Leavenworth St, Omaha, NE 68102",
@@ -302,7 +253,7 @@
         "settings": {
           "title": "Newsletter",
           "text": "<p>Sign up to our newsletter and we’ll keep you up to date with the latest arrivals<\/p>",
-          "background_color": "#fa9295"
+          "background_color": "#fdfffc"
         }
       },
       "1590111326666": {
@@ -311,18 +262,18 @@
           "left_image": "shopify:\/\/shop_images\/70649593_2764951886857504_6325074989653426176_o_85b380ac-553b-4954-b569-f24353e2d477.jpg",
           "left_bg_color": "#464654",
           "left_bg_opacity": 60,
-          "left_url": "",
+          "left_url": "shopify:\/\/pages\/donuts",
           "left_title": "ORDER ONLINE",
           "left_subheading": "Direct delivery to anywhere in Omaha for $8.00 or to a partnering pickup location for free.",
-          "left_button_text": "GET YOUR DONUTS",
+          "left_button_text": "GET YA DONUTS",
           "left_position": "position--hcenter position--vcenter",
           "left_text_color": "#fbe99e",
           "right_image": "shopify:\/\/shop_images\/69487150_2734388416580518_1167474601857384448_o_0ef5dfd2-c0c4-4f6f-9b4e-68b5489d1ee5.jpg",
           "right_bg_color": "#464654",
           "right_bg_opacity": 60,
-          "right_url": "",
-          "right_title": "ORDER IN PERSON",
-          "right_subheading": "We are honored to partner with the following local retailers who carry our donuts for sale!",
+          "right_url": "\/pages\/about#findus",
+          "right_title": "GET ‘EM NOW",
+          "right_subheading": "Find our Healthy Holes in Lincoln and Omaha! Some (very cool) local retailers regularly have our donuts for sale.",
           "right_button_text": "SEE RETAILERS",
           "right_position": "position--hcenter position--vcenter",
           "right_text_color": "#fbe99e"
@@ -331,16 +282,16 @@
       "list-collections-template": {
         "type": "list-collections-template",
         "blocks": {
+          "1599249588493": {
+            "type": "image",
+            "settings": {
+              "collection": "original-donuts"
+            }
+          },
           "1592864109077": {
             "type": "image",
             "settings": {
               "collection": "unique-donuts"
-            }
-          },
-          "1592864121807": {
-            "type": "image",
-            "settings": {
-              "collection": ""
             }
           },
           "1592864088653": {
@@ -348,22 +299,15 @@
             "settings": {
               "collection": "vegan-donuts"
             }
-          },
-          "1592864165619": {
-            "type": "image",
-            "settings": {
-              "collection": ""
-            }
           }
         },
         "block_order": [
+          "1599249588493",
           "1592864109077",
-          "1592864121807",
-          "1592864088653",
-          "1592864165619"
+          "1592864088653"
         ],
         "settings": {
-          "title": "Collections",
+          "title": "Get Ya Donuts",
           "display_type": "selected",
           "coll_layout": "rows",
           "coll_layout_per_row_int": 3,
@@ -403,10 +347,182 @@
       "product-recommendations": {
         "type": "product-recommendations",
         "settings": {
-          "recommendations_title": "You may also like",
+          "recommendations_title": "OH YEAH, MORE OF THAT",
+          "recommendations_blurb": "We think you'll like these, too.",
           "show_recommendations": true,
           "recommended_per_row_int": 3,
           "hover_effect": "info"
+        }
+      },
+      "updated-header": {
+        "type": "updated-header",
+        "settings": {
+          "head_fixed": true,
+          "show_announcement": false,
+          "announcement_home_only": false,
+          "announcement_text": "",
+          "announcement_link": "",
+          "announcement_col_bar": "#000000",
+          "announcement_col_text": "#ffffff",
+          "show_logo_on_homepage": true,
+          "logo": "",
+          "logo_width": "200",
+          "alt_logo": "",
+          "menu_linklist": "main-menu",
+          "nav_show_breadcrumb": true,
+          "nav_horizonal_show_title": true,
+          "nav_horizontal_1": "",
+          "nav_horizontal_2": "",
+          "nav_horizontal_3": "",
+          "nav_horizontal_4": "",
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "about-findus": {
+        "type": "about-findus",
+        "settings": {}
+      },
+      "about-valueprops": {
+        "type": "about-valueprops",
+        "settings": {}
+      },
+      "about-ourstory": {
+        "type": "about-ourstory",
+        "settings": {
+          "ourstory_enable": true,
+          "ourstory_header": "Hey, I'm Holly Wiest",
+          "ourstory_subhead": "Donuts are my bliss.",
+          "ourstory_blurb": "<p>They have always been the object of my affection. Even during my competitive bodybuilding years, donuts were one of my favorite &ldquo;cheat&rdquo; foods.<\/p>\n<p>Now, as a certified Holistic Health Coach with the Institute for Integrative Nutrition, and a certified personal trainer with the American College of Sports Medicine, I love to practice and teach the importance of balance.<\/p>\n<p>I believe in delicious pastries and that health is our own responsibility. I believe that even if you have a food sensitivity, allergy or health goal, you shouldn&rsquo;t be left out.<\/p>\n<p>My vision is to contribute to my community by providing healthy pastry options you might not have thought existed. I want to bring more scrumptious food options into the world so that it&rsquo;s easier to make self-respecting choices as we take our wellness into our own hands.<\/p>"
+        }
+      },
+      "about-kitchen": {
+        "type": "about-kitchen",
+        "settings": {}
+      },
+      "about-innnuendo": {
+        "type": "about-innnuendo",
+        "settings": {}
+      },
+      "about-donut-cta": {
+        "type": "about-donut-cta",
+        "settings": {}
+      },
+      "gotquestions": {
+        "type": "gotquestions",
+        "settings": {}
+      },
+      "section-faq": {
+        "type": "section-faq",
+        "blocks": {
+          "1599166820468": {
+            "type": "question",
+            "settings": {
+              "title": "Question 01",
+              "answer": "<p>sdhf;alsjhf sf hs;jkdfhsaj;hf ;kh jshadf<\/p>\n<p>sadf sadf&nbsp;<\/p>\n<p>asdf&nbsp;<\/p>\n<p><\/p>\n<p>asdf asdf<\/p>"
+            }
+          },
+          "1599166836113": {
+            "type": "question",
+            "settings": {
+              "title": "Question 02",
+              "answer": "<p>sf asdf sadf asdf hfs fhsdhadfhgadh<\/p>"
+            }
+          },
+          "1599166929342": {
+            "type": "question",
+            "settings": {
+              "title": "Question 03",
+              "answer": "<p>Energistically promote just in time networks with robust models. Competently reintermediate <strong>quality products whereas interoperable supply<\/strong> chains. Objectively provide access to robust niche marke<em>ts through low-risk high-yield \"outside<\/em> the box\" thinking. Phosfluorescently enhance.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1599166820468",
+          "1599166836113",
+          "1599166929342"
+        ],
+        "settings": {
+          "enable_section": true,
+          "expand_questions": false,
+          "faq_header": "Frequently Asked Questions",
+          "faq_blurb": "<p>Completely revolutionize premium deliverables rather than extensive strategic theme areas. Enthusiastically envisioneer exceptional ideas and interactive ROI. Synergistically drive alternative products without cross-unit strategic theme areas. Seamlessly optimize resource-leveling methods of empowerment for.<\/p>"
+        }
+      },
+      "1599242870662": {
+        "type": "about-donut-cta",
+        "settings": {}
+      },
+      "product-template-hero": {
+        "type": "product-template-hero",
+        "settings": {
+          "header_overlay": "overlay",
+          "show_tax_and_shipping": false,
+          "prod_show_sku": false,
+          "show_brand": true,
+          "show_type": true,
+          "show_quantity": true,
+          "variant_style": "underlined",
+          "description_alignment": "align-center",
+          "cart_add": "",
+          "enable_payment_button": true,
+          "show_backorder_text": true,
+          "show_sharing_icons": true,
+          "enable_video_looping": false,
+          "show_size_chart": false,
+          "size_chart_variant": "Size",
+          "size_chart_page": ""
+        }
+      },
+      "product-nutrition": {
+        "type": "product-nutrition",
+        "settings": {}
+      },
+      "product-reviews": {
+        "type": "product-reviews",
+        "settings": {}
+      },
+      "sprinkles-sm-custom": {
+        "type": "sprinkles-sm-custom",
+        "settings": {
+          "page_header": "Get Ya Donuts"
+        }
+      },
+      "cbd-faq": {
+        "type": "cbd-faq",
+        "blocks": {
+          "1599258786490": {
+            "type": "question",
+            "settings": {
+              "title": "Question 01?",
+              "answer": "<p>Interactively integrate top-line ROI after customer directed methods of empowerment. Credibly brand enterprise outsourcing without.<\/p>"
+            }
+          },
+          "1599258794252": {
+            "type": "question",
+            "settings": {
+              "title": "Question 02?",
+              "answer": "<p>Interactively integrate top-line ROI after customer directed methods of empowerment. Credibly brand enterprise outsourcing without.<\/p>"
+            }
+          },
+          "1599258801023": {
+            "type": "question",
+            "settings": {
+              "title": "Question 03",
+              "answer": "<p>Interactively integrate top-line ROI after customer directed methods of empowerment. Credibly brand enterprise outsourcing without.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1599258786490",
+          "1599258794252",
+          "1599258801023"
+        ],
+        "settings": {
+          "enable_section": true,
+          "expand_questions": false,
+          "faq_header": "Common Questions About CBD",
+          "faq_blurb": "<p>Interactively integrate top-line ROI after customer directed methods of empowerment. Credibly brand enterprise outsourcing without.<\/p>"
         }
       }
     },
@@ -416,9 +532,9 @@
       "1572968682511",
       "1483454352367",
       "1499427088545",
+      "1599242870662",
       "1572968682510",
       "1590111326666",
-      "1572967256716",
       "1590109045289",
       "1590109526702",
       "1553007310559",

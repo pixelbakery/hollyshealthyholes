@@ -157,7 +157,7 @@ main#page-content {
 
 }
 .footer-nav ul{
-  margin-left: 1em;
+  margin-left: 0em;
 }
 .footer-nav ul li.footer-nav-links{
 	color: var(--hhh-color-brown);
@@ -196,17 +196,29 @@ main#page-content {
 .text-right{
   text-align:right !important;
 }
-.footer-contact-info{
-  	color: var(--hhh-color-brown);
+.footer-header{
+	margin-bottom: 1em;
 
-    font-weight: bold;
-  	font-size: 1.333em;
-    line-height: 1.333em;
-    padding: .33em 1em .33em 1em;
+
+}
+.footer-header:after{
+	content: '';
+	width: 100%;
+	display: inline-block;
+	border-bottom: 3px solid var(--hhh-color-darkblue);
+}
+.footer-contact-info{
+  	color: var(--hhh-color-darkblue);
+
+		font-weight: 600;
+  	font-size: 1.1em;
+    line-height: 1em;
+    /* padding: .25em 1em .25em 1em; */
  }
  .footer-contact-info a{
+	 font-weight: normal;
    opacity: 1;
-
+	 color: var(--hhh-color-brown);
    	-webkit-transition : all .5s ease-out;
   	-moz-transition : all .33s ease-out;
     -o-transition : all .33s ease-out;
@@ -934,4 +946,26 @@ a.rec--link:hover{
 .card-header:hover
 {
  background-color: var(--hhh-color-pink);
+}
+.section-id-1572968682511{
+	max-height: 500px;
+}
+.section-id-1572968682511 .double-section-spacing{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.section-id-1590109045289 {
+	border-bottom-width: 0px !important;
+}
+.hero-carousel-inner{
+  height: calc(100vh - 30px);
+  padding-top: 125px;
+  overflow: hidden;
+	border-bottom-width: 15px;
+	border-bottom-style: solid;
+	border-bottom-color: var(--hhh-color-lightyellow);
+}
+.shopify-section-1600897803228{
+	margin-left: -15px;
+	margin-right: -15px;
 }
