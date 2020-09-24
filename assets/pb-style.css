@@ -47,6 +47,9 @@ main, .template-product #page-content {
  .bg--white{
   background-color: var(--hhh-color-white) !important;
 }
+.fill--dark-blue{
+	fill: var(--hhh-color-darkblue);
+}
 .section--reviews, #shopify-section-product-template-hero, #shopify-section-product-recommendations{
  background-color: var(--hhh-color-white);
 }
@@ -85,11 +88,13 @@ h2, .h2{
  #page-menu .main-nav {
    font-family: "grover", sans-serif;
  }
-.feature-header{
-  font-family: "grover", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
+ .feature-header{
+ 	hyphens: auto;
+ 	word-break: break-word;
+   font-family: "grover", sans-serif;
+   font-weight: 900;
+   font-style: normal;
+ }
 .nav.main-nav ul li a:hover{
   border-bottom: 0px solid rgba(0,0,0,0) !important;
   cursor: pointer;
