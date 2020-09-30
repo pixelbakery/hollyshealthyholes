@@ -12,7 +12,7 @@ Montserrat@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wgh
     --hhh-color-burntyellow: #FFBC00;
   	--hhh-color-brown: #774D4B;
   	--hhh-color-white: #FDFFFC;
-
+		--hhh-color-grey: #f4f4f4;
     --nav-height: 130px;
 }
 * {
@@ -115,13 +115,13 @@ main#page-content {
     margin:0;
     border-width: 15px;
   	border-style: solid;
-  	border-color: var(--hhh-color-lightyellow);
-      background-color: var(--hhh-color-lightyellow);
+  	border-color: var(--hhh-color-white);
+      background-color: var(--hhh-color-white);
       padding-top: 8rem;
 
 }
 #shopify-section-header{
-  background-color: var(--hhh-color-lightyellow);
+  background-color: var(--hhh-color-white);
 }
 .site-control .menu,{
   position: absolute;
@@ -142,17 +142,17 @@ main#page-content {
 .shopify-section{
   border-bottom-width: 15px;
   border-bottom-style: solid;
-  border-bottom-color: var(--hhh-color-lightyellow);
+  border-bottom-color: var(--hhh-color-white);
   }
 .image-beside-image__image--1{
   	border-right-width: 7.5px;
   	border-right-style: solid;
-  	border-right-color: var(--hhh-color-lightyellow);
+  	border-right-color: var(--hhh-color-white);
  }
 .image-beside-image__image--2{
   	border-left-width: 7.5px;
   	border-left-style: solid;
-  	border-left-color: var(--hhh-color-lightyellow);
+  	border-left-color: var(--hhh-color-white);
  }
 
 .page-footer{
@@ -236,10 +236,10 @@ main#page-content {
 	 font-weight: normal;
    opacity: 1;
 	 color: var(--hhh-color-brown);
-   	-webkit-transition : all .5s ease-out;
-  	-moz-transition : all .33s ease-out;
-    -o-transition : all .33s ease-out;
-  transition : all .33s ease-out;
+	-webkit-transition : all .5s ease-out;
+	-moz-transition : all .33s ease-out;
+	-o-transition : all .33s ease-out;
+	transition : all .33s ease-out;
 	text-decoration: none;
  }
 .footer-contact-info:hover a{
@@ -272,7 +272,7 @@ main#page-content {
   top: 1em;
 }
 section#valueprops{
-  border-bottom: 0 solid var(--hhh-color-lightyellow);
+  border-bottom: 0 solid var(--hhh-color-white);
 
  height: 100%;
 
@@ -305,7 +305,7 @@ section#valueprops{
   line-height: .4em;
 }
  .recipe-card{
-  background-color:  var(--hhh-color-lightyellow);
+  background-color:  var(--hhh-color-white);
     border-radius: 0px;
  }
  img.card-img{
@@ -706,7 +706,7 @@ a:hover .product-block .card-body .card-title{
 }
 .product-area--hero{
 	min-height: calc(100vh - 180px);
- background-color: var(--hhh-color-lightyellow);
+ background-color: var(--hhh-color-white);
  display: flex;
 
 }
@@ -1002,7 +1002,7 @@ a.rec--link:hover{
   overflow: hidden;
 	border-bottom-width: 15px;
 	border-bottom-style: solid;
-	border-bottom-color: var(--hhh-color-lightyellow);
+	border-bottom-color: var(--hhh-color-white);
 }
 .shopify-section-1600897803228{
 	margin-left: -15px;
@@ -1019,8 +1019,6 @@ a.rec--link:hover{
 	padding-top: 3em;
 	padding-bottom: 3em;
 	overflow: hidden;
-
-
 }
 #shopify-section-1590111326666{
 	margin-top: -15px;
@@ -1029,7 +1027,99 @@ a.rec--link:hover{
 	max-height: 100vh;
 	overflow: hidden;
 }
+#howtoorder{
+	margin-top: 125px;
+}
 .overlay__content h1.line-1, .overlay__content .line-2{
 	color: var(--hhh-color-brow) !important;
 	padding-bottom: 1rem;
+}
+.card--ordercta{
+	border-width: 0px;
+}
+.card--ordercta-img,
+.card--ordercta-skrim{
+	height: 25vh;
+}
+.card--ordercta-img img{
+	width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card--ordercta-skrim{
+	position: absolute;
+	background-color: var(--hhh-color-pink);
+	-webkit-transition : all .33s ease-out;
+	-moz-transition : all .33s ease-out;
+	-o-transition : all .33s ease-out;
+	transition : all .33s ease-out;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	opacity: 0;
+}
+@media (min-height: 600px) {
+	.card--ordercta-img,
+	.card--ordercta-skrim{
+		height: 30vh;
+	}
+}
+@media (min-height: 900px) {
+	.card--ordercta-img,
+	.card--ordercta-skrim{
+		height: 40vh;
+	}
+}
+@media (min-height: 1200px) {
+	.card--ordercta-img,
+	.card--ordercta-skrim{
+		height: 50vh;
+	}
+}
+
+
+.card--ordercta-body{
+
+	text-decoration: none !important;
+
+	background-color: #f4f4f4;
+	padding: 3em;
+	overflow: hidden;
+}
+.card--ordercta-body h1{
+	-webkit-transition : all .33s ease-out;
+	-moz-transition : all .33s ease-out;
+	-o-transition : all .33s ease-out;
+	transition : all .33s ease-out;
+	padding-bottom: 1rem;
+	text-transform: uppercase;
+	text-decoration: none !important;
+}
+.card--ordercta-body p{
+	color: var(--hhh-color-darkblue);
+	-webkit-transition : all .33s ease-out;
+	-moz-transition : all .33s ease-out;
+	-o-transition : all .33s ease-out;
+	transition : all .33s ease-out;
+	font-size: 1.25rem;
+	line-height: 1.4;
+	padding-bottom: 1rem;
+	text-decoration: none !important;
+}
+.card--ordercta-body .card-link .button{
+	text-transform: uppercase;
+ margin-top: 30px;
+ cursor: pointer;
+}
+a.card--ordercta-a, a.card--ordercta-a:hover{
+	text-decoration: none !important;
+}
+a.card--ordercta-a:hover .card--ordercta .card--ordercta-img .card--ordercta-skrim{
+	opacity: 15%;
+}
+a.card--ordercta-a:hover .card--ordercta .card--ordercta-body p,
+a.card--ordercta-a:hover .card--ordercta .card--ordercta-body h1{
+	color: var(--hhh-color-pink);
+	text-decoration: none !important;
 }
