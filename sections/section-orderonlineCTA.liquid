@@ -7,7 +7,15 @@
           <a href="" class="card--ordercta-a">
             <div class="card h-100 card--ordercta">
               <div class="card-img-top card--ordercta-img">
-                <img src="{{ block.settings.cta_image.src | img_url: "master" }}" class="" alt="{{ block.settings.cta_title }}">
+                {% if block.settings.cta_image != blank %}
+                  <img src="{{ block.settings.cta_image.src | img_url: "master" }}" class="" alt="{{ block.settings.cta_title }}">
+                {% else %}
+                  <div class="placeholder-image placeholder--banner object-fit">
+                    {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                    {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {% endif %}
+
                 <div class="card--ordercta-skrim"></div>
               </div>
               <div class="card-body card--ordercta-body position--hcenter position--vcenter text-center">
