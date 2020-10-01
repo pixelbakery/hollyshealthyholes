@@ -1,102 +1,107 @@
 <section id="findus" class=" shopify-section bg--white border-bottom-0 py-5 bg--white">
-  <div class="container my-5">
-    <div class="row">
+  {%- assign sectiona_header = section.settings.foh_header -%}
+  <div class="container ">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h1 class="feature-header h2 align-left feature-header--visible pt-3">{{ sectiona_header }}</h1>
+        <div class="mw-700 my-2 rte">{{section.settings.foh_blurb}}</div>
+      </div>
+    </div>
 
-<div class="col-12">
-    {% assign omaha = section.blocks | where: "type", "Omaha" %}
-    {% assign lincoln = section.blocks | where: "type", "lincoln" %}
-    {% assign bellevue = section.blocks | where: "type", "bellevue" %}
-    {% assign valley = section.blocks | where: "type", "valley" %}
-    {% assign councilbluffs = section.blocks | where: "type", "councilbluffs" %}
-      <h1> Omaha: </h1>
-      {%- for block in omaha -%}
-       <h5>{{ block.settings.title }} </h5>
-    {%- endfor -%}
-
-    <h1> Lincoln: </h1>
-    {%- for block in lincoln -%}
-     <h5>{{ block.settings.title }} </h5>
-  {%- endfor -%}
-
-  <h1> valley: </h1>
-  {%- for block in valley -%}
-   <h5>{{ block.settings.title }} </h5>
-{%- endfor -%}
-
-<h1> bellevue: </h1>
-{%- for block in bellevue -%}
- <h5>{{ block.settings.title }} </h5>
-{%- endfor -%}
-
-<h1> councilbluffs: </h1>
-{%- for block in councilbluffs -%}
- <h5>{{ block.settings.title }} </h5>
-{%- endfor -%}
-
-asdfs
-</div>
-
-        <div class=" col col-xs-2 col-sm-4 vendor-box h-100">
-          <div class="row">
-            <div class="col-3 h-100">
-              <figure class="vendor-box--iconwrapper">
-                <img src="" alt="" class="" />
-              </figure>
-            </div>
-            <div class="col-9 h-100">
-
-            </div>
-          </div>
+    {% assign cities = section.blocks | map: "type" | uniq %}
+    {%- for type in cities -%}
+      {% assign city = type %}
+    <div class="container my-3 pt-2">
+      <div class="row">
+        <div class="col-12 mb-3  ml-0 pl-0">
+          <h4 class="text-left ml-0 pl-0"> {{ city }} </h4>
         </div>
-
-
-
-
-
-
-      <div class="col-12 align-left">
-       <h1 class="feature-header h2 align-left feature-header--visible pt-3">FIND OUR HOLES</h1>
-
-        <p class="mw-700 my-2">Good news: There are a ton of sweet locations around Nebraska where you can snag our protein donuts! Find your fave below, and put the pedal to the metal. </div>
-    </div>
-    <div class="row mt-3 mb-2">
-      <div class="col-12 align-left text-left">
-        <h3 class="text-left align-left" >OMAHA, NE</h3>
       </div>
-    </div>
-    <div class="row row-cols-2 row-cols-md-3">
+      <div class="row row-cols-1 row-cols-xs-2 row-cols-md-3">
+          {% assign cityArray = section.blocks | where: "type", city %}
+          {%- for block in cityArray -%}
+            {% assign vendorName = block.settings.title %}
+            {% assign vendorURL = block.settings.foh_vendorWebsite | replace: 'http://', 'https://'%}
+            {% assign vendorWebsitePretty = block.settings.foh_vendorWebsite | remove: "www." | remove: "http://" | remove: "https://" | truncate: 30 %}
+            {% assign vendorStreet = block.settings.foh_vendorStreet %}
 
-      {% include 'findus-omaha' %}
-    </div>
+          <a class="col mb-3 px-1 hvr-float vendor-box--a" href="{{vendorURL}}" target="_blank" rel="nofollow">
+              <div class=" vendor-box  h-100 row no-gutters">
+                <div class="col-4 h-100 d-flex flex-column justify-content-center  vendor-inner pl-4">
+                  {% case block.settings.vendor_type %}
+                    {% when "coffeeshop" %}
+                      {% assign vendorIcon = 'coffee.svg' | asset_url %}
+                    {% when "cafe" %}
+                      {% assign vendorIcon = 'bread.svg' | asset_url %}
+                    {% when "other" %}
+                      {% assign vendorIcon = 'rollingpin.svg' | asset_url %}
+                    {% when "else" %}
+                      {% assign vendorIcon = 'rollingpin.svg' | asset_url %}
+                  {% endcase %}
+                  <img src="{{ vendorIcon }}" alt="{{ vendorName }}" class=" vendor-box--icon mx-auto"/>
+                </div>
+                <div class="col-8 ">
+                  <div class="card-body vendor--card-body h-100 d-flex flex-column justify-content-between">
+                    <h5 class="card-title text-left ml-0 pl-0 my-1">{{ block.settings.title }} </h5>
+                    <div>
+                      <p class="card-text py-1 my-0">{{vendorStreet}}</p>
+                      <p class="card-text py-1 my-0">{{vendorWebsitePretty}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </a>
 
-    <div class="row mt-3 mb-2">
-      <div class="col-12 align-left text-left">
-        <h3 class="text-left align-left" >LINCOLN, NE</h3>
+
+          {%- endfor -%}
+        </div> {% comment %}end row{% endcomment %}
       </div>
-    </div>
-    <div class="row row-cols-2 row-cols-md-3">
-
-      {% include 'findus-lincoln' %}
-    </div>
-
-    <div class="row mt-3 ">
-      <div class="col-12 col-md-6 align-left text-left">
-        <h3 class="text-left align-left text-uppercase mb-2" >Bellevue, NE</h3>
-        <div class="row row-cols-1 row-cols-md-1">
-          {% include 'findus-bellevue' %}
-      	</div>
-      </div>
-      <div class="col-12 col-md-6 align-left text-left">
-        <h3 class="text-left align-left text-uppercase mb-2" >VALLEY, NE</h3>
-        <div class="row row-cols-1 row-cols-md-1">
-          {% include 'findus-valley' %}
-      	</div>
-      </div>
-
-    </div>
-
-  </div>
+    {%- endfor -%}
+  </div>{% comment %}end section container{% endcomment %}
 </section>
+{% comment %}
+{% assign omaha = section.blocks | where: "type", "Omaha" %}
+{% assign lincoln = section.blocks | where: "type", "lincoln" %}
+{% assign bellevue = section.blocks | where: "type", "bellevue" %}
+{% assign valley = section.blocks | where: "type", "valley" %}
+{% assign councilbluffs = section.blocks | where: "type", "councilbluffs" %}
+{% if omaha != blank %}
+<h1> Omaha: </h1>
+  {%- for block in omaha -%}
+    <h5>{{ block.settings.title }} </h5>
+  {%- endfor -%}
+{% endif %}
+
+{% if lincoln != blank %}
+<h1> Lincoln: </h1>
+  {%- for block in lincoln -%}
+    <h5>{{ block.settings.title }} </h5>
+  {%- endfor -%}
+{% endif %}
+
+{% if bellevue != blank %}
+<h1> bellevue: </h1>
+  {%- for block in bellevue -%}
+    <h5>{{ block.settings.title }} </h5>
+  {%- endfor -%}
+{% endif %}
+
+{% if valley != blank %}
+<h1> valley: </h1>
+  {%- for block in valley -%}
+    <h5>{{ block.settings.title }} </h5>
+  {%- endfor -%}
+{% endif %}
+
+{% if councilbluffs != blank %}
+<h1> councilbluffs: </h1>
+  {%- for block in councilbluffs -%}
+    <h5>{{ block.settings.title }} </h5>
+  {%- endfor -%}
+{% endif %}
+{% endcomment %}
+
+
 
 
 {% schema %}
@@ -271,10 +276,45 @@ asdfs
                "label": "Vendor Zip Code"
              }
              ]
+           },
+           {
+             "type": "councilbluffs",
+             "name": "Council Bluffs Vendor",
+             "settings": [
+             {
+               "id": "title",
+               "type": "text",
+               "label": "Vendor Name"
+             },
+             {
+               "type":      "radio",
+               "id":        "vendor_type",
+               "label":     "Vendor Type",
+               "options": [
+                 { "value": "coffeeshop",   "label": "Coffee Shop" },
+                 { "value": "cafe",         "label": "Café" },
+                 { "value": "other",        "label": "Other" }
+               ],
+               "default":   "coffeeshop",
+               "info":      "Select which type of vendor this is. This determines the displayed icon on the vendor card."
+             },
+             {
+               "id": "foh_vendorWebsite",
+               "type": "url",
+               "label": "Vendor Website"
+             },
+             {
+               "id": "foh_vendorStreet",
+               "type": "text",
+               "label": "Vendor Street Number"
+             },
+             {
+               "id": "foh_vendorZip",
+               "type": "text",
+               "label": "Vendor Zip Code"
+             }
+             ]
            }
-
-
-
          ]
        }
      {% endschema %}
