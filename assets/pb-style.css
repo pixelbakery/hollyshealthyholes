@@ -44,6 +44,9 @@ main, .template-product #page-content {
  .bg--light-yellow{
   background-color: var(--hhh-color-lightyellow) !important;
 }
+.bg--grey{
+	background-color: var(--hhh-color-grey);
+}
 .bg--light-pink{
  background-color: var(--hhh-color-lightpink) !important;
 }
@@ -268,8 +271,6 @@ main#page-content {
 .logo .alt-logo {
   top: 1em;
 }
-
-
 .cta-box{
   background-color: var(--hhh-color-lightpink);
   color: var(--hhh-color-brown);
@@ -668,6 +669,9 @@ a.link-cbd:hover{
 #admin-bar-iframe{
   display: none !important;
   visibility: hidden;
+}
+.product-block{
+	background-color: var(--hhh-color-grey);
 }
 .product-block--img-wrapper{
  overflow:hidden;
