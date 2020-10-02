@@ -21,6 +21,9 @@
   {% when 'Vegan Donuts' %}
     {% assign donut_icon = 'HHH_Donut3.svg' | asset_url   %}
     {% assign is_donut = true %}
+  {% when 'Other Noms' %}
+    {% assign donut_icon = 'HHH_Donut4.svg' | asset_url   %}
+    {% assign is_donut = true %}
 {% endcase %}
 <section class="container-fluid bg--white py-3">
   <div class="container my-5 py-5">
@@ -42,7 +45,7 @@
  <section class="product-list cf container-fluid container-lg py-3 my-3 px-md-5" id="CollectionSection-{{ block.id }}" data-section-id="{{ block.id }}" data-section-type="collection-template">
    <div class="row">
      <div class="col-12 align-left">
-       <h1 class="feature-header h2 align-left feature-header--visible pt-3">{{ collection.title }}</h1>
+       <h1 class="feature-header h2 align-left feature-header--visible pt-3 ">{{ collection.title }}</h1>
      </div>
      {% unless collection.products.size > 0 %}
        <div class="col-12"><p class="align-centre"><em>{{ 'collections.general.no_matches' | t }}</em></p></div>
@@ -58,7 +61,7 @@
  <section class="container">
    <div class="row">
      <div class="col-12 mx-auto text-center my-5">
-       <a class="btn btn-primary" href="/collections">{% include 'svg-chevron-left' %} Back To All Donuts</a>
+       <a class="btn btn-primary" href="/collections">{% include 'svg-chevron-left' %} Back To All Products</a>
      </div>
    </div>
  </section>
