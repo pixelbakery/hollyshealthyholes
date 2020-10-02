@@ -1,87 +1,35 @@
-
-<section class=" shopify-section bg--white border-top-0 py-5">
+{% assign blurb = section.settings.donuttime_blurb%}
+{% assign section_title = section.settings.donuttime_header%}
+<section class=" shopify-section bg--white border-top-0 py-5" id="donuttime">
   <div class="container px-2 px-md-3">
-  <div class="row">
-    <div class="col-12 align-left">
-      <h1 class="feature-header h2 align-left feature-header--visible py-4">IT'S DONUT TIME</h1>
-      <p class="mw-700 my-2" >
-        Gluten free. Natural, whole food sources. Crafted with love.
-		<br/><br/>
-		You really can’t go wrong—what strikes your fancy?
-      </p>
+    <div class="row">
+      <div class="col-12 align-left">
+        <h1 class="feature-header h2 align-left feature-header--visible py-4">{{ section_title }}</h1>
+        <div class="rte mw-700 my-2">{{ blurb }}</div>
+      </div>
     </div>
-  </div>
   </div>
 
   <div class="container my-4">
    <div class="row row-cols-1 row-cols-md-3">
-   	<div class="col mb-4">
-      <div class="card ">
-        <a href="#">
-          <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="card-img" alt="...">
-          <div class="pink-skrim"></div>
-          <div class="card-img-overlay d-flex flex-column justify-content-center">
-            <h5 class="card-title">ORIGINAL DONUTS</h5>
-          </div>
-        </a>
-      </div>
-    </div>
-  	<div class="col mb-4">
-      <div class="card ">
-        <a href="#">
-          <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="card-img" alt="...">
-          <div class="pink-skrim"></div>
-          <div class="card-img-overlay d-flex flex-column justify-content-center">
-            <h5 class="card-title">VEGAN DONUTS</h5>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="col mb-4">
-      <div class="card ">
-        <a href="#">
-          <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="card-img" alt="...">
-          <div class="pink-skrim"></div>
-          <div class="card-img-overlay d-flex flex-column justify-content-center">
-            <h5 class="card-title">SPECIALTY DONUTS</h5>
+     {%- for block in section.blocks -%}
+       	<div class="col mb-4 hvr-float ">
+          <div class="card rounded-0 border-0">
+            <a href="{{ block.settings.cta_link }}">
+              {% if block.settings.cta_image != blank %}
+                <img src="{{ block.settings.cta_image.src | img_url: "master" }}" class="card-img rounded-0 border-0" alt="{{ block.settings.cta_title }}">
+              {% else %}
+                <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="card-img rounded-0 border-0" alt="placeholder">
+              {% endif %}
 
+              <div class="pink-skrim"></div>
+              <div class="card-img-overlay d-flex flex-column justify-content-center rounded-0 border-0">
+                <h5 class="card-title">{{ block.settings.cta_title }}</h5>
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
-    </div>
-    <div class="col mb-4">
-       <div class="card ">
-         <a href="#">
-           <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="card-img" alt="...">
-           <div class="pink-skrim"></div>
-           <div class="card-img-overlay d-flex flex-column justify-content-center">
-             <h5 class="card-title">STUFF YA BOX</h5>
-           </div>
-         </a>
-       </div>
-     </div>
-     <div class="col mb-4">
-       <div class="card ">
-         <a href="#">
-           <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="card-img" alt="...">
-           <div class="pink-skrim"></div>
-           <div class="card-img-overlay d-flex flex-column justify-content-center">
-             <h5 class="card-title">GIFT CARDS</h5>
-           </div>
-         </a>
-       </div>
-     </div>
-     <div class="col mb-4">
-       <div class="card ">
-         <a href="#">
-           <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="card-img" alt="...">
-           <div class="pink-skrim"></div>
-           <div class="card-img-overlay d-flex flex-column justify-content-center">
-             <h5 class="card-title">MERCH</h5>
-           </div>
-         </a>
-       </div>
-     </div>
+        </div>
+      {%- endfor -%}
   	</div>
   </div>
 </section>
@@ -89,13 +37,47 @@
 {% schema %}
   {
     "name": "Get Your Donuts On",
-    "settings": [],
-  "presets": [
-    {
-      "name": "Store Link CTA",
-      "category": "About Page"
-    }
-  ]
+      "settings": [
+      {
+        "type": "text",
+        "id": "donuttime_header",
+        "label": "Section Title"
+      },
+      {
+        "type": "richtext",
+        "id": "donuttime_blurb",
+        "label": "Section Blurb"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Store Link CTA",
+        "category": "Call To Actions"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "cta",
+        "name": "Site Link Cards",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "cta_image",
+            "label": "Card Image"
+          },
+          {
+            "type": "text",
+            "id": "cta_title",
+            "label": "Card title"
+          },
+          {
+            "id": "cta_link",
+            "type": "url",
+            "label": "Card Link"
+          }
+        ]
+      }
+    ]
   }
 {% endschema %}
 

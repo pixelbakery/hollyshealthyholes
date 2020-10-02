@@ -1,0 +1,94 @@
+<section class="shopify-section bg--white border-bottom-0 py-3" id="howtoorder">
+{%- assign octa_header = section.settings.cta_header -%}
+  <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-2">
+      {%- for block in section.blocks -%}
+        <div class="col mb-4">
+          <a href="" class="card--ordercta-a">
+            <div class="card h-100 card--ordercta">
+              <div class="card-img-top card--ordercta-img">
+                {% if block.settings.cta_image != blank %}
+                  <img src="{{ block.settings.cta_image.src | img_url: "master" }}" class="" alt="{{ block.settings.cta_title }}">
+                {% else %}
+                  <div class="placeholder-image placeholder--banner object-fit">
+                    {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                    {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {% endif %}
+
+                <div class="card--ordercta-skrim"></div>
+              </div>
+              <div class="card-body card--ordercta-body position--hcenter position--vcenter text-center d-flex flex-column justify-content-between">
+                <h1 class="card-title line-1">{{ block.settings.cta_title }}</h1>
+                <p class="card-text line-2">{{ block.settings.cta_text }}</p>
+                <div class="card-link line-3 hvr-float ">
+                  <span class="button">{{ block.settings.cta_button }}</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Order Options",
+    "presets": [
+      {
+        "name": "Order Option Buttons",
+        "category": "Call To Actions"
+      }],
+    "settings": [
+      {
+        "type": "text",
+        "id": "cta_header",
+        "label": "Section Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "cta",
+        "name": "Order Option Card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "cta_image",
+            "label": "Card Image"
+          },
+          {
+            "type": "text",
+            "id": "cta_title",
+            "label": "Card title"
+          },
+          {
+            "type": "textarea",
+            "id": "cta_text",
+            "label": "Card Body Copy"
+          },
+          {
+            "type": "text",
+            "id": "cta_button",
+            "label": "Card Button Text"
+          },
+          {
+            "id": "cta_link",
+            "type": "url",
+            "label": "Card Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
