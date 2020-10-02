@@ -1,29 +1,41 @@
 {%- assign ourstory_enable = section.settings.ourstory_enable -%}
 {% if ourstory_enable %}
-<section id="ourstory" class="container-fluid bg--light-pink">
+<section id="ourstory" class="container-fluid bg--pink">
    {%- assign ourstory_header = section.settings.ourstory_header -%}
    {%- assign ourstory_subhead = section.settings.ourstory_subhead -%}
    {%- assign ourstory_blurb = section.settings.ourstory_blurb -%}
-  <div class="row no-gutter d-flex ">
+  <div class="row no-gutter d-flex">
     <div class="col-12 col-md-8 col-xl-6 left order-last flex-fill">
-      <div class="container  p-5 d-flex flex-column justify-content-center  h-100">
+      <div class="container  p-4 d-flex flex-column justify-content-center  h-100">
         <div class="row mx-3 mb-3 pb-3">
           <div class="col-12 col text-left">
-            <h1 class="feature-header h2 align-center feature-header--visible py-5">{{ourstory_header}}</h1>
-            <p class="text-bold lead">{{ ourstory_subhead }}</p>
-            <div class="rte">
-            {{ ourstory_blurb }}
+            <h1 class="feature-header h2 align-left feature-header--visible py-5 after-white">{{ourstory_header}}</h1>
+            <div class="p-3 bg-white m--3">
+              <p class="text-bold lead"><strong>{{ ourstory_subhead }}</strong></p>
+              <div class="rte">
+              {{ ourstory_blurb }}
+            </div>
           </div>
-          </div>
+        </div>
 
       </div>
       </div>
   </div>
-    <div class="col-12 col-md-4 col-xl-6 right  order-md-first mh-75 p-0">
-      <img class="object-fit anchor-top" alt="" src="https://media.pixelbakery.com/HHH/images/PB-5423.jpg" />
+    <div class="col-12 col-md-4 col-xl-6 right  order-md-first p-0 flex-fill" style="min-height:100% !important;background-image:url(https://media.pixelbakery.com/HHH/images/PB-5423.jpg);background-size:cover;background-repeat:no-repeat;background-position:center top;">
+      <figure class="image m-0 mh-75" style="opacity:0;">
+        <img alt="Holly Wiest" src="https://media.pixelbakery.com/HHH/images/PB-5423.jpg" />
+      </figure>
     </div>
   </div>
 </section>
+<style>
+.after-white:after {
+  border-top-color:white;
+}
+.m--3 {
+  margin: -1rem !important;
+}
+</style>
 {% endif %}
 
 

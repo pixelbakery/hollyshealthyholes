@@ -82,45 +82,13 @@
           "show_currency_selector": false
         }
       },
-      "1482141870755": {
-        "type": "slideshow",
-        "disabled": true,
-        "blocks": {
-          "1482141870755-1": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/HHH_Artboard_27_v1.jpg",
-              "image_mobile": "",
-              "bg_color": "#000000",
-              "bg_opacity": 0,
-              "image_alignment": "center center",
-              "heading": "",
-              "subheading": "",
-              "button_text": "",
-              "position": "middle",
-              "text_color": "#ffffff",
-              "link_url": ""
-            }
-          }
-        },
-        "block_order": [
-          "1482141870755-1"
-        ],
-        "settings": {
-          "layout": "fill",
-          "transition": "fade",
-          "background": "#fa9295"
-        }
-      },
       "1572968682511": {
         "type": "featured-text",
         "settings": {
           "title": "NO ARTIFICIAL SUGARS,    NO RIDICULOUSNESS.",
           "text": "<p>We make protein-rich, nutrient-dense donuts that are freaking delicious. They are free of processed sugars and fats, gluten, lactose, casein, and artificial ingredients.<\/p>",
           "button_text": "EAT A DONUT",
-          "button_url": "",
           "button_text2": "",
-          "button_url2": "",
           "text_color": "#fbe99e",
           "text_background": "#78a077"
         }
@@ -129,11 +97,10 @@
         "type": "text-beside-image",
         "settings": {
           "layout": "right",
-          "image": "shopify:\/\/shop_images\/96731302_883141598795532_5536068117762927954_n_f15da12b-3c6e-4956-8601-0437c573e0f6.jpg",
-          "image_url": "",
+          "image": "shopify:\/\/shop_images\/Yonigill.com_PB-9495_websize.jpg",
           "color_bg": "#fbe99e",
           "title": "Donuts Made with Stuff you Actually Recognize",
-          "text": "<p>You could say our little company is a lot like a donut: we&rsquo;ve got a transparent center. We make donuts with ingredients like coconut oil, egg whites, pumpkin, unsweetened applesauce, honey, apple cider vinegar&mdash;all the good stuff you can pronounce, all gluten free.<\/p>",
+          "text": "<p>You could say our little company is a lot like a donut: we’ve got a transparent center. We make donuts with ingredients like coconut oil, egg whites, pumpkin, unsweetened applesauce, honey, apple cider vinegar—all the good stuff you can pronounce, all gluten free.<\/p>",
           "button_text": "Peep The Full Ingredients List",
           "button_url": "\/pages\/nutrition",
           "text_alignment": "center"
@@ -143,42 +110,25 @@
         "type": "text-beside-image",
         "settings": {
           "layout": "left",
-          "image": "shopify:\/\/shop_images\/67700304_2677558162263544_3156935498115579904_o.jpeg",
-          "image_url": "",
+          "image": "shopify:\/\/shop_images\/Yonigill.com_PB-9645_websize.jpg",
           "color_bg": "#78a077",
-          "title": "HERE'S THE SKINNY",
-          "text": "<p><\/p>\n<p><\/p>\n<p>We believe people shouldn&rsquo;t be deprived of donuts because they aren&rsquo;t in alignment with your health goals, and that you should be able to #cheateveryday. So we&nbsp;created a protein donut that tastes so good you wouldn&rsquo;t know it&rsquo;s anything but a good freaking donut.<\/p>",
+          "title": "#CHEATEVERYDAY",
+          "text": "<p><\/p><p><\/p><p>We believe people shouldn’t be deprived of donuts because they aren’t in alignment with your health goals, and that you should be able to #cheateveryday. So we created a protein donut that tastes so good you wouldn’t know it’s anything but a good freaking donut.<\/p><p>What you eat matters. How good it makes you feel matters. And whether or not it tastes good enough to make you want to continue doing it for the consistency of your lifestyle is important. Using food as medicine, and as a form of love and respect to your own self matters to us, too.<\/p>",
           "button_text": "",
-          "button_url": "",
           "text_alignment": "center"
-        }
-      },
-      "1572968682510": {
-        "type": "featured-text",
-        "settings": {
-          "title": "#CheatEveryDay",
-          "text": "<p>What you eat matters. How good it makes you feel matters. And whether or not it tastes good enough to make you want to continue doing it for the consistency of your lifestyle is important. Using food as medicine, and as a form of love and respect to your own self matters to us, too.<\/p>",
-          "button_text": "",
-          "button_url": "",
-          "button_text2": "",
-          "button_url2": "",
-          "text_color": "#774d4b",
-          "text_background": "#fa9295"
         }
       },
       "1553007310559": {
         "type": "text-over-image",
         "settings": {
           "image": "shopify:\/\/shop_images\/HHH_yellowcard_small_v1_b8733afd-4f50-4c38-9a86-2ef0638f9dd5.jpg",
-          "image_mobile": "",
           "bg_color": "#000000",
           "bg_opacity": 0,
           "title": "YEAH, WE KNOW OUR NAME IS AN INNUENDO",
           "subheading": "We like it that way.",
           "button_text": "Wanna Know Why?",
           "position": "position--hcenter position--vcenter",
-          "text_color": "#78a077",
-          "link_url": ""
+          "text_color": "#78a077"
         }
       },
       "footer": {
@@ -216,8 +166,8 @@
       },
       "1590109045289": {
         "type": "featured-product",
+        "disabled": true,
         "settings": {
-          "product": "gift-card-1",
           "background_color": "#fdfffc",
           "text_align": "center",
           "show_tax_and_shipping": false,
@@ -234,49 +184,13 @@
           "text": "<p><em>Give that wholesome goodness to someone you love.<\/em><\/p>"
         }
       },
-      "1590109526702": {
-        "type": "map",
-        "settings": {
-          "color_bg": "#fa9295",
-          "heading": "HIT US UP",
-          "address": "<p><strong>CALL US&nbsp; &nbsp;<\/strong>&nbsp;<br><a href=\"tel:5157088285\" title=\"tel:5157088285\">515-708-8285<\/a><\/p>\n<p><br><strong>WRITE US<br><\/strong><a href=\"mailto:howdy@hollyshealthyholes.com\" title=\"mailto:howdy@hollyshealthyholes.com\">howdy@hollyshealthyholes.com<\/a><\/p>\n<p><\/p>\n<p><\/p>\n<p><strong>SEE US<br><\/strong>2215&nbsp;Leavenworth St<br>Omaha, NE 68102&nbsp;<br><br><\/p>\n<p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm<\/p>",
-          "button": "Directions",
-          "text_alignment": "center",
-          "map_address": "2215 Leavenworth St, Omaha, NE 68102",
-          "api_key": "",
-          "map_style": "silver",
-          "image": "shopify:\/\/shop_images\/96382084_3282823911736963_1385874749715906560_o.jpg"
-        }
-      },
       "1590110803744": {
         "type": "newsletter",
+        "disabled": true,
         "settings": {
           "title": "Newsletter",
           "text": "<p>Sign up to our newsletter and we’ll keep you up to date with the latest arrivals<\/p>",
           "background_color": "#fdfffc"
-        }
-      },
-      "1590111326666": {
-        "type": "image-beside-image",
-        "settings": {
-          "left_image": "shopify:\/\/shop_images\/70649593_2764951886857504_6325074989653426176_o_85b380ac-553b-4954-b569-f24353e2d477.jpg",
-          "left_bg_color": "#464654",
-          "left_bg_opacity": 60,
-          "left_url": "shopify:\/\/pages\/donuts",
-          "left_title": "ORDER ONLINE",
-          "left_subheading": "Direct delivery to anywhere in Omaha for $8.00 or to a partnering pickup location for free.",
-          "left_button_text": "GET YA DONUTS",
-          "left_position": "position--hcenter position--vcenter",
-          "left_text_color": "#fbe99e",
-          "right_image": "shopify:\/\/shop_images\/69487150_2734388416580518_1167474601857384448_o_0ef5dfd2-c0c4-4f6f-9b4e-68b5489d1ee5.jpg",
-          "right_bg_color": "#464654",
-          "right_bg_opacity": 60,
-          "right_url": "\/pages\/about#findus",
-          "right_title": "GET ‘EM NOW",
-          "right_subheading": "Find our Healthy Holes in Lincoln and Omaha! Some (very cool) local retailers regularly have our donuts for sale.",
-          "right_button_text": "SEE RETAILERS",
-          "right_position": "position--hcenter position--vcenter",
-          "right_text_color": "#fbe99e"
         }
       },
       "list-collections-template": {
@@ -299,12 +213,19 @@
             "settings": {
               "collection": "vegan-donuts"
             }
+          },
+          "729e5562-d985-490b-9399-43f225a400a0": {
+            "type": "image",
+            "settings": {
+              "collection": "other-noms"
+            }
           }
         },
         "block_order": [
           "1599249588493",
           "1592864109077",
-          "1592864088653"
+          "1592864088653",
+          "729e5562-d985-490b-9399-43f225a400a0"
         ],
         "settings": {
           "title": "Get Ya Donuts",
@@ -314,10 +235,6 @@
           "hover_effect": "",
           "show_count": false
         }
-      },
-      "1596561395879": {
-        "type": "sprinkles-hero",
-        "settings": {}
       },
       "sprinkles-sm-header": {
         "type": "sprinkles-sm-header",
@@ -361,13 +278,10 @@
           "show_announcement": false,
           "announcement_home_only": false,
           "announcement_text": "",
-          "announcement_link": "",
           "announcement_col_bar": "#000000",
           "announcement_col_text": "#ffffff",
           "show_logo_on_homepage": true,
-          "logo": "",
           "logo_width": "200",
-          "alt_logo": "",
           "menu_linklist": "main-menu",
           "nav_show_breadcrumb": true,
           "nav_horizonal_show_title": true,
@@ -381,11 +295,286 @@
       },
       "about-findus": {
         "type": "about-findus",
-        "settings": {}
+        "blocks": {
+          "131675b9-e820-4786-84d0-e926fa5f524b": {
+            "type": "Omaha",
+            "settings": {
+              "title": "STIR Coffee Bar",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/stircoffeeco.com",
+              "foh_vendorStreet": "16950 Wright PLZ Ste 137",
+              "foh_vendorZip": "68130"
+            }
+          },
+          "3b2e29ed-b409-4c87-9299-02341ffb3443": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Dripped + Draped",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/drippedndraped.com",
+              "foh_vendorStreet": "6015 Maple St",
+              "foh_vendorZip": "68104"
+            }
+          },
+          "c1e8a048-e1b2-4955-83bc-bea90d8e8dc4": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Zen Coffee Co.",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "https:\/\/zencoffeecompany.com",
+              "foh_vendorStreet": "230 S 25th St #3",
+              "foh_vendorZip": "68131"
+            }
+          },
+          "ed715fe2-06f8-408a-8cfb-81f96aba87e1": {
+            "type": "Omaha",
+            "settings": {
+              "title": "The Grove Juicery",
+              "vendor_type": "cafe",
+              "foh_vendorWebsite": "http:\/\/thegrovejuicery.com",
+              "foh_vendorStreet": "2401 Farnam St",
+              "foh_vendorZip": "68131"
+            }
+          },
+          "a0907f1e-475a-4251-9660-99f4b599e298": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Dundee Double Shot",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/dundeedoubleshot.com",
+              "foh_vendorStreet": "118 N 50th St",
+              "foh_vendorZip": "68132"
+            }
+          },
+          "863fde12-ffbf-4d9c-a145-61bee6cb1f7b": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Myrtle & Cypress Coffeehouse",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/myrtleandcypresscoffee.com",
+              "foh_vendorStreet": "517 N 33rd St",
+              "foh_vendorZip": "68131"
+            }
+          },
+          "2ea8eccc-4027-4185-a962-5db65c314d61": {
+            "type": "Omaha",
+            "settings": {
+              "title": "13th Street Coffee & Tea",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "https:\/\/www.facebook.com\/13thStreetCoffeeCompany\/",
+              "foh_vendorStreet": "519 S 13th St",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "3c5af78d-15fc-4f7a-8ce4-432fae71116f": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Karma Koffee",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "https:\/\/www.facebook.com\/karmakoffeeomaha\/",
+              "foh_vendorStreet": "587 N 155th PLZ",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "5a513981-2ba9-4845-9fab-5cc701d89e3f": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Village Grinder",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "https:\/\/www.facebook.com\/villagegrinder402",
+              "foh_vendorStreet": "8706 Pacific St",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "0d77a6b0-ac33-4217-ad15-958d1595920c": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Howlin' Hounds",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/howlinhoundscoffee.com",
+              "foh_vendorStreet": "72nd 12 S 16th St",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "94c2420e-50ca-4dc7-be32-2bf391621adc": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Classic Rock Coffee Co.",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/classicrockcoffee.com",
+              "foh_vendorStreet": "3912 N 72nd St",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "3c700e00-a781-44c0-b8c5-686a0f02f6e7": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Cake Creations",
+              "vendor_type": "other",
+              "foh_vendorWebsite": "http:\/\/cakecreationsomaha.com",
+              "foh_vendorStreet": "502 N 16th St",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "511bbd67-2b42-4bff-a32f-9ad491052272": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Approach Climbing Gym",
+              "vendor_type": "other",
+              "foh_vendorWebsite": "http:\/\/omaharockgym.com",
+              "foh_vendorStreet": "4923 S 72nd St",
+              "foh_vendorZip": "68127"
+            }
+          },
+          "01f82b60-de44-418e-acb1-9929f293ce6c": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Rexius Nutrition",
+              "vendor_type": "other",
+              "foh_vendorWebsite": "http:\/\/rexiusnutrition.com",
+              "foh_vendorStreet": "12105 W Center Rd",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "75b59bf0-fda6-4045-af85-6b8a7fc5bce7": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Rexius Nutrition",
+              "vendor_type": "other",
+              "foh_vendorWebsite": "http:\/\/rexiusnutrition.com",
+              "foh_vendorStreet": "10926 Emmet St",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "54aac472-dc6a-47e9-9659-64b36af3a378": {
+            "type": "Omaha",
+            "settings": {
+              "title": "Figure by Faith",
+              "vendor_type": "other",
+              "foh_vendorWebsite": "http:\/\/figurebyfaithdevotions.com",
+              "foh_vendorStreet": "17825 Pierce PLZ",
+              "foh_vendorZip": "68154"
+            }
+          },
+          "ca0f278a-1365-4181-b725-0740f99b2cb5": {
+            "type": "valley",
+            "settings": {
+              "title": "Brew Coffee House & Tasting Room",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/brewcoffeevalley.com",
+              "foh_vendorStreet": "318 N Spruce St",
+              "foh_vendorZip": "68064"
+            }
+          },
+          "a7d4f67a-d429-471d-8e60-b881e3de2f87": {
+            "type": "lincoln",
+            "settings": {
+              "title": "The Mill Coffee & Tea - Haymarket",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/millcoffee.com",
+              "foh_vendorStreet": "800 P St #100",
+              "foh_vendorZip": "68508"
+            }
+          },
+          "bd0f85d1-7df9-4362-98b9-89475bf4fa06": {
+            "type": "lincoln",
+            "settings": {
+              "title": "The Mill Coffee & Tea - College View",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/millcoffee.com",
+              "foh_vendorStreet": "4736 Prescott Ave",
+              "foh_vendorZip": "68508"
+            }
+          },
+          "fa1796c8-bfac-414a-bec3-1abe7b12c864": {
+            "type": "lincoln",
+            "settings": {
+              "title": "The Mill Coffee & Tea - Telegraph",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/millcoffee.com",
+              "foh_vendorStreet": "330 S 21st St",
+              "foh_vendorZip": "68510"
+            }
+          },
+          "e04e32eb-f0d9-4479-ac8e-4bb98541e829": {
+            "type": "lincoln",
+            "settings": {
+              "title": "The Hub Cafe",
+              "vendor_type": "cafe",
+              "foh_vendorWebsite": "http:\/\/hubcafelincoln.com",
+              "foh_vendorStreet": "250 N 21st St #3",
+              "foh_vendorZip": "68508"
+            }
+          },
+          "8605856c-cb3c-4d09-b338-0c55a66100a4": {
+            "type": "lincoln",
+            "settings": {
+              "title": "Rutabagas Comfort Food",
+              "vendor_type": "cafe",
+              "foh_vendorWebsite": "http:\/\/eatrutabagas.com",
+              "foh_vendorStreet": "1434 O Street",
+              "foh_vendorZip": "68508"
+            }
+          },
+          "2e5c9696-ab05-4dbf-885f-588a1a5dab8b": {
+            "type": "lincoln",
+            "settings": {
+              "title": "3D Nutrition",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/3d-lincoln.myshopify.com",
+              "foh_vendorStreet": "400 N 48th St #B4",
+              "foh_vendorZip": "68504"
+            }
+          },
+          "16538cc7-420e-491e-aed2-a7f814b96169": {
+            "type": "lincoln",
+            "settings": {
+              "title": "Rock N Joes",
+              "vendor_type": "coffeeshop",
+              "foh_vendorWebsite": "http:\/\/rocknjoe.com",
+              "foh_vendorStreet": "5025 Lindberg St",
+              "foh_vendorZip": "68514"
+            }
+          }
+        },
+        "block_order": [
+          "131675b9-e820-4786-84d0-e926fa5f524b",
+          "3b2e29ed-b409-4c87-9299-02341ffb3443",
+          "c1e8a048-e1b2-4955-83bc-bea90d8e8dc4",
+          "ed715fe2-06f8-408a-8cfb-81f96aba87e1",
+          "a0907f1e-475a-4251-9660-99f4b599e298",
+          "863fde12-ffbf-4d9c-a145-61bee6cb1f7b",
+          "2ea8eccc-4027-4185-a962-5db65c314d61",
+          "3c5af78d-15fc-4f7a-8ce4-432fae71116f",
+          "5a513981-2ba9-4845-9fab-5cc701d89e3f",
+          "0d77a6b0-ac33-4217-ad15-958d1595920c",
+          "94c2420e-50ca-4dc7-be32-2bf391621adc",
+          "3c700e00-a781-44c0-b8c5-686a0f02f6e7",
+          "511bbd67-2b42-4bff-a32f-9ad491052272",
+          "01f82b60-de44-418e-acb1-9929f293ce6c",
+          "75b59bf0-fda6-4045-af85-6b8a7fc5bce7",
+          "54aac472-dc6a-47e9-9659-64b36af3a378",
+          "ca0f278a-1365-4181-b725-0740f99b2cb5",
+          "a7d4f67a-d429-471d-8e60-b881e3de2f87",
+          "bd0f85d1-7df9-4362-98b9-89475bf4fa06",
+          "fa1796c8-bfac-414a-bec3-1abe7b12c864",
+          "e04e32eb-f0d9-4479-ac8e-4bb98541e829",
+          "8605856c-cb3c-4d09-b338-0c55a66100a4",
+          "2e5c9696-ab05-4dbf-885f-588a1a5dab8b",
+          "16538cc7-420e-491e-aed2-a7f814b96169"
+        ],
+        "settings": {
+          "foh_header": "Find Our Holes",
+          "foh_blurb": "<p>Good news: There are a ton of sweet locations around Nebraska where you can snag our protein donuts! Find your fave below, and put the pedal to the metal.<\/p>"
+        }
       },
       "about-valueprops": {
         "type": "about-valueprops",
-        "settings": {}
+        "settings": {
+          "title": "Donuts made with stuff you actually recognize",
+          "callout_subhead": "No artificial sugars,  no ridiculousness",
+          "callout_image": "shopify:\/\/shop_images\/hard-work-pays-off.jpg"
+        }
       },
       "about-ourstory": {
         "type": "about-ourstory",
@@ -393,7 +582,7 @@
           "ourstory_enable": true,
           "ourstory_header": "Hey, I'm Holly Wiest",
           "ourstory_subhead": "Donuts are my bliss.",
-          "ourstory_blurb": "<p>They have always been the object of my affection. Even during my competitive bodybuilding years, donuts were one of my favorite &ldquo;cheat&rdquo; foods.<\/p>\n<p>Now, as a certified Holistic Health Coach with the Institute for Integrative Nutrition, and a certified personal trainer with the American College of Sports Medicine, I love to practice and teach the importance of balance.<\/p>\n<p>I believe in delicious pastries and that health is our own responsibility. I believe that even if you have a food sensitivity, allergy or health goal, you shouldn&rsquo;t be left out.<\/p>\n<p>My vision is to contribute to my community by providing healthy pastry options you might not have thought existed. I want to bring more scrumptious food options into the world so that it&rsquo;s easier to make self-respecting choices as we take our wellness into our own hands.<\/p>"
+          "ourstory_blurb": "<p>They have always been the object of my affection. Even during my competitive bodybuilding years, donuts were one of my favorite “cheat” foods.<\/p><p>Now, as a certified Holistic Health Coach with the Institute for Integrative Nutrition, and a certified personal trainer with the American College of Sports Medicine, I love to practice and teach the importance of balance.<\/p><p>I believe in delicious pastries and that health is our own responsibility. I believe that even if you have a food sensitivity, allergy or health goal, you shouldn’t be left out.<\/p><p>My vision is to contribute to my community by providing healthy pastry options you might not have thought existed. I want to bring more scrumptious food options into the world so that it’s easier to make self-respecting choices as we take our wellness into our own hands.<\/p>"
         }
       },
       "about-kitchen": {
@@ -406,7 +595,10 @@
       },
       "about-donut-cta": {
         "type": "about-donut-cta",
-        "settings": {}
+        "settings": {
+          "donuttime_header": "",
+          "donuttime_blurb": ""
+        }
       },
       "gotquestions": {
         "type": "gotquestions",
@@ -418,40 +610,92 @@
           "1599166820468": {
             "type": "question",
             "settings": {
-              "title": "Question 01",
-              "answer": "<p>sdhf;alsjhf sf hs;jkdfhsaj;hf ;kh jshadf<\/p>\n<p>sadf sadf&nbsp;<\/p>\n<p>asdf&nbsp;<\/p>\n<p><\/p>\n<p>asdf asdf<\/p>"
+              "title": "How many calories are in each donut?",
+              "answer": "<p><strong>Each donut flavor is different. All of our macronutrients are listed on our website. For calories, simply add them up using calorie per gram of carb\/protein\/fat as follows:<\/strong><\/p><p>Carbs = 4 calories per gram<\/p><p>Protein = 4 calories per gram<\/p><p>Fat = 9 calories per gram<\/p>"
             }
           },
           "1599166836113": {
             "type": "question",
             "settings": {
-              "title": "Question 02",
-              "answer": "<p>sf asdf sadf asdf hfs fhsdhadfhgadh<\/p>"
+              "title": "Do the donuts contain dairy?",
+              "answer": "<p>Non-vegan flavors are made with 100% pure whey protein isolate (free of lactose and casein) but are not dairy free.<\/p>"
             }
           },
           "1599166929342": {
             "type": "question",
             "settings": {
-              "title": "Question 03",
-              "answer": "<p>Energistically promote just in time networks with robust models. Competently reintermediate <strong>quality products whereas interoperable supply<\/strong> chains. Objectively provide access to robust niche marke<em>ts through low-risk high-yield \"outside<\/em> the box\" thinking. Phosfluorescently enhance.<\/p>"
+              "title": "How should I store my donuts?",
+              "answer": "<p>Donuts can be stored in airtight containers in the fridge for up to 5 days, and in the freezer for up to 6 weeks.<\/p><p>We do not recommend freezing fruit-topped donuts to preserve quality.<\/p><p>Donuts cannot be saved after one day at room temperature. <\/p><p>Never refreeze.<\/p>"
+            }
+          },
+          "6d6e268d-be27-4015-9125-5556c9b7885f": {
+            "type": "question",
+            "settings": {
+              "title": "What ingredients are in each donut?",
+              "answer": "<p>You can see our ingredient list <a href=\"\/pages\/nutrition\" title=\"Nutrition\">here<\/a><\/p>"
+            }
+          },
+          "2e9d136d-9868-48b3-8a59-a3f4e9a67a06": {
+            "type": "question",
+            "settings": {
+              "title": "Do any of your donuts contain nuts?",
+              "answer": "<p>Of the original donuts, Peanut Butter Cup contains peanuts.<\/p><p>Of our specialty donuts, Matcha Pistachio contains pistachio nuts. <\/p><p>Specialty donuts are rotating, so always come back to check which ones currently contain nuts!<\/p>"
+            }
+          },
+          "97bbb528-2af4-4430-a5de-08f67595d1e6": {
+            "type": "question",
+            "settings": {
+              "title": "Which of your donuts are vegan?",
+              "answer": "<p>We currently have 4 vegan donuts:<\/p><p>- The Basic Witch<\/p><p>- Chocolate Date Night<\/p><p>- Chocolate Chip Cookie Dough<\/p><p>- Snickerdoodle<\/p>"
+            }
+          },
+          "2101f371-d34a-49ee-973c-b4e38dde9f59": {
+            "type": "question",
+            "settings": {
+              "title": "What donuts are gluten-free?",
+              "answer": "<p>All of our protein donuts are 100% gluten free!<\/p>"
+            }
+          },
+          "455a169e-ba5d-40c4-8d17-75bb99f4f6f2": {
+            "type": "question",
+            "settings": {
+              "title": "Where are the donuts made?",
+              "answer": "<p>In beautiful Omaha, Nebraska.<\/p>"
+            }
+          },
+          "0e1cd6a3-00ff-451d-bb5b-aba738bdd498": {
+            "type": "question",
+            "settings": {
+              "title": "How are they made?",
+              "answer": "<p>Always baked, never fried. Made with natural sweeteners, low carb content + minimal ingredients.<\/p>"
+            }
+          },
+          "a656cc38-09b9-45b0-8b2a-2d1b2e3a1ec7": {
+            "type": "question",
+            "settings": {
+              "title": "What's in a CBDonut?",
+              "answer": "<p>CBDonuts include 10mg of CBD (100% THC Free) sourced from Peaceful Roads. For more information about CBD, visit PeacefulRoads.com<\/p>"
             }
           }
         },
         "block_order": [
           "1599166820468",
           "1599166836113",
-          "1599166929342"
+          "1599166929342",
+          "6d6e268d-be27-4015-9125-5556c9b7885f",
+          "2e9d136d-9868-48b3-8a59-a3f4e9a67a06",
+          "97bbb528-2af4-4430-a5de-08f67595d1e6",
+          "2101f371-d34a-49ee-973c-b4e38dde9f59",
+          "455a169e-ba5d-40c4-8d17-75bb99f4f6f2",
+          "0e1cd6a3-00ff-451d-bb5b-aba738bdd498",
+          "a656cc38-09b9-45b0-8b2a-2d1b2e3a1ec7"
         ],
         "settings": {
           "enable_section": true,
           "expand_questions": false,
           "faq_header": "Frequently Asked Questions",
-          "faq_blurb": "<p>Completely revolutionize premium deliverables rather than extensive strategic theme areas. Enthusiastically envisioneer exceptional ideas and interactive ROI. Synergistically drive alternative products without cross-unit strategic theme areas. Seamlessly optimize resource-leveling methods of empowerment for.<\/p>"
+          "faq_blurb": "<p>We know it can be pretty hard to think about how to properly eat our holes, so hopefully these answers can help!<\/p>"
         }
-      },
-      "1599242870662": {
-        "type": "about-donut-cta",
-        "settings": {}
       },
       "product-template-hero": {
         "type": "product-template-hero",
@@ -470,8 +714,7 @@
           "show_sharing_icons": true,
           "enable_video_looping": false,
           "show_size_chart": false,
-          "size_chart_variant": "Size",
-          "size_chart_page": ""
+          "size_chart_variant": "Size"
         }
       },
       "product-nutrition": {
@@ -524,21 +767,167 @@
           "faq_header": "Common Questions About CBD",
           "faq_blurb": "<p>Interactively integrate top-line ROI after customer directed methods of empowerment. Credibly brand enterprise outsourcing without.<\/p>"
         }
+      },
+      "160148406844acb6a5": {
+        "type": "slideshowPB",
+        "blocks": {
+          "160148406844acb6a5-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Yonigill.com_PB-9562_websize.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/HHH_PixelBakery_DonutPhoto_vert02.png",
+              "bg_color": "#464654",
+              "bg_opacity": 10
+            }
+          },
+          "160148406844acb6a5-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Yonigill.com_PB-9717_websize_fixed.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/Yonigill.com_PB-9712_websize.jpg",
+              "bg_color": "#464654",
+              "bg_opacity": 10
+            }
+          },
+          "fbea5e93-65f3-4716-ac0c-97956863e98a": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Yonigill.com_PB-9455_websize.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/HHH_PixelBakery_DonutPhoto_vert05.png",
+              "bg_color": "#464654",
+              "bg_opacity": 10
+            }
+          },
+          "4f9b412f-f106-403c-888e-103dc66ab3f8": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Yonigill.com_PB-9612_websize.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/HHH_PixelBakery_DonutPhoto_vert04.png",
+              "bg_color": "#464654",
+              "bg_opacity": 10
+            }
+          }
+        },
+        "block_order": [
+          "160148406844acb6a5-0",
+          "160148406844acb6a5-1",
+          "fbea5e93-65f3-4716-ac0c-97956863e98a",
+          "4f9b412f-f106-403c-888e-103dc66ab3f8"
+        ],
+        "settings": {
+          "layout": "fill",
+          "transition": "slide",
+          "background": "#423e4e"
+        }
+      },
+      "16014846788ac84a12": {
+        "type": "section-orderonlineCTA",
+        "blocks": {
+          "afa86b3d-6013-4cf0-9fba-faa39265699d": {
+            "type": "cta",
+            "settings": {
+              "cta_image": "shopify:\/\/shop_images\/Yonigill.com_PB-9535_websize.jpg",
+              "cta_title": "Order Online",
+              "cta_text": "Direct delivery to anywhere in Omaha for $8.00 or to a partnering pickup location for free.",
+              "cta_button": "Get Ya Donuts",
+              "cta_link": "shopify:\/\/collections"
+            }
+          },
+          "d7f9884e-2bb3-4126-81f9-c948a494f8f4": {
+            "type": "cta",
+            "settings": {
+              "cta_image": "shopify:\/\/shop_images\/Yonigill.com_PB-9518_websize.jpg",
+              "cta_title": "Get 'Em Now",
+              "cta_text": "Find our Healthy Holes in Lincoln and Omaha! Some (very cool) local retailers regularly have our donuts for sale.",
+              "cta_button": "See Retailers",
+              "cta_link": "\/pages\/about#findus"
+            }
+          }
+        },
+        "block_order": [
+          "afa86b3d-6013-4cf0-9fba-faa39265699d",
+          "d7f9884e-2bb3-4126-81f9-c948a494f8f4"
+        ],
+        "settings": {
+          "cta_header": "How To Order"
+        }
+      },
+      "1601491661e8553267": {
+        "type": "about-donut-cta",
+        "blocks": {
+          "ba6b8037-cf3c-468a-8a18-f3cbaa302f63": {
+            "type": "cta",
+            "settings": {
+              "cta_image": "shopify:\/\/shop_images\/Yonigill.com_PB-9717_websize_fixed.jpg",
+              "cta_title": "Original Donuts",
+              "cta_link": "shopify:\/\/collections\/original-donuts"
+            }
+          },
+          "a06b57bd-265f-4ca2-bb65-32da1a71faaa": {
+            "type": "cta",
+            "settings": {
+              "cta_image": "shopify:\/\/shop_images\/Yonigill.com_PB-9455_websize.jpg",
+              "cta_title": "Vegan Donuts",
+              "cta_link": "shopify:\/\/collections\/vegan-donuts"
+            }
+          },
+          "bb5c10c0-e57b-469d-a744-9a606e6180b3": {
+            "type": "cta",
+            "settings": {
+              "cta_image": "shopify:\/\/shop_images\/Yonigill.com_PB-9665_websize.jpg",
+              "cta_title": "Specialty Donuts",
+              "cta_link": "shopify:\/\/collections\/unique-donuts"
+            }
+          },
+          "5eadfb9c-ac54-4156-9208-09c4c6921174": {
+            "type": "cta",
+            "settings": {
+              "cta_image": "shopify:\/\/shop_images\/Yonigill.com_PB-9495_websize.jpg",
+              "cta_title": "Stuff Ya Box",
+              "cta_link": "shopify:\/\/collections\/bundle-builder-products"
+            }
+          },
+          "0150c923-f4df-47b6-ac75-e148f3b189e5": {
+            "type": "cta",
+            "settings": {
+              "cta_image": "shopify:\/\/shop_images\/Yonigill.com_PB-9674_websize.jpg",
+              "cta_title": "Other Noms",
+              "cta_link": "shopify:\/\/collections\/other-noms"
+            }
+          },
+          "e4cc8b1f-5ec3-4fbc-9202-3c795df4189b": {
+            "type": "cta",
+            "settings": {
+              "cta_image": "shopify:\/\/shop_images\/HHH_Gift_Card_v1.png",
+              "cta_title": "Gift Cards",
+              "cta_link": "shopify:\/\/products\/gift-card"
+            }
+          }
+        },
+        "block_order": [
+          "ba6b8037-cf3c-468a-8a18-f3cbaa302f63",
+          "a06b57bd-265f-4ca2-bb65-32da1a71faaa",
+          "bb5c10c0-e57b-469d-a744-9a606e6180b3",
+          "5eadfb9c-ac54-4156-9208-09c4c6921174",
+          "0150c923-f4df-47b6-ac75-e148f3b189e5",
+          "e4cc8b1f-5ec3-4fbc-9202-3c795df4189b"
+        ],
+        "settings": {
+          "donuttime_header": "It's Donut Time",
+          "donuttime_blurb": "<p>Gluten free. Natural, whole food sources. Crafted with love.<\/p><p>You really can’t go wrong—what strikes your fancy?<\/p>"
+        }
       }
     },
     "content_for_index": [
-      "1596561395879",
-      "1482141870755",
+      "160148406844acb6a5",
+      "16014846788ac84a12",
       "1572968682511",
       "1483454352367",
       "1499427088545",
-      "1599242870662",
-      "1572968682510",
-      "1590111326666",
       "1590109045289",
-      "1590109526702",
-      "1553007310559",
-      "1590110803744"
+      "1590110803744",
+      "1601491661e8553267",
+      "1553007310559"
     ]
   },
   "presets": {
