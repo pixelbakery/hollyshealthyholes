@@ -4,7 +4,7 @@
     <div class="row row-cols-1 row-cols-md-2">
       {%- for block in section.blocks -%}
         <div class="col mb-4">
-          <a href="" class="card--ordercta-a">
+          <a href="{{ block.settings.cta_link }}" class="card--ordercta-a">
             <div class="card h-100 card--ordercta">
               <div class="card-img-top card--ordercta-img">
                 {% if block.settings.cta_image != blank %}
