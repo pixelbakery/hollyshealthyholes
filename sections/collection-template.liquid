@@ -31,8 +31,8 @@
     <div class="col-3 d-flex flex-column justify-content-center">
       <img src="{{ donut_icon }}" alt="{{ collection.title }}" class="donut-icon float" />
     </div>
-    <div class="col-12 col-md-6 offset-md-2 text-center">
-      <h1 class="feature-header h2">All About {{ collection.title }}</h1>
+    <div class="col-12 col-md-6 offset-md-2 text-left">
+      <h1 class="feature-header h2 text-left">All About {{ collection.title }}</h1>
       <p class="lead text-left my-3">{{ collection.description }}</p>
       {% if is_donut %}
         <a class="btn button-outline my-3" href="/pages/nutrition">View Nutritional Info</a>

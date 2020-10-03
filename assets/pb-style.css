@@ -522,7 +522,7 @@ a:hover .link--stuffbox .pink-skrim{
  h5.card-title{
    color: var(--hhh-color-pink);
    padding: 1em 1em 1em 1em;
-     background-color: var(--hhh-color-white);
+     background-color: var(--hhh-color-grey);
  }
  .checkoutMethod{
   border-width: 2px !important;
