@@ -4,15 +4,15 @@
    {%- assign ourstory_header = section.settings.ourstory_header -%}
    {%- assign ourstory_subhead = section.settings.ourstory_subhead -%}
    {%- assign ourstory_blurb = section.settings.ourstory_blurb -%}
-  <div class="row no-gutter d-flex">
+  <div class="row no-gutter d-flex ">
     <div class="col-12 col-md-8 col-xl-6 left order-last flex-fill">
       <div class="container  p-4 d-flex flex-column justify-content-center  h-100">
         <div class="row mx-3 mb-3 pb-3">
           <div class="col-12 col text-left">
-            <h1 class="feature-header h2 align-left feature-header--visible py-5 after-white">{{ourstory_header}}</h1>
-            <div class="p-3 bg-white m--3">
-              <p class="text-bold lead"><strong>{{ ourstory_subhead }}</strong></p>
-              <div class="rte">
+            <h1 class="feature-header h2 align-left feature-header--visible py-5 after-white px-4">{{ourstory_header}}</h1>
+            <div class="p-5 bg-white m--3">
+              <p class="text-bold lead px-4 pt-3"><strong>{{ ourstory_subhead }}</strong></p>
+              <div class="rte px-4 pb-3">
               {{ ourstory_blurb }}
             </div>
           </div>
@@ -25,7 +25,7 @@
       <video class="object-fit" src="{{ 'HHH_EatADonut_01.mp4' | asset_url }}"  muted playsinline autoplay loop></video>
       <figure class="image m-0 mh-75" style="opacity:0;">
 
-        <img alt="Holly Wiest" src="https://media.pixelbakery.com/HHH/images/PB-5423.jpg" /> 
+        <img alt="Holly Wiest" src="https://media.pixelbakery.com/HHH/images/PB-5423.jpg" />
       </figure>
     </div>
   </div>

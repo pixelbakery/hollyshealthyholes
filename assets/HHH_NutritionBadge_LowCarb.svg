@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="493" height="493" viewBox="0 0 493 493">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #809d7b;
+      }
+
+      .cls-2 {
+        font-size: 109.38px;
+        font-family: GroverHeavy, Grover Heavy;
+        letter-spacing: -0.06em;
+      }
+
+      .cls-3 {
+        letter-spacing: -0.11em;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.1em;
+      }
+
+      .cls-5 {
+        letter-spacing: -0.12em;
+      }
+
+      .cls-6 {
+        letter-spacing: -0.1em;
+      }
+
+      .cls-7 {
+        fill: none;
+        stroke: #809d7b;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 31px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g>
+        <path class="cls-1" d="M246.5,33.33a212.34,212.34,0,1,1-83,16.73,212,212,0,0,1,83-16.73M246.5,0C110.36,0,0,110.36,0,246.5S110.36,493,246.5,493,493,382.64,493,246.5,382.64,0,246.5,0Z"/>
+        <text class="cls-2" transform="translate(100.92 194.83)">L<tspan class="cls-3" x="78.97" y="0">O</tspan><tspan class="cls-4" x="174.57" y="0">W</tspan><tspan class="cls-5"><tspan x="-35.44" y="102.21">C</tspan><tspan class="cls-6" x="52.28" y="102.21">ARB</tspan></tspan></text>
+        <g>
+          <line class="cls-7" x1="246.5" y1="321.37" x2="246.5" y2="416.54"/>
+          <path class="cls-1" d="M209.48,377.89h74a10.41,10.41,0,0,1,7.63,17.5l-37,39.81a10.4,10.4,0,0,1-15.24,0l-37-39.81A10.41,10.41,0,0,1,209.48,377.89Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

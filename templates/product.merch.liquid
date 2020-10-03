@@ -1,18 +1,17 @@
 <!-- {% section 'sprinkles-sm-header' %} -->
 {% section 'product-template-hero' %}
-{% section 'product-nutrition' %}
 {% section 'product-reviews' %}
 {% section 'product-recommendations' %}
 {% section 'product-prevnext' %}
-
+{% if product.type == 'Donut' %}
 <section class="container">
   <div class="row">
     <div class="col-12 mx-auto text-center my-5">
-      <a class="btn btn-primary" href="{{collection.url}}">{% include 'svg-chevron-left' %} Back To All {{ collection.title }}</a>
+      <a class="btn btn-primary" href="/collections/merch">{% include 'svg-chevron-left' %} Back To All Merch</a>
     </div>
   </div>
 </section>
-
+{% endif %}
 <script>
   theme.checkViewportFillers();
 </script>
