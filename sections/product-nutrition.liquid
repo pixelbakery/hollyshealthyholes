@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-12 col-md-5 pr-2">{{ product.metafields.global.Fat }}
           <h3 class="feature-header h2 align-left feature-header--visible py-4"> Nutritional Information</h3>
-          <p class="lead">Nutritional numbers are listed as per donut based on a 2,000 calorie daily diet </p>
+          <p class="lead">Nutritional numbers are listed as per donut based on a 2,000 calorie daily diet. <a href="/pages/nutrition">View nutrition info & ingredients</a> for all of our donuts.</p>
           <ul class="list-group list-group-flush">
 
             {% comment %} Display Protein {% endcomment %}
@@ -80,7 +80,7 @@
         {% if  product.tags contains "has-highlights" %}
         <div class="col-6 pl-2 offset-md-1">
           <h3 class="feature-header h2 align-left feature-header--visible py-4"> Product <br> Highlights</h3>
-            <p class="lead">Dynamically aggregate quality applications before bleeding-edge functionalities. </p>
+            <p class="lead">Product highlights are listed as per donut based on a blissfully guilt-free diet. </p>
             <div class="d-flex justify-content-start">
             {% for tag in product.tags %}
             {% case tag %}
