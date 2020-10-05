@@ -42,6 +42,39 @@
               </li>
             {% endif %}
 
+            {% comment %} Display KCals {% endcomment %}
+            {% if product.metafields.global.kcals %}
+              {% assign kcals = product.metafields.global.kcals | plus: 0.00 %}
+                {% comment %} 2000DV Based off of FDA's website as of Aug 2020 {% endcomment %}
+              {% assign kcals_dv = kcals | divided_by: 2000.000 |  times: 100.00  | round: 2 %}
+              <li class="list-group-item">
+                <span class="float-left "><span class="font-weight-bold">KCals: </span>{{kcals}} </span>
+                <span class="float-right">{{kcals_dv}}% of daily value</span>
+              </li>
+            {% endif %}
+
+            {% comment %} Display Fiber {% endcomment %}
+            {% if product.metafields.global.fiber %}
+              {% assign fiber = product.metafields.global.fiber | plus: 0.00 %}
+                {% comment %} 28DV Based off of FDA's website as of Aug 2020 {% endcomment %}
+              {% assign fiber_dv = fiber | divided_by: 28.000 |  times: 100.00  | round: 2 %}
+              <li class="list-group-item">
+                <span class="float-left "><span class="font-weight-bold">Fiber: </span>{{fiber}} grams</span>
+                <span class="float-right">{{fiber_dv}}% of daily value</span>
+              </li>
+            {% endif %}
+
+            {% comment %} Display Sugar {% endcomment %}
+            {% if product.metafields.global.sugar %}
+              {% assign sugar = product.metafields.global.sugar | plus: 0.00 %}
+                {% comment %} 50DV Based off of FDA's website as of Aug 2020 {% endcomment %}
+              {% assign sugar_dv = sugar | divided_by: 50.000 |  times: 100.00  | round: 2 %}
+              <li class="list-group-item">
+                <span class="float-left "><span class="font-weight-bold">Sugar: </span>{{sugar}} grams</span>
+                <span class="float-right">{{sugar_dv}}% of daily value</span>
+              </li>
+            {% endif %}
+
       </div>
 
         {% if  product.tags contains "has-highlights" %}
@@ -85,6 +118,12 @@
                 <div class="highlight highlight-vegan text-center my-1 mx-2 ">
                   <img class="img-fluid" src="{{  'HHH_NutritionBadge_VeryYummy.svg' | asset_url  }}" alt="This product is delicious" />
                   <p class=" font-weight-bold pt-1">Very </br>Yummy </p>
+                </div>
+
+                {% when 'highlight-no-soy' %}
+                <div class="highlight highlight-vegan text-center my-1 mx-2 ">
+                  <img class="img-fluid" src="{{  'HHH_NutritionBadge_NoSoy.svg' | asset_url  }}" alt="This product contains no soy" />
+                  <p class=" font-weight-bold pt-1">Soy </br>Free </p>
                 </div>
 
                 {% when 'highlight-low-carb' %}

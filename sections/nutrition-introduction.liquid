@@ -1,10 +1,151 @@
+<div class="container m-t-125">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="feature-header h2 align-left feature-header--visible py-4">{{section.settings.title}}</h3>
 
+      <div class="rte mw-700">
+          {{section.settings.nu_basic_blurb}}
+      </div>
+    </div>
+    <div class="col-12 my-3 py-3">
+      <p class="lead font-weight-bold">Original Donuts Nutritional Info:</p>
+      <table class="table table-striped table-hover table-responsive-sm">
+        <thead>
+          <tr>
+            <th scope="col">Donut</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Net Carbs</th>
+            <th scope="col">Fat</th>
+            <th scope="col">KCals</th>
+            <th scope="col">Fiber</th>
+            <th scope="col">Sugar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in collections['original-donuts'].products %}
+            {% assign veganCheck = product.collections | map: 'handle' %}
+            {% unless veganCheck contains 'vegan-donuts' %}
+              <tr>
+                <td scope="row"><a href="{{product.url}}">{{product.title}}</td>
+                <td>{{product.metafields.global.protein }} grams</td>
+                <td>{{product.metafields.global.carbs }} grams</td>
+                <td>{{product.metafields.global.fat }} grams</td>
+                <td>{{product.metafields.global.kcals }} kcals</td>
+                <td>{{product.metafields.global.fiber }} grams</td>
+                <td>{{product.metafields.global.sugar }} grams</td>
+              </tr>
+              {% endunless %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 my-3 py-3">
+      <p class="lead font-weight-bold">Specialty Donuts Nutritional Info:</p>
+      <table class="table table-striped table-hover table-responsive-sm">
+        <thead>
+          <tr>
+            <th scope="col">Donut</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Net Carbs</th>
+            <th scope="col">Fat</th>
+            <th scope="col">KCals</th>
+            <th scope="col">Fiber</th>
+            <th scope="col">Sugar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in collections['unique-donuts'].products %}
+          {% assign veganCheck = product.collections | map: 'handle' %}
+          {% unless veganCheck contains 'vegan-donuts' %}
+              <tr>
+                <td scope="row"><a href="{{product.url}}">{{product.title}}</td>
+                <td>{{product.metafields.global.protein }} grams</td>
+                <td>{{product.metafields.global.carbs }} grams</td>
+                <td>{{product.metafields.global.fat }} grams</td>
+                <td>{{product.metafields.global.kcals }} kcals</td>
+                <td>{{product.metafields.global.fiber }} grams</td>
+                <td>{{product.metafields.global.sugar }} grams</td>
+              </tr>
+              {% endunless %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="container m-t-125">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="feature-header h2 align-left feature-header--visible py-4">{{section.settings.nu_vegan_header}}</h3>
+
+      <div class="rte mw-700">
+        {{section.settings.nu_vegan_blurb}}
+      </div>
+    </div>
+    <div class="col-12 my-3 py-3">
+      <p class="lead font-weight-bold">Vegan Donuts Nutritional Info:</p>
+      <table class="table table-striped table-hover table-responsive-sm">
+        <thead>
+          <tr>
+            <th scope="col">Donut</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Net Carbs</th>
+            <th scope="col">Fat</th>
+            <th scope="col">KCals</th>
+            <th scope="col">Fiber</th>
+            <th scope="col">Sugar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in collections['vegan-donuts'].products %}
+
+              <tr>
+                <td scope="row"><a href="{{product.url}}">{{product.title}}</td>
+                <td>{{product.metafields.global.protein }} grams</td>
+                <td>{{product.metafields.global.carbs }} grams</td>
+                <td>{{product.metafields.global.fat }} grams</td>
+                <td>{{product.metafields.global.kcals }} kcals</td>
+                <td>{{product.metafields.global.fiber }} grams</td>
+                <td>{{product.metafields.global.sugar }} grams</td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 {% schema %}
-{
-  "name": "Nutrition Introduction"
-
-}
+  {
+    "name": "Nutritional Information",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Basic Donut Title"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_basic_blurb",
+        "label": "Basic Donut Text"
+      },
+      {
+        "type": "text",
+        "id": "nu_vegan_header",
+        "label": "Vegan Donut Title"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_vegan_blurb",
+        "label": "Vegan Donut Text"
+      }
+    ]
+  }
 {% endschema %}
+
+
 
 {% stylesheet %}
 {% endstylesheet %}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="493" height="493" viewBox="0 0 493 493">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #809d7b;
+      }
+
+      .cls-2 {
+        font-size: 109.38px;
+        font-family: GroverHeavy, Grover Heavy;
+        letter-spacing: -0.04em;
+      }
+
+      .cls-3 {
+        letter-spacing: -0.06em;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #809d7b;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 31px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g>
+        <path class="cls-1" d="M246.5,33.33a212.34,212.34,0,1,1-83,16.73,212,212,0,0,1,83-16.73M246.5,0C110.36,0,0,110.36,0,246.5S110.36,493,246.5,493,493,382.64,493,246.5,382.64,0,246.5,0Z"/>
+        <text class="cls-2" transform="translate(106.5 285.1)">S<tspan class="cls-3" x="90.24" y="0">O</tspan><tspan x="190.75" y="0">Y</tspan></text>
+        <line class="cls-4" x1="97.5" y1="80.5" x2="204.11" y2="187.11"/>
+        <line class="cls-4" x1="304.9" y1="300.9" x2="411" y2="407"/>
+      </g>
+    </g>
+  </g>
+</svg>
