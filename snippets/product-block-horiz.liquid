@@ -27,12 +27,18 @@
               <li class="list-inline-item product-card--highlights-item font-italic">Gluten Free</li>
             {% when 'highlight-yummy' %}
               <li class="list-inline-item product-card--highlights-item font-italic">Super Yummy</li>
-            {% when 'highlight-dairy-free' %}
+            {% when 'highlight-no-lactose' %}
               <li class="list-inline-item product-card--highlights-item font-italic">Dairy Free</li>
             {% when 'highlight-no-nuts' %}
               <li class="list-inline-item product-card--highlights-item font-italic" >No Nuts</li>
             {% when 'highlight-low-carb' %}
               <li class="list-inline-item product-card--highlights-item font-italic">Low Carb</li>
+            {% when 'highlight-super-donut' %}
+              <li class="list-inline-item product-card--highlights-item font-italic">Super Food</li>
+            {% when 'highlight-no-soy' %}
+              <li class="list-inline-item product-card--highlights-item font-italic">Soy Free</li>
+            {% when 'highlight-cbd' %}
+              <li class="list-inline-item product-card--highlights-item font-italic">Contains CBD</li>
           {% endcase %}
         {% endfor %}
         </ul>
@@ -42,7 +48,7 @@
             {% if product.price_varies %}
               {{  product.selected_or_first_available_variant.price | money }} to {{ product.price_max | money }}
             {% else %}
-              {{ money_price }}
+              {{ product.price | money  }}
             {% endif %}
           {% else %}
             Sold Out!

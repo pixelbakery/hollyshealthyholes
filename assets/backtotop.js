@@ -1,5 +1,8 @@
 
 $(document).ready(function(){
+  $(".clickable-row").click(function() {
+        window.location = $(this).data('url');
+    });
     $(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
             $('#scroll-top').fadeIn();

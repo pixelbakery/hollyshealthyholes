@@ -35,6 +35,12 @@ main, .template-product #page-content {
 .color--pink{
   color: var(--hhh-color-pink) !important;
 }
+.color--dark-blue{
+  color: var(--hhh-color-darkblue) !important;
+}
+.color--white{
+  color: var(--hhh-color-white) !important;
+}
   .color--brown{
   color: var(--hhh-color-brown) !important;
 }
@@ -744,6 +750,9 @@ a:hover .product-block .card-body .card-title{
 .mw-700{
   max-width: 700px;
 }
+.mw-500{
+  max-width: 500px;
+}
 .breadcrumb{
   margin-left: 0;
 	font-size: .75em;
@@ -1031,6 +1040,10 @@ a.rec--link:hover{
 .p-b-125{
 	padding-bottom: 125px !important;
 }
+.p-y-125{
+	padding-bottom: 125px !important;
+	padding-top: 125px !important;
+}
 #imagecallout{
 	overflow-x: hidden;
 }
@@ -1285,6 +1298,28 @@ p.faq-header .btn{
 	text-decoration: none;
 	background-color: var(--hhh-color-grey);
 }
+.font-size-75{
+	font-size: .75rem;
+}
 .card .collapse .card-body{
 	font-size: .75rem;
+}
+img.nutrition-icon-explained{
+	max-height: 125px;
+}
+img.nutrition-icon-small{
+	height: 40px !important;
+	width: 40px !important;
+}
+@media (max-width: 991.98px) {
+	img.nutrition-icon-small{
+		height: 30px !important;
+		width: 30px !important;
+	}
+}
+.after-white:after {
+    border-top-color: white;
+}
+.clickable-row{
+	cursor: pointer;
 }

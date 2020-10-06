@@ -80,7 +80,7 @@
         {% if  product.tags contains "has-highlights" %}
         <div class="col-6 pl-2 offset-md-1">
           <h3 class="feature-header h2 align-left feature-header--visible py-4"> Product <br> Highlights</h3>
-            <p class="lead">Product highlights are listed as per donut based on a blissfully guilt-free diet. </p>
+            <p class="lead">Product highlights are listed as per donut based on a blissfully guilt-free diet. <a href="/pages/nutrition#nutrition-icons-explained" class="border-bottom text-decoration-none">Read more</a> about what these symbols mean.</p>
             <div class="d-flex justify-content-start">
             {% for tag in product.tags %}
             {% case tag %}
@@ -96,10 +96,15 @@
                   <p class=" font-weight-bold pt-1">Gluten </br>Free </p>
                 </div>
 
-                {% when 'highlight-cbd' %}
+                {% when 'highlight-cbd' or 'highlight-cbd-optional'%}
                 <div class="highlight highlight-vegan text-center my-1 mx-2 ">
-                  <img class="img-fluid" src="{{  'HHH_NutritionBadge_CBD.svg' | asset_url  }}" alt="This product is infused with CBD" />
-                  <p class=" font-weight-bold pt-1">CBD </br>Infused </p>
+                  {% if tag == "highlight-cbd" %}
+                    <img class="img-fluid" src="{{  'HHH_NutritionBadge_CBD.svg' | asset_url  }}" alt="This product is infused with CBD" />
+                    <p class=" font-weight-bold pt-1">CBD </br>Infused </p>
+                  {% elsif tag == "highlight-cbd-optional" %}
+                    <img class="img-fluid" src="{{  'HHH_NutritionBadge_CBDOptional.svg' | asset_url  }}" alt="This product has the ability to be upgraded to contain CBD for an additional cost" />
+                    <p class=" font-weight-bold pt-1">CBD </br>Optional </p>
+                  {% endif %}
                 </div>
 
                 {% when 'highlight-no-lactose' %}
@@ -130,6 +135,12 @@
                 <div class="highlight highlight-vegan text-center my-1 mx-2 ">
                   <img class="img-fluid" src="{{  'HHH_NutritionBadge_LowCarb.svg' | asset_url  }}" alt="This product is low in carbohydrates" />
                   <p class=" font-weight-bold pt-1">Low </br> Carb</p>
+                </div>
+
+                {% when 'highlight-super-donut' %}
+                <div class="highlight highlight-vegan text-center my-1 mx-2 ">
+                  <img class="img-fluid" src="{{  'HHH_NutritionBadge_SuperFood.svg' | asset_url  }}" alt="This donut is a super food" />
+                  <p class=" font-weight-bold pt-1">Super </br> Donut</p>
                 </div>
               {% endcase %}
             {% endfor %}

@@ -1,0 +1,279 @@
+<section class="container-fluid mx-0 bg--pink p-y-125 m-t-125 " id="nutrition-icons-explained">
+  <div class="container m-t-125 ">
+    <div class="row">
+      <div class="col-12 col-md-4 text-left ">
+        <h1 class="feature-header text-uppercase align-left feature-header--visible pt-0 ml-0 pl-0 pr-4 after-white no-hyphens">{{section.settings.title}}</h1>
+
+
+      </div>
+      <div class="col-12 col-md-8">
+        <ul class="list-group ">
+
+          {% comment %} begin gluten free section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-glutenfree">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_GlutenFree.svg' | asset_url  }}" alt="donuts marked with this symbol are gluten free" />
+            </div>
+            <div class="flex-grow text-center text-md-left pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">Gluten-Free</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_gluten_free }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin Super Donut section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-super-donut">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_SuperFood.svg' | asset_url  }}" alt="donuts marked with this symbol are considered a Super Food" />
+            </div>
+            <div class="flex-grow text-center text-md-left pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">Super Donut</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_super_donut }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin vegan section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-vegan">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_Vegan.svg' | asset_url  }}" alt="donuts marked with this symbol are certified 100% vegan" />
+            </div>
+            <div class="flex-grow text-center text-md-left  pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">100% Vegan</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_vegan }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin Very Yummy section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-yummy">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_VeryYummy.svg' | asset_url  }}" alt="donuts marked with this symbol Very Yummy in your Tummy" />
+            </div>
+            <div class="flex-grow text-center text-md-left pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">Very Yummy</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_yummy }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin No Nuts section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-no-nuts">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_NoNuts.svg' | asset_url  }}" alt="donuts marked with this symbol do not contain peanuts or peanut oil" />
+            </div>
+            <div class="flex-grow text-center text-md-left pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">No Nuts But Us</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_nuts }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin Low Carb section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-low-carb">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_LowCarb.svg' | asset_url  }}" alt="donuts marked with this symbol are low in carbohydrates" />
+            </div>
+            <div class="flex-grow text-center text-md-left pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">Low Carb</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_low_carb }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin No Lactose section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-no-lactose">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_NoLactose.svg' | asset_url  }}" alt="donuts marked with this symbol do not contain lactose or dairy products" />
+            </div>
+            <div class="flex-grow text-center text-md-left pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">Lactose and Dairy Free</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_lactose }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin No Soy section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-no-soy">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_NoSoy.svg' | asset_url  }}" alt="donuts marked with this symbol do not contain soy products" />
+            </div>
+            <div class="flex-grow text-center text-md-left  pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">No Soy</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_soy }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin CBD-Infused section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-cbd">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_CBD.svg' | asset_url  }}" alt="donuts marked with this symbol are infused with CBD" />
+            </div>
+            <div class="flex-grow text-center text-md-left pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">CBD-Infused Donuts</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_cbd }}
+              </div>
+            </div>
+          </li>
+
+          {% comment %} begin CBD-Optional section {% endcomment %}
+          <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-cbd">
+            <div class="text-center text-md-left px-4">
+              <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_CBDOptional.svg' | asset_url  }}" alt="donuts marked with this symbol have the choice of adding CBD to them for an additional cost" />
+            </div>
+            <div class="flex-grow text-center text-md-left pl-4">
+              <h4 class="text-left py-2 color--dark-blue no-hyphens">CBD-Optional Donuts</h4>
+              <div class="rte mw-500 py-2">
+                  {{ section.settings.nu_cbd_optional }}
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container m-t-125 m-b-125 bg--white py-5 px-1 p-lg-5 rounded shadow-sm d-none d-sm-block">
+    <div class="row mx-1 mx-lg-3 my-3">
+      <div class="col-12 py-2">
+        <h3 class="feature-header h2 align-left feature-header--visible py-4">Donut Highlights </h3>
+
+      </div>
+      <div class="col-12 my-3 py-3">
+
+        <table class="table table-striped table-hover table-responsive-md border-0">
+          <thead class="border-0">
+            <tr class="border-0 ">
+              <th class="font-weight-bold border-0 text-left color--dark-blue px-0 px-lg-1" scope="col col-lg-2">Donut</br>Name</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Super Yummy</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Gluten Free</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Low Carb</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">100% Vegan</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Lactose Free</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Soy Free</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">CBD-Infused</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Super Food</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Nut Free</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in collections['all'].products %}
+              {% if product.type == "Donut" and product.available == true %}
+                <tr scope="row" class="clickable-row border-bottom-0" data-url="{{product.url}}">
+                  <td class="align-middle text-weight-bold px-0 px-lg-1">{{product.title}}</td>
+                  <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-yummy' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_VeryYummy.svg' | asset_url  }}" alt="{{ product.title }} is considered Very Yummy" /> {% endif %}</td>
+                  <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-gluten-free' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_GlutenFree.svg' | asset_url  }}" alt="{{ product.title }} is Gluten Free" /> {% endif %}</td>
+                  <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-low-carb' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_LowCarb.svg' | asset_url  }}" alt="{{ product.title }} is low in carbohydrates" /> {% endif %}</td>
+                  <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-vegan' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_Vegan.svg' | asset_url  }}" alt="{{ product.title }} is certified 100% vegan" /> {% endif %}</td>
+                  <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-no-lactose' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_NoLactose.svg' | asset_url  }}" alt="{{ product.title }} contains zero lactose or dairy products" /> {% endif %}</td>
+                  <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-no-soy' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_NoSoy.svg' | asset_url  }}" alt="{{ product.title }} contains no soy products" /> {% endif %}</td>
+                  <td class="text-center px-0 px-lg-1" >
+                    {% if product.tags contains 'highlight-cbd' %}
+                      <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_CBD.svg' | asset_url  }}" alt="{{ product.title }} is infused with CBD" />
+                    {% elsif product.tags contains 'highlight-cbd-optional' %}
+                      <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_CBDOptional.svg' | asset_url  }}" alt="{{ product.title }} has the option to add CBD to it" />
+                    {% endif %}
+                  </td>
+                  <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-super-donut' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_SuperFood.svg' | asset_url  }}" alt="{{ product.title }} is considered a Super Food" /> {% endif %}</td>
+                  <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-no-nuts' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_NoNuts.svg' | asset_url  }}" alt="{{ product.title }} contains zero peanuts or peanut oils" /> {% endif %}</td>
+                </tr></a>
+                {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Nutritional Icons ",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Header",
+        "default": "Nutrition Symbols Explained"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_gluten_free",
+        "label": "Gluten Free Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_vegan",
+        "label": "Vegan Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_yummy",
+        "label": "Very Yummy Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_nuts",
+        "label": "Nut Free Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_low_carb",
+        "label": "Low Carb",
+      "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_lactose",
+        "label": "Lactose Free Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_soy",
+        "label": "Soy Free Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_cbd",
+        "label": "CBD-Infused Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_cbd_optional",
+        "label": "CBD-Optional Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_super_donut",
+        "label": "Super Donut Text",
+        "default": "<p>Holisticly pontificate covalent leadership skills and B2B services. Efficiently drive sustainable total linkage with user.</p>"
+      }
+    ]
+  }
+{% endschema %}
+
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

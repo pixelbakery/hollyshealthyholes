@@ -16,4 +16,6 @@
   <li>highlight-no-lactose</li>
   <li>highlight-no-soy</li>
   <li>highlight-cbd</li>
+  <li>highlight-cbd-optional</li>
+  <li>highlight-super-donut</li>
 </ul>
