@@ -36,13 +36,15 @@
           {%- endif -%}
         {%- endif -%}
 
-	<a href="#looxReviews" class="my-1">
-          <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}">
-          </div>
-        </a>
+<a href="#looxReviews" class="my-1">
+  <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}">
+  </div>
+</a>
+
 	<div class="mt-4 product-description mw-lg-50">
-      {{ product.description}}
-      </div>
+  {{ product.description}}
+</div>
+
     <div class="mt-4 flex-fill">
       {% capture product_form_class %}feedback-{{ section.settings.cart_add }}{% endcapture %}
       {% form 'product', product, class: product_form_class, data-ajax-add-to-cart: true, data-product-id: product.id, data-enable-history-state: 'true' %}
@@ -51,6 +53,9 @@
             {% if product.variants.size > 1 %}
               <div class="option-selectors options-{{ product.options_with_values | size }} mb-2">
                 {% for option in product.options_with_values %}
+
+
+
                   <div class="selector-wrapper">
                     {% capture size_chart_html %}
 
@@ -76,17 +81,23 @@
                     </label>
                     <select id="option-{{ option.name | handle }}" {% if section.settings.variant_style == 'underlined' %}class="noreplace" data-make-box{% endif %}>
                       {% for value in option.values %}
-                      <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+                       {% unless value == "Single Donut" %}
+                        <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+                        {% endunless %}
                       {% endfor %}
                     </select>
                     {% if section.settings.variant_style == 'dropdown' %}{{ size_chart_html }}{% endif %}
                   </div>
+
                 {% endfor %}
               </div>
 
               <select name="id" class="original-selector" aria-label="{{ 'products.product.selector_label' | t | escape }}">
                 {% for variant in product.variants %}
-                  <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %} data-stock="{% if variant.inventory_management == 'shopify' and variant.inventory_quantity <= 0 %}out{% endif %}">{{ variant.title | escape }}</option>
+                {% assign singledonut = variant.title | escape %}
+                  {% unless singledonut == "Single Donut" %}
+                    <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %} data-stock="{% if variant.inventory_management == 'shopify' and variant.inventory_quantity <= 0 %}out{% endif %}">{{ variant.title | escape }}</option>
+                    {% endunless %}
                 {% endfor %}
               </select>
 
@@ -94,6 +105,7 @@
               {% unless show_single_variant_details == false or product.has_only_default_variant %}
                 <div class="selector-wrapper single-option ">
                   {%- for option in product.options -%}
+                    {% unless option.title == "Single Donut" %}
                     {%- if option != 'Title' -%}
                       {%- assign opt_idx = 'option' | append: forloop.index -%}
                       <div>
@@ -118,6 +130,7 @@
                         {{ product.variants.first[opt_idx] }}
                       </div>
                     {%- endif -%}
+                    {% endunless %}
                   {%- endfor -%}
                 </div>
               {% endunless %}
