@@ -3,7 +3,7 @@
 
 
 <h2>Product Metafields - Nutrition</h2>
-<p>The nutritional information for different donuts can be accessed here: <a href="https://hollys-healthy-holes-dev.myshopify.com/admin/bulk?resource_name=Product&edit=metafields.global.nutrition,metafields.global.protein,metafields.global.fat,metafields.global.carbs,metafields.global.kcals,metafields.global.fiber,metafields.global.sugar">https://hollys-healthy-holes-dev.myshopify.com/admin/bulk?resource_name=Product&edit=metafields.global.nutrition,metafields.global.protein,metafields.global.fat,metafields.global.carbs,metafields.global.kcals,metafields.global.fiber,metafields.global.sugar</a>
+<p>The nutritional information for different donuts can be accessed here: <a href="https://hollys-healthy-holes-dev.myshopify.com/admin/bulk?resource_name=Product&edit=metafields.global.nutrition,metafields.global.protein,metafields.global.carbs,metafields.global.fat,metafields.global.kcals,metafields.global.fiber,metafields.global.sugar">https://hollys-healthy-holes-dev.myshopify.com/admin/bulk?resource_name=Product&edit=metafields.global.nutrition,metafields.global.protein,metafields.global.fat,metafields.global.carbs,metafields.global.kcals,metafields.global.fiber,metafields.global.sugar</a>
 
 <h2>Product Highlights</h2>
 <p>Product highlights are assigned using tags. Adding the tag "has-highlights" will cause the highlight badges to appear on the respective product page.</p>

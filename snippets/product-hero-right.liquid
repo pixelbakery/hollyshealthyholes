@@ -4,7 +4,6 @@
 
 
 
-
  		{% include 'breadcrumbs' %}
         <h1 class="product-title feature-header align-left feature-header--visible mb-2">{{ product.title }}</h1>
         <h4 class="font-italic align-left">
@@ -53,11 +52,11 @@
             {% if product.variants.size > 1 %}
               <div class="option-selectors options-{{ product.options_with_values | size }} mb-2">
                 {% for option in product.options_with_values %}
-
+                  {% unless option.name =='Single Donut' %}
 
 
                   <div class="selector-wrapper">
-                    {% capture size_chart_html %}
+                    <!-- {% capture size_chart_html %}
 
                       {%- assign option_name_lower = option.name | downcase -%}
                       {%- assign target_option_name_lower = section.settings.size_chart_variant | downcase -%}
@@ -74,8 +73,8 @@
                           </div>
                         </span>
                       {%- endif -%}
-                    {% endcapture %}
-                    <label {% if option.name == 'default' %}class="hidden"{% endif %} for="option-{{ option.name | handle }}">
+                    {% endcapture %} -->
+                    <label {% if option.name == 'default' or option.name == 'Single Donut'%}class="hidden"{% endif %} for="option-{{ option.name | handle }}">
                       {{ option.name }}
                       {% if section.settings.variant_style == 'underlined' %}{{ size_chart_html }}{% endif %}
                     </label>
@@ -88,7 +87,7 @@
                     </select>
                     {% if section.settings.variant_style == 'dropdown' %}{{ size_chart_html }}{% endif %}
                   </div>
-
+                  {% endunless %}
                 {% endfor %}
               </div>
 

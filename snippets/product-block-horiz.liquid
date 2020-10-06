@@ -40,7 +40,7 @@
         <p class="card-text product-price align-self-bottom pb-2 text-left">
           {% if product.available %}
             {% if product.price_varies %}
-              {{ product.price_min | money }} to {{ product.price_max | money }}
+              {{  product.selected_or_first_available_variant.price | money }} to {{ product.price_max | money }}
             {% else %}
               {{ money_price }}
             {% endif %}
