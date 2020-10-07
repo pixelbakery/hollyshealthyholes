@@ -14,10 +14,12 @@
    <div class="row row-cols-1 row-cols-md-3">
      {%- for block in section.blocks -%}
        	<div class="col mb-4 hvr-float ">
-          <div class="card rounded-0 border-0">
+          <div class="card rounded-0 border-0 shadow-sm h-100">
             <a href="{{ block.settings.cta_link }}">
               {% if block.settings.cta_image != blank %}
+              <div class="card-wrapper">
                 <img src="{{ block.settings.cta_image.src | img_url: "master" }}" class="card-img rounded-0 border-0" alt="{{ block.settings.cta_title }}">
+              </div>
               {% else %}
                 <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="card-img rounded-0 border-0" alt="placeholder">
               {% endif %}
