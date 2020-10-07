@@ -1,3 +1,7 @@
+{% capture bb_checkout_link %}{% render 'bb', type: 'bb_checkout_link' %}{% endcapture %}
+
+{% capture bb_total_price %}{% render 'bb', type: 'bb_total_price' %}{% endcapture %}{% assign bb_total_price = bb_total_price | plus: 0 %}
+
 <section class="sprinkletime-section sprinkletime-section-sm">
     <div class="sprinkletime-container">
 
@@ -8,7 +12,7 @@
         <h1 class="sprinkle-header ml16 pl-4 pb-2 pt-2"> Cart</h1>
       </div>
 
-      
+
     </div>
   </section>
 <div class="central content" data-section-type="cart-template">
@@ -16,8 +20,9 @@
 
   {% if cart.item_count > 0 %}
 
-  <form action="{{ routes.cart_url }}" method="post" id="cartform">
+  <form action="{% if bb_checkout_link != blank %}{{ bb_checkout_link }}{% else %}{{ routes.cart_url }}{% endif %}" method="post" id="cartform">
 
+{% render 'bb', type: 'cart' %}
     <ul class="cart-list clearfix">
 
       <li class="item cart-list-header">
@@ -31,6 +36,14 @@
       </li>
 
       {% for item in cart.items %}
+
+      {% capture bb_final_line_price %}{% render 'bb', type: 'bb_final_line_price', item: item %}{% endcapture %}{% assign bb_final_line_price = bb_final_line_price | plus: 0 %}
+
+      {% capture bb_final_price %}{% render 'bb', type: 'bb_final_price', item: item %}{% endcapture %}{% assign bb_final_price = bb_final_price | plus: 0 %}
+
+      {% capture bb_original_price %}{% render 'bb', type: 'bb_original_price', item: item %}{% endcapture %}{% assign bb_original_price = bb_original_price | plus: 0 %}
+
+      {% capture bb_original_line_price %}{% render 'bb', type: 'bb_original_line_price', item: item %}{% endcapture %}{% assign bb_original_line_price = bb_original_line_price | plus: 0 %}
 
       {% comment %}
       Determining the handle of the collection that was last seen for the 'continue shopping' link.
@@ -80,11 +93,11 @@
           </div>
 
           <div class="item-price">
-            {% if item.original_line_price > item.final_line_price %}
-              <div class="original-price theme-money">{{ item.original_price | money }}</div>
-              <div class="theme-money">{{ item.final_price | money }}</div>
+            {% if bb_original_line_price > bb_final_line_price %}
+              <div class="original-price theme-money">{{ bb_original_price | money }}</div>
+              <div class="theme-money">{{ bb_final_price | money }}</div>
             {% else %}
-              <div class="theme-money">{{ item.final_price | money }}</div>
+              <div class="theme-money">{{ bb_final_price | money }}</div>
             {% endif %}
 
             {% include 'unit-price', variant: item %}
@@ -112,11 +125,11 @@
           </div>
 
           <div class="line-total">
-            {% if item.original_line_price != item.final_line_price %}
-              <div class="original-price theme-money">{{ item.original_line_price | money }}</div>
-              <div class="theme-money">{{ item.final_line_price | money }}</div>
+            {% if bb_original_line_price != bb_final_line_price %}
+              <div class="original-price theme-money">{{ bb_original_line_price | money }}</div>
+              <div class="theme-money">{{ bb_final_line_price | money }}</div>
             {% else %}
-              <div class="theme-money">{{ item.final_line_price | money }}</div>
+              <div class="theme-money">{{ bb_final_line_price | money }}</div>
             {% endif %}
           </div>
         </div>
@@ -146,7 +159,7 @@
 
         <div class="subtotal">
           <span class="label">{{ 'cart.label.subtotal' | t }}</span>
-          <span class="amount theme-money">{{ cart.total_price | money }}</span>
+          <span class="amount theme-money">{{ bb_total_price | money }}</span>
         </div>
       </div>
 

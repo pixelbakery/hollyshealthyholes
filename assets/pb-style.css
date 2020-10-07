@@ -390,6 +390,19 @@ a.btn.button-outline:hover{
   color: var(--hhh-color-darkblue) !important;
     background-color: var(--hhh-color-pink);
 }
+button,
+button:focus,
+button:active,
+button:visited,
+button:hover{
+	outline-width: 0px !important;
+	outline-color: rgba(0,0,0,0);
+}
+button[disabled].confirmation,
+input[type=submit][disabled].confirmation {
+  color: var(--hhh-color-darkblue);
+  background: var(--hhh-color-pink);
+}
 input.checkout-btn,
 a.button--contact,
 a.button--contact:visited,
