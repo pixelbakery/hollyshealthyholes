@@ -1392,3 +1392,140 @@ img.nutrition-icon-small{
 .donut-symbol{
 	height: 50px;
 }
+
+.clickable-row{
+	cursor: pointer;
+}
+
+
+/* BUNDLE TIME */
+.bundle-builder-app--bundle--product--variant{
+  display: none !important;
+}
+.bundle-builder-app--bundle--product-price{
+display: none !important;
+}
+.bundle-builder-app--content--add-margin:not(.bundle-builder-app--bundle--description):not(.bundle-builder-app--bundle--section-description),
+.bundle-builder-app--content--add-margin,
+.bundle-builder-app--content {
+    max-width: 1200px !important;
+		margin: 0 auto;
+}
+.bundle-builder-app--quantity--variant{
+	display: none !important;
+}
+.bundle-builder-app--product-modal--content .bundle-builder-app--product-modal--product .bundle-builder-app--bundle--product-details .bundle-builder-app--bundle--product-name{
+	text-align: left !important;
+}
+.bundle-builder-app--bundle--product-image{
+	object-fit: cover !important;
+	width: 100%;
+	height: 100%;
+}
+
+
+ li.bundle-builder-app--bundle--product .bundle-builder-app--bundle--product-link {
+	position: relative;
+}
+ li.bundle-builder-app--bundle--product .bundle-builder-app--bundle--product-link:before {
+	display: block;
+	content: "";
+	width: 100%;
+	/* padding-top: 61.804697157%; */
+	padding-top: 100.33%;
+}
+ li.bundle-builder-app--bundle--product .bundle-builder-app--bundle--product-link > .bundle-builder-app--bundle--product-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.bundle-builder-app--bundle--product{
+
+	margin-bottom: .5rem;
+	padding-bottom: .5rem;
+
+
+}
+li.bundle-builder-app--bundle--product div{
+	background-color: var(--hhh-color-grey) !important;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+}
+.bundle-builder-app--product--quantity{
+		 margin-top: 1rem;
+     display: flex;
+     flex-wrap: wrap;
+		 flex-direction: row;
+     max-width: 150px;
+     width: 100%;
+     margin: 1rem auto 0;
+     justify-content: space-around;
+		 align-items: center;
+}
+.bundle-builder-app--button{
+	align-items: center;
+	vertical-align: middle;
+	padding-left: 1em !important;
+	padding-right: 1em !important;
+	text-align: center;
+}
+.bundle-builder-app--button--decrease{
+	float: left !important;
+	padding-top: .5em !important;
+	padding-left: 1em  !important;
+}
+.bundle-builder-app--button--increase{
+	float: right !important;
+	padding-top: .5em !important;
+	padding-right: 1em;
+}
+.bundle-builder-app--button{
+	order: 5;
+}
+.bundle-builder-app--product--quantity{
+	display: block !important;
+}
+
+.bundle-builder-app--bundle--product-add--wrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end !important;
+}
+.bundle-builder-app--bundle--original-price{
+	display: none !important;
+}
+.bundle-builder-app--product-modal--product .bundle-builder-app--bundle--product-link:before{
+	padding-top: 0px;
+}
+.bundle-builder-app--button.bundle-builder-app--bundle--view-contents--button{
+	display: none !important;
+}
+
+
+/* Styling for Stuff Your Box on Collections Pages */
+.container--stuffyourbox{
+	border: 10px solid var(--hhh-color-pink);
+
+	background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    var(--hhh-color-pink) 20px,
+    var(--hhh-color-pink) 30px
+  );
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 50px;
+	}
+.container--stuffyourbox .stuffyourbox--inner{
+	border: 10px solid var(--hhh-color-pink);
+	padding: 50px;
+	background-color: white;
+	margin-bottom: 50px;
+	width: 100%;
+
+}
