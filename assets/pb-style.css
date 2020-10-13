@@ -1456,6 +1456,7 @@ li.bundle-builder-app--bundle--product div{
 
 }
 .bundle-builder-app--product--quantity{
+		height: 40px !important;
 		 margin-top: 1rem;
      display: flex;
      flex-wrap: wrap;
@@ -1504,7 +1505,11 @@ li.bundle-builder-app--bundle--product div{
 .bundle-builder-app--button.bundle-builder-app--bundle--view-contents--button{
 	display: none !important;
 }
-
+.bundle-builder-app--bundle--product-add--wrapper{
+	padding-left: 2em;
+	padding-right:2em;
+	padding-bottom: 1em;
+}
 
 /* Styling for Stuff Your Box on Collections Pages */
 .container--stuffyourbox{

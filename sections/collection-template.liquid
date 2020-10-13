@@ -21,7 +21,7 @@
     {% assign is_donut = true %}
   {% when 'Specialty Donuts' %}
     {% assign donut_icon = 'HHH_Donut2.svg' | asset_url   %}
-    {% assign stuffit_halfdozen_url = "/apps/bundles/bundle/47759" %}
+    {% assign stuffit_halfdozen_url = "/apps/bundles/bundle/47846" %}
     {% assign stuffit_fulldozen_url = "/apps/bundles/bundle/47758" %}
     {% assign stuffit_title = "Stuff It Yo Self – Specialty Donuts" %}
     {% assign stuffit_copy = "Whether you consider yourself a traditionalist or just a bit “vanilla”, our original holes are tried & true just for you. Mix n' Match, Scratch n' Sniff - pick any combo of Specialty Donuts you want." %}
@@ -44,7 +44,7 @@
     </div>
     <div class="col-12 col-md-6 offset-md-2 text-left">
       <h1 class="feature-header h2 align-left text-left">All About {{ collection.title }}</h1>
-      <p class="lead text-left my-3">{{ collection.description }}</p>
+      <p class=" text-left my-3">{{ collection.description }}</p>
       {% if is_donut %}
         <a class="btn button-outline my-3 hvr-float" href="/pages/nutrition">View Nutritional Info</a>
       {% endif %}
