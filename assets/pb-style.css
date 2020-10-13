@@ -318,6 +318,25 @@ main#page-content {
  	 left: 0;
  }
 
+
+ .card-wrapper.order-now {
+ 	 position: relative;
+ }
+  .card-wrapper.order-now:before {
+ 	 display: block;
+ 	 content: "";
+ 	 width: 100%;
+ 	 padding-top: 133.33333%;
+ }
+  .card-wrapper.order-now > .card-img {
+ 	 position: absolute;
+ 	 top: 0;
+ 	 right: 0;
+ 	 bottom: 0;
+ 	 left: 0;
+ }
+
+
  img.card-img{
    object-fit: cover;
 	 width: 100%;
@@ -1076,6 +1095,13 @@ a.rec--link:hover{
 	padding-bottom: 125px !important;
 	padding-top: 125px !important;
 }
+.m-y-125{
+	margin-bottom: 125px !important;
+	margin-top: 125px !important;
+}
+.m-b-125{
+	margin-bottom: 125px !important;
+}
 #imagecallout{
 	overflow-x: hidden;
 }
@@ -1354,4 +1380,15 @@ img.nutrition-icon-small{
 }
 .clickable-row{
 	cursor: pointer;
+}
+.order-card{
+	width: 100%;
+	height: 0;
+	padding-top: 100%;
+}
+.border-pink{
+	border: 10px solid var(--hhh-color-pink);
+}
+.donut-symbol{
+	height: 50px;
 }
