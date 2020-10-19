@@ -42,7 +42,7 @@
           {% endcase %}
         {% endfor %}
         </ul>
-        <p class="card-text product-block py-1 my-2 text-left">{{ product.description | truncate: 100 }}</p>
+        <p class="card-text product-block py-1 my-2 text-left">{{ product.description  | strip_html | truncate: 100 }}</p>
         <p class="card-text product-price align-self-bottom pb-2 text-left">
           {% if product.available %}
             {% if product.price_varies %}
