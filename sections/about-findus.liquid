@@ -14,7 +14,11 @@
     <div class="container my-3 pt-2">
       <div class="row">
         <div class="col-12 mb-3  ml-0 pl-0">
-          <h4 class="text-left ml-0 pl-0 text-lowercase"> {{ city }} </h4>
+          {% if city != "councilbluffs" %}
+            <h4 class="text-left ml-0 pl-0 text-lowercase"> {{ city }} </h4>
+          {% else %}
+            <h4 class="text-left ml-0 pl-0 text-lowercase"> Council Bluffs </h4>
+          {% endif %}
         </div>
       </div>
       <div class="row row-cols-1 row-cols-xs-2 row-cols-md-3">
@@ -42,7 +46,9 @@
                 </div>
                 <div class="col-8 ">
                   <div class="card-body vendor--card-body h-100 d-flex flex-column justify-content-between">
-                    <h5 class="card-title text-left ml-0 pl-0 my-1">{{ block.settings.title }} </h5>
+
+                      <h5 class="card-title text-left ml-0 pl-0 my-1">{{ block.settings.title }} </h5>
+                    
                     <div>
                       <p class="card-text py-1 my-0">{{vendorStreet}}</p>
                       <p class="card-text py-1 my-0">{{vendorWebsitePretty}}</p>
