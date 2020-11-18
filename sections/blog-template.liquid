@@ -1,11 +1,8 @@
+
 <div class="central content" data-section-type="blog-template">
   {% paginate blog.articles by 6 %}
 
-  {% if current_tags %}
-  <h1 class="h2"><a href="{{ blog.url }}">{{ blog.title | link_to: blog.url }}</a> / {{ current_tags.first }}</h1>
-  {% else %}
-  <h1 class="h2">{{ blog.title }} <a class="rsslink" href="{{ blog.url }}.atom" title="{{ blog.title | escape }} RSS" aria-label="{{ blog.title | escape }} RSS">{% include 'svg-rss' %}</a></h1>
-  {% endif %}
+
 
 
   {% if blog.all_tags.size > 0 %}
@@ -54,7 +51,7 @@
 
     {% else %}
 
-    <p class="align-centre"><em>{{ 'blogs.general.no_matches' | t }}</em></p>
+    <p class="align-centre"><em>No upcoming events! Sign up for our newsletter to hear about the latest and greatest.</em></p>
     {% endfor %}
 
   </div>
