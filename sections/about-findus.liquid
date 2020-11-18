@@ -24,12 +24,13 @@
       <div class="row row-cols-1 row-cols-xs-2 row-cols-md-3">
           {% assign cityArray = section.blocks | where: "type", city %}
           {%- for block in cityArray -%}
+            {% unless block.settings.visible == false %}
             {% assign vendorName = block.settings.title %}
             {% assign vendorURL = block.settings.foh_vendorWebsite | replace: 'http://', 'https://'%}
             {% assign vendorWebsitePretty = block.settings.foh_vendorWebsite | remove: "www." | remove: "http://" | remove: "https://" | truncate: 30 %}
             {% assign vendorStreet = block.settings.foh_vendorStreet %}
 
-          <a class="col mb-3 px-1 hvr-float vendor-box--a" href="{{vendorURL}}" target="_blank" rel="nofollow">
+            <a class="col mb-3 px-1 hvr-float vendor-box--a" href="{{vendorURL}}" target="_blank" rel="nofollow">
               <div class=" vendor-box  h-100 row no-gutters">
                 <div class="col-4 h-100 d-flex flex-column justify-content-center  vendor-inner pl-4">
                   {% case block.settings.vendor_type %}
@@ -48,7 +49,7 @@
                   <div class="card-body vendor--card-body h-100 d-flex flex-column justify-content-between">
 
                       <h5 class="card-title text-left ml-0 pl-0 my-1">{{ block.settings.title }} </h5>
-                    
+
                     <div>
                       <p class="card-text py-1 my-0">{{vendorStreet}}</p>
                       <p class="card-text py-1 my-0">{{vendorWebsitePretty}}</p>
@@ -58,7 +59,7 @@
               </div>
           </a>
 
-
+            {% endunless %}
           {%- endfor -%}
         </div> {% comment %}end row{% endcomment %}
       </div>
@@ -141,6 +142,13 @@
                "label": "Vendor Name"
              },
              {
+                 "type":      "checkbox",
+                 "id":        "visible",
+                 "label":     "Visible?",
+                 "default":   true,
+                 "info":      "Uncheck this box to hide the vendor from the Find Us page."
+              },
+             {
                "type":      "radio",
                "id":        "vendor_type",
                "label":     "Vendor Type",
@@ -178,6 +186,13 @@
                "type": "text",
                "label": "Vendor Name"
              },
+             {
+                 "type":      "checkbox",
+                 "id":        "visible",
+                 "label":     "Visible?",
+                 "default":   true,
+                 "info":      "Uncheck this box to hide the vendor from the Find Us page."
+              },
              {
                "type":      "radio",
                "id":        "vendor_type",
@@ -217,6 +232,13 @@
                "label": "Vendor Name"
              },
              {
+                 "type":      "checkbox",
+                 "id":        "visible",
+                 "label":     "Visible?",
+                 "default":   true,
+                 "info":      "Uncheck this box to hide the vendor from the Find Us page."
+              },
+             {
                "type":      "radio",
                "id":        "vendor_type",
                "label":     "Vendor Type",
@@ -255,6 +277,13 @@
                "label": "Vendor Name"
              },
              {
+                 "type":      "checkbox",
+                 "id":        "visible",
+                 "label":     "Visible?",
+                 "default":   true,
+                 "info":      "Uncheck this box to hide the vendor from the Find Us page."
+              },
+             {
                "type":      "radio",
                "id":        "vendor_type",
                "label":     "Vendor Type",
@@ -292,6 +321,13 @@
                "type": "text",
                "label": "Vendor Name"
              },
+             {
+                 "type":      "checkbox",
+                 "id":        "visible",
+                 "label":     "Visible?",
+                 "default":   true,
+                 "info":      "Uncheck this box to hide the vendor from the Find Us page."
+              },
              {
                "type":      "radio",
                "id":        "vendor_type",
