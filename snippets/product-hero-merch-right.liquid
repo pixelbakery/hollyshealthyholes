@@ -10,8 +10,8 @@
         <h4 class="font-italic align-left">
           {% for collection in product.collections limit: 1 %}
     		{% assign temp1 = collection.title %}
-        	{% assign temp1size = temp1 | size | minus: 1 %}
-        	{{ temp1 | slice: 0, temp1size }}
+        	{% assign temp1size = temp1  %}
+        	{{ temp1 }}
           {% endfor %}
         </h4>
         <div class="price-area my-1">

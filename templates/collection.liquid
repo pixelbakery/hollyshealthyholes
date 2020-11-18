@@ -1,2 +1,5 @@
-
-{% section 'collection-template' %}
+{% if collection.title == "Merch"  %}
+  {% section 'collection-template-merch' %}
+{% else %}
+  {% section 'collection-template' %}
+{% endif %}
