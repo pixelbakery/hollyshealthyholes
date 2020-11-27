@@ -1,0 +1,60 @@
+<section class="container-fluid px-0 mx-0 landing border-0" id="imagecallout">
+	{% if section.settings.callout_image != blank %}
+  	<img src="{{ section.settings.callout_image.src | img_url: "master" }}" class="object-fit" alt="{{section.settings.title}}" />
+	{% else %}
+		{{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-image object-fit' }}
+	{% endif %}
+  <div class="row inner px-2 mx-auto d-flex justify-content-center ">
+    <div class="card--ordercta-body p-2 p-md-5 inner-box d-flex flex-column shadow ">
+			<h1 class="feature-header feature-header--visible card-title line-1 pt-3 no-hyphens"> {{section.settings.title}} </h1>
+			<p class="card-text line-2 pb-3"> {{section.settings.callout_subhead}} </p>
+      <a class="btn btn-primary hvr-float shadow-sm mx-2 mx-md-5 mb-2" href="{{section.settings.button_url}}">{{section.settings.button_text}} </a>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Text W/ Button Over Image",
+    "settings": [
+		{
+			"type":	"text",
+			"id":	"title",
+			"label":	"Section Header"
+		},
+		{
+			"type":	"text",
+			"id":	"callout_subhead",
+			"label":	"Section Subheader"
+		},
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+    },
+		{
+			  "type": "image_picker",
+			  "id": "callout_image",
+			  "label": "Background Image"
+		}
+		],
+ 	"presets": [
+    {
+      "name": "Text W/ Button Over Image",
+      "category": "Call To Actions"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
