@@ -114,6 +114,7 @@
           </li>
 
           {% comment %} begin CBD-Infused section {% endcomment %}
+          {% comment %}
           <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-cbd">
             <div class="text-center text-md-left px-4">
               <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_CBD.svg' | asset_url  }}" alt="donuts marked with this symbol are infused with CBD" />
@@ -125,8 +126,9 @@
               </div>
             </div>
           </li>
-
+          {% endcomment %}
           {% comment %} begin CBD-Optional section {% endcomment %}
+          {% comment %}
           <li class="list-group-item row d-flex px-2 py-4 align-items-center bg--white rounded border-0 shadow-sm mb-2" id="nutrition-icon-cbd">
             <div class="text-center text-md-left px-4">
               <img class="img-fluid nutrition-icon-explained " src="{{  'HHH_NutritionBadge_CBDOptional.svg' | asset_url  }}" alt="donuts marked with this symbol have the choice of adding CBD to them for an additional cost" />
@@ -138,7 +140,7 @@
               </div>
             </div>
           </li>
-
+          {% endcomment %}
         </ul>
       </div>
     </div>
@@ -155,15 +157,15 @@
           <thead class="border-0">
             <tr class="border-0 ">
               <th class="font-weight-bold border-0 text-left color--dark-blue px-0 px-lg-1" scope="col col-lg-2">Donut</br>Name</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Super Yummy</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Gluten Free</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Low Carb</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">100% Vegan</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Lactose Free</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Soy Free</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">CBD-Infused</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Super Food</th>
-              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Nut Free</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Super </br>Yummy</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Gluten </br>Free</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Low </br>Carb</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">100% </br>Vegan</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Lactose </br>Free</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Soy </br>Free</th>
+              <!-- <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">CBD-Infused</th> -->
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Super </br>Food</th>
+              <th class="border-0 text-center color--dark-blue px-0 px-lg-1" scope="col">Nut </br>Free</th>
 
             </tr>
           </thead>
@@ -178,6 +180,8 @@
                   <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-vegan' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_Vegan.svg' | asset_url  }}" alt="{{ product.title }} is certified 100% vegan" /> {% endif %}</td>
                   <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-no-lactose' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_NoLactose.svg' | asset_url  }}" alt="{{ product.title }} contains zero lactose or dairy products" /> {% endif %}</td>
                   <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-no-soy' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_NoSoy.svg' | asset_url  }}" alt="{{ product.title }} contains no soy products" /> {% endif %}</td>
+
+                  {% comment %}
                   <td class="text-center px-0 px-lg-1" >
                     {% if product.tags contains 'highlight-cbd' %}
                       <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_CBD.svg' | asset_url  }}" alt="{{ product.title }} is infused with CBD" />
@@ -185,6 +189,7 @@
                       <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_CBDOptional.svg' | asset_url  }}" alt="{{ product.title }} has the option to add CBD to it" />
                     {% endif %}
                   </td>
+                  {% endcomment %}
                   <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-super-donut' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_SuperFood.svg' | asset_url  }}" alt="{{ product.title }} is considered a Super Food" /> {% endif %}</td>
                   <td class="text-center px-0 px-lg-1" >{% if product.tags contains 'highlight-no-nuts' %} <img class=" nutrition-icon-small " src="{{  'HHH_NutritionBadge_NoNuts.svg' | asset_url  }}" alt="{{ product.title }} contains zero peanuts or peanut oils" /> {% endif %}</td>
                 </tr></a>
