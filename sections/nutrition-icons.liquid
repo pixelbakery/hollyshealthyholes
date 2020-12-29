@@ -1,0 +1,113 @@
+
+<div class="container m-t-125">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="feature-header h2 align-left feature-header--visible py-4">{{section.settings.title}}</h3>
+
+      <div class="rte mw-700">
+          {{section.settings.nu_basic_blurb}}
+      </div>
+    </div>
+    <div class="col-12">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item row">
+          <div class="col-2 highlight">
+            <img src="" alt="" class="img-fluid" />
+          </div>
+          <div class="col-4 highlight">
+            <h5>Gluten-Free</h5>
+          </div>
+          <div class="col-6 highlight">
+            <p>
+              Product highlights are assigned using tags. Adding the tag "has-highlights" will cause the highlight badges to appear on the respective product page.
+            </p>
+          </div>
+        </li>
+        <li class="list-group-item row">Dapibus ac facilisis in</li>
+        <li class="list-group-item row">Morbi leo risus</li>
+        <li class="list-group-item row">Porta ac consectetur ac</li>
+        <li class="list-group-item row">Vestibulum at eros</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Nutritional Icons ",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Header"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_basic_blurb",
+        "label": "Section Intro Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_gluten_free",
+        "label": "Gluten Free Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_vegan",
+        "label": "Vegan Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_yummy",
+        "label": "Super Yummy Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_gluten_free",
+        "label": "Gluten Free Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_nuts",
+        "label": "Nut Free Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_low_carb",
+        "label": "Low Carb"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_gluten_free",
+        "label": "Gluten Free Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_lactose",
+        "label": "Lactose Free Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_soy",
+        "label": "Soy Free Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_cbd",
+        "label": "CBD-Infused Text"
+      },
+      {
+        "type": "richtext",
+        "id": "nu_super_donut",
+        "label": "Super Donut Text"
+      },
+    ]
+  }
+{% endschema %}
+
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

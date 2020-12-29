@@ -1,76 +1,42 @@
-<section class="value-props container-fluid text-center my-auto mx-auto px-2 d-flex justify-content-around border-top-0" id="valueprops">
-	<div class="align-middle cta-box align-center text-center py-5 px-3 my-5">
-      <h1 class="feature-header feature-header--visible text-uppercase">Donuts made with stuff you actually recognize</h1>
-      <div class="type-2 text-center">
-      <p class=" text-center">No artificial sugars,  no ridiculousness </p>
-      </div>
+<section class="container-fluid px-0 mx-0 landing border-0" id="imagecallout">
+	{% if section.settings.callout_image != blank %}
+  	<img src="{{ section.settings.callout_image.src | img_url: "master" }}" class="object-fit" alt="{{section.settings.title}}" />
+	{% else %}
+		{{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-image object-fit' }}
+	{% endif %}
+  <div class="row inner px-0 mx-auto d-flex justify-content-center ">
+    <div class="card--ordercta-body py-5 px-5 inner-box d-flex flex-column shadow ">
+			<h1 class="feature-header feature-header--visible card-title line-1 pt-3 no-hyphens"> {{section.settings.title}} </h1>
+			<p class="card-text line-2 pb-3"> {{section.settings.callout_subhead}} </p>
+    </div>
   </div>
-  </section>
-<!-- <section class="container-fluid py-5 px-3">
-  <div class="container mb-3 mx-auto py-3">
-    
-  <h1 class="feature-header feature-header--visible px-5 color--light-yellow text-uppercase"> Transparency With Our Ingredients</h1>
-  <div class="type-2 text-center px-5">
-      <p class=" text-center color--light-yellow">Assertively plagiarize excellent bandwidth whereas distinctive ideas. Enthusiastically actualize collaborative expertise rather than strategic value. Rapidiously myocardinate effective systems for.</p>
-      </div>
-  </div>
-  <div class="card-deck mx-3 ">
-    <div class="card border-0 rounded-0 mb-3">
-      <div class="row no-gutters">
-        <div class="col-md-4 h-100">
-          <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="h-100 border-0 rounded-0 card-img img-fluid" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">DONUT BASIC INGREDIENTS</h5>
-            <ul class="card-text list-group list-group-flush">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-              
-            </ul>
-          </div>
-        </div>
-      </div>
-  	</div>
-    <div class="card border-0 rounded-0 mb-3">
-      <div class="row no-gutters">
-        <div class="col-md-4 h-100">
-          <img src="https://media.pixelbakery.com/HHH/images/IMG_5804.jpeg" class="h-100 border-0 rounded-0 card-img img-fluid" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">VEGAN DONUT INGREDIENTS</h5>
-            <ul class="card-text list-group list-group-flush">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-  	</div>
-  </div>
-</section> -->
-
-
-
-
- 
+</section>
 
 
 {% schema %}
   {
-    "name": "About - Value Props",
-    "settings": [],
+    "name": "Text Centered In Image",
+    "settings": [
+		{
+			"type":	"text",
+			"id":	"title",
+			"label":	"Section Header"
+		},
+		{
+			"type":	"text",
+			"id":	"callout_subhead",
+			"label":	"Section Subheader"
+		},
+		{
+			  "type": "image_picker",
+			  "id": "callout_image",
+			  "label": "Background Image"
+		}
+		],
  	"presets": [
     {
-      "name": "About - Value Props",
-      "category": "About Page"
+      "name": "Text Centered In Image",
+      "category": "Callouts"
     }
   ]
   }

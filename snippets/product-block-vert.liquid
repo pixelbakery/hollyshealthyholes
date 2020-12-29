@@ -1,0 +1,68 @@
+{% comment %}Is this product on sale?{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign product_url = product.url | within: collection %}
+
+
+
+<div class="col mb-4 hvr-float">
+  <a href="{{ product_url }}" class="product-card--link noDecoration">
+    <div class="card bg--grey border-0">
+      <div class="pink-skrim"></div>
+      <img src="{{  product.featured_image.src | img_url: "master" }}" class="product-block--img card-img-top" alt="{{product.title}}">
+      <div class="card-body">
+      <h5 class="card-title pb-0 mb-0 pt-0 pt-lg-3 mx-auto px-0 px-md-1 bg--grey">{{ product.title }}</h5>
+      <p class="card-text product-block py-1 my-2 text-left">{{ product.description  | strip_html | truncate: 100 }}</p>
+      <p class="card-text product-price align-self-bottom pb-2 text-left">
+        {% if product.available %}
+          {% if product.price_varies %}
+            {{  product.selected_or_first_available_variant.price | money }} to {{ product.price_max | money }}
+          {% else %}
+            {{ product.price | money  }}
+          {% endif %}
+        {% else %}
+          Sold Out!
+        {% endif %}
+
+      </p> 
+      </div>
+    </div>
+  </a>
+</div>
+<!--
+
+<div class="col mb-3 hvr-float" data-loop-index="{{forloop.index}}">
+<a href="{{ product_url }}" class="product-card--link noDecoration">
+<div class="product-block card h-100 my-0 bg--grey">
+  <div class="pink-skrim"></div>
+  <img src="{{  product.featured_image.src | img_url: "master" }}" class="product-block--img card-img-top" alt="{{product.title}}" />
+  <!-- <div class="row no-gutters h-100"> -->
+    <!-- <div class="col col-md-4 product-block--img-wrapper">
+
+    </div> -->
+    <!-- <div class="col col-md-8"> -->
+      <!-- <div class="card-body d-flex flex-column justify-content-between h-100">
+
+
+        <p class="card-text product-block py-1 my-2 text-left">{{ product.description  | strip_html | truncate: 100 }}</p>
+        <p class="card-text product-price align-self-bottom pb-2 text-left">
+          {% if product.available %}
+            {% if product.price_varies %}
+              {{  product.selected_or_first_available_variant.price | money }} to {{ product.price_max | money }}
+            {% else %}
+              {{ product.price | money  }}
+            {% endif %}
+          {% else %}
+            Sold Out!
+          {% endif %}
+
+        </p> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </div>
+</a>
+</div> -->

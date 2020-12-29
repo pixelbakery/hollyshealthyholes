@@ -3,15 +3,20 @@
 {% section 'product-nutrition' %}
 {% section 'product-reviews' %}
 {% section 'product-recommendations' %}
-{% if product.type == 'Donut' %}
+{% section 'product-prevnext' %}
+
 <section class="container">
   <div class="row">
     <div class="col-12 mx-auto text-center my-5">
-      <a class="btn btn-primary" href="/collections">{% include 'svg-chevron-left' %} Back To All Donuts</a>
+      {% if product.title != "Gift Card" %}
+        <a class="btn btn-primary" href="{{collection.url}}">{% include 'svg-chevron-left' %} Back To All {{ collection.title }}</a>
+      {% else %}
+        <a class="btn btn-primary" href="/collections">{% include 'svg-chevron-left' %} Back To All Products</a>
+      {% endif %}
     </div>
   </div>
 </section>
-{% endif %}
+
 <script>
   theme.checkViewportFillers();
 </script>
@@ -20,7 +25,9 @@
   {{ product | json }}
 </script>
 
-{% assign current_variant = product.selected_or_first_available_variant %}
+
+  {% assign current_variant = product.selected_or_first_available_variant %}
+
 
 <script type="application/ld+json">
 {

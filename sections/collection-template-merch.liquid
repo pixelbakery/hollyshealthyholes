@@ -1,0 +1,124 @@
+<section class="sprinkletime-section sprinkletime-section-sm">
+  <div class="sprinkletime-container">
+    <div class="sprinkle-holder">
+      <div class="sprinkle"></div>
+    </div>
+    <div class="sprinkle-header-holder ">
+     	 <h1 class="sprinkle-header ml16 pl-4 pb-2 pt-2"> {{ collection.title }}</h1>
+    </div>
+  </div>
+</section>
+
+
+ <section class="product-list cf container container-lg py-3 my-3 px-md-5 m-t-125" id="CollectionSection-{{ block.id }}" data-section-id="{{ block.id }}" data-section-type="collection-template">
+   <div class="row">
+     {% unless collection.products.size > 0 %}
+       <div class="col-12"><p class="align-centre"><em>{{ 'collections.general.no_matches' | t }}</em></p></div>
+     {% endunless %}
+   </div>
+   <div class="row row-cols-1 row-cols-md-3">
+     {% for product in collection.products limit: '24'%}
+       {% include 'product-block-vert' %}
+     {% endfor %}
+   </div>
+ </section>
+
+ <section class="container">
+   <div class="row">
+     <div class="col-12 mx-auto text-center my-5">
+       <a class="btn btn-primary hvr-float" href="/collections">{% include 'svg-chevron-left' %} Back To All Products</a>
+     </div>
+   </div>
+ </section>
+
+
+{% schema %}
+  {
+    "name": "Collection pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "coll_content_bg_show",
+        "label": "Show background color behind title and description",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_show_tags",
+        "label": "Show tag filters",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_show_sort",
+        "label": "Show sorting dropdown",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_show_feat",
+        "label": "Show 'Featured' option in sorting dropdown",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "coll_layout",
+        "label": "Product layout",
+        "options": [
+          {
+            "value": "columns",
+            "label": "Collage"
+          },
+          {
+            "value": "rows",
+            "label": "Grid"
+          }
+        ],
+        "default": "columns"
+      },
+      {
+        "type": "range",
+        "id": "coll_layout_per_row_int",
+        "label": "Products per row",
+        "min": 2,
+        "max": 4,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "coll_num_prods_int",
+        "label": "Number of products to show per page",
+        "min": 6,
+        "max": 48,
+        "step": 6,
+        "default": 12
+      },
+      {
+        "type": "select",
+        "id": "hover_effect",
+        "label": "Hover effect",
+        "default": "info",
+        "options": [
+          {
+            "value": "info",
+            "label": "Show title and price"
+          },
+          {
+            "value": "image",
+            "label": "Show second image"
+          },
+          {
+            "value": "",
+            "label": "None"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_infiniscroll",
+        "label": "Enable infinite-scroll",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

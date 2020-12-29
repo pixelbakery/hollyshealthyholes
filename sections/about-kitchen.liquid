@@ -1,4 +1,25 @@
-<section  class="container-fluid bg--white">
+{% assign monday = section.settings.monday_open %}
+{% assign monday_hours = section.settings.monday_hours %}
+
+{% assign tuesday = section.settings.tuesday_open %}
+{% assign tuesday_hours = section.settings.tuesday_hours %}
+
+{% assign wednesday = section.settings.wednesday_open %}
+{% assign wednesday_hours = section.settings.wednesday_hours %}
+
+{% assign thursday = section.settings.thursday_open %}
+{% assign thursday_hours = section.settings.thursday_hours %}
+
+{% assign friday = section.settings.friday_open %}
+{% assign friday_hours = section.settings.friday_hours %}
+
+{% assign saturday = section.settings.saturday_open %}
+{% assign saturday_hours = section.settings.saturday_hours %}
+
+{% assign sunday = section.settings.sunday_open %}
+{% assign sunday_hours = section.settings.sunday_hours %}
+
+<section  class="container-fluid bg--white" id="kitchen">
   <div class="row no-gutter d-flex ">
     <div class="col-12 col-md-8 col-xl-6 left order-last order-md-first flex-fill">
       <div class="container  p-5 d-flex flex-column justify-content-center  h-100">
@@ -13,46 +34,98 @@
           </div>
           <div class="col-12 col-md-8 text-muted small">
             <p class=" text-left  pb-0 mb-0">2215 Leavenworth St<br>Omaha, NE 68102</p>
-            <a href="#"  target="_blank"><small class="text-transform-italic small text-muted text-left mt-0 pt-0">MAP IT</small></a>
+            <a href="https://goo.gl/maps/E4AdBdsvQJ7NSfMD7"  target="_blank" rel="noreferrer"><small class="text-transform-italic small text-muted text-left mt-0 pt-0">MAP IT</small></a>
             <br/><br/>
-            <a href="mailto:howdy@hollyshealthyholes.com" target="_blank">howdy@hollyshealthyholes.com</a><br/>
+            <a href="mailto:holler@hollyshealthyholes.com" target="_blank">holler@hollyshealthyholes.com</a><br/>
             <a href="tel:4023473050" target="_blank">(402) 347-3050</a>
           </div>
           <div class="col-12 col-md-8 text-muted small">
-            
+
           </div>
         </div>
-        <div class="row mx-3 mb-3">
+        <div class="row mx-1 mx-md-3 mb-3">
           <div class="col-12 col-md-4 text-left">
-            <h4 class="border-bottom pb-2 mr-4 text-left">Pickup Hours</h4>
+            <h4 class="border-bottom pb-2 mr-2 mr-md-4 text-left">Pickup Hours</h4>
           </div>
           <div class="col-12 col-md-8 text-muted small">
             <div class="row">
-            <div class="col-4 text-left">
-              MONDAY
+              <!-- Monday -->
+              {% if monday and monday_hours != blank %}
+                <div class="col-4 text-left">
+                  MONDAY
+                </div>
+                <div class="col-8 text-right">
+                  {{ monday_hours }}
+                </div>
+              {% endif %}
+              <!-- End Monday -->
+
+              <!-- Tuesday -->
+              {% if tuesday and tuesday_hours != blank %}
+                <div class="col-4 text-left">
+                  TUESDAY
+                </div>
+                <div class="col-8 text-right">
+                  {{ tuesday_hours }}
+                </div>
+              {% endif %}
+              <!-- End Tuesday -->
+
+              <!-- wednesday -->
+              {% if wednesday and wednesday_hours != blank %}
+                <div class="col-4 text-left text-uppercase">
+                  wednesday
+                </div>
+                <div class="col-8 text-right">
+                  {{ wednesday_hours }}
+                </div>
+              {% endif %}
+              <!-- End wednesday -->
+
+              <!-- thursday -->
+              {% if thursday and thursday_hours != blank %}
+                <div class="col-4 text-left text-uppercase">
+                  thursday
+                </div>
+                <div class="col-8 text-right">
+                  {{ thursday_hours }}
+                </div>
+              {% endif %}
+              <!-- End thursday -->
+
+              <!-- friday -->
+              {% if friday and friday_hours != blank %}
+                <div class="col-4 text-left text-uppercase">
+                  friday
+                </div>
+                <div class="col-8 text-right">
+                  {{ friday_hours }}
+                </div>
+              {% endif %}
+              <!-- End friday -->
+
+              <!-- saturday -->
+              {% if saturday and saturday_hours != blank %}
+                <div class="col-4 text-left text-uppercase">
+                  saturday
+                </div>
+                <div class="col-8 text-right">
+                  {{ saturday_hours }}
+                </div>
+              {% endif %}
+              <!-- End saturday -->
+
+              <!-- sunday -->
+              {% if sunday and sunday_hours != blank %}
+                <div class="col-4 text-left text-uppercase">
+                  sunday
+                </div>
+                <div class="col-8 text-right">
+                  {{ sunday_hours }}
+                </div>
+              {% endif %}
+              <!-- End sunday -->
             </div>
-            <div class="col-8 text-right">
-              7:30am - 10:30am, 3:00pm - 5:00pm 
-            </div>
-            <div class="col-4 text-left">
-              WEDNESDAY
-            </div>
-            <div class="col-8 text-right">
-              7:30am - 10:30am, 3:00pm - 5:00pm 
-            </div>
-            <div class="col-4 text-left">
-              THURSDAY
-            </div>
-            <div class="col-8 text-right">
-              7:30am - 10:30am, 3:00pm - 5:00pm 
-            </div>
-            <div class="col-4 text-left">
-              FRIDAY
-            </div>
-            <div class="col-8 text-right">
-              7:30am - 10:30am, 3:00pm - 5:00pm 
-            </div>
-          </div>
           </div>
         </div>
       </div>
@@ -67,7 +140,93 @@
 {% schema %}
   {
     "name": "About - The Kitchen",
-    "settings": [],
+    "settings": [
+
+    {
+     "type": "checkbox",
+     "id": "monday_open",
+     "default": true,
+     "label": "Open on Mondays?"
+   },
+   {
+     "type": "text",
+     "id": "monday_hours",
+     "default": "7:30am - 10:30am, 3:00pm - 5:00pm",
+     "label": "Monday Hours"
+   },
+   {
+    "type": "checkbox",
+    "id": "tuesday_open",
+    "default": true,
+    "label": "Open on Tuesdays?"
+  },
+  {
+    "type": "text",
+    "id": "tuesday_hours",
+    "default": "7:30am - 10:30am, 3:00pm - 5:00pm",
+    "label": "Tuesday Hours"
+  },
+  {
+   "type": "checkbox",
+   "id": "wednesday_open",
+   "default": true,
+   "label": "Open on Wednesdays?"
+ },
+ {
+   "type": "text",
+   "id": "wednesday_hours",
+   "default": "7:30am - 10:30am, 3:00pm - 5:00pm",
+   "label": "Wednesday Hours"
+ },
+ {
+  "type": "checkbox",
+  "id": "thursday_open",
+  "default": true,
+  "label": "Open on Thursdays?"
+},
+{
+  "type": "text",
+  "id": "thursday_hours",
+  "default": "7:30am - 10:30am, 3:00pm - 5:00pm",
+  "label": "Thursday Hours"
+},
+{
+ "type": "checkbox",
+ "id": "friday_open",
+ "default": true,
+ "label": "Open on Fridays?"
+},
+{
+ "type": "text",
+ "id": "friday_hours",
+ "default": "7:30am - 10:30am, 3:00pm - 5:00pm",
+ "label": "Friday Hours"
+},
+{
+ "type": "checkbox",
+ "id": "saturday_open",
+ "default": true,
+ "label": "Open on Saturdays?"
+},
+{
+ "type": "text",
+ "id": "saturday_hours",
+ "default": "7:30am - 10:30am, 3:00pm - 5:00pm",
+ "label": "Saturday Hours"
+},
+{
+ "type": "checkbox",
+ "id": "sunday_open",
+ "default": true,
+ "label": "Open on Sundays?"
+},
+{
+ "type": "text",
+ "id": "sunday_hours",
+ "default": "7:30am - 10:30am, 3:00pm - 5:00pm",
+ "label": "Sunday Hours"
+}
+    ],
  	"presets": [
     {
       "name": "About - The Kitchen",

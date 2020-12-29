@@ -7,17 +7,17 @@
 {% assign product_url = product.url | within: collection %}
 
 
-<div class="col mb-3 " data-loop-index="{{forloop.index}}">
+<div class="col mb-3 hvr-float" data-loop-index="{{forloop.index}}">
 <a href="{{ product_url }}" class="product-card--link noDecoration">
-<div class="product-block card h-100 my-0">
+<div class="product-block card h-100 my-0 bg--grey">
   <div class="row no-gutters h-100">
     <div class="col col-md-4 product-block--img-wrapper">
       <div class="pink-skrim"></div>
-      <img src="{{  product.featured_image.src | img_url: "medium" }}" class="product-block--img card-img" alt="{{product.title}}">
+      <img src="{{  product.featured_image.src | img_url: "master" }}" class="product-block--img card-img" alt="{{product.title}}">
     </div>
     <div class="col col-md-8">
       <div class="card-body d-flex flex-column justify-content-between h-100">
-        <h5 class="card-title pb-0 mb-0 pt-0 pt-lg-3 mx-auto px-0 px-md-1">{{ product.title }}</h5>
+        <h5 class="card-title pb-0 mb-0 pt-0 pt-lg-3 mx-auto px-0 px-md-1 bg--grey">{{ product.title }}</h5>
         <ul class="list-inline card-subtitle small text-muted my-0 py-0 product-card--highlights d-none d-lg-block">
         {% for tag in product.tags %}
         {% case tag %}
@@ -27,22 +27,28 @@
               <li class="list-inline-item product-card--highlights-item font-italic">Gluten Free</li>
             {% when 'highlight-yummy' %}
               <li class="list-inline-item product-card--highlights-item font-italic">Super Yummy</li>
-            {% when 'highlight-dairy-free' %}
+            {% when 'highlight-no-lactose' %}
               <li class="list-inline-item product-card--highlights-item font-italic">Dairy Free</li>
             {% when 'highlight-no-nuts' %}
               <li class="list-inline-item product-card--highlights-item font-italic" >No Nuts</li>
             {% when 'highlight-low-carb' %}
               <li class="list-inline-item product-card--highlights-item font-italic">Low Carb</li>
+            {% when 'highlight-super-donut' %}
+              <li class="list-inline-item product-card--highlights-item font-italic">Super Food</li>
+            {% when 'highlight-no-soy' %}
+              <li class="list-inline-item product-card--highlights-item font-italic">Soy Free</li>
+            {% when 'highlight-cbd' %}
+              <li class="list-inline-item product-card--highlights-item font-italic">Contains CBD</li>
           {% endcase %}
         {% endfor %}
         </ul>
-        <p class="card-text product-block py-1 my-2 text-left">{{ product.description | truncate: 100 }}</p>
+        <p class="card-text product-block py-1 my-2 text-left">{{ product.description  | strip_html | truncate: 100 }}</p>
         <p class="card-text product-price align-self-bottom pb-2 text-left">
-          {% if available %}
+          {% if product.available %}
             {% if product.price_varies %}
-              {{ product.price_min | money }} to {{ product.price_max | money }}
+              {{  product.selected_or_first_available_variant.price | money }} to {{ product.price_max | money }}
             {% else %}
-              {{ money_price }}
+              {{ product.price | money  }}
             {% endif %}
           {% else %}
             Sold Out!

@@ -1,0 +1,75 @@
+<section class="shopify-section bg--white border-bottom-0 py-3" id="prevnext">
+{%- assign octa_header = section.settings.cta_header -%}
+  <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col mb-4 ">
+        {% if collection.previous_product %}
+
+          <a href="{{ collection.previous_product.url }}" class="card--ordercta-a">
+            <div class="card h-100 card--ordercta">
+              <div class="card-img-top card--ordercta-img">
+                {% if collection.previous_product.featured_image != blank %}
+                  <img src="{{collection.previous_product.featured_image.src | img_url: "master"}}" class="" alt="{{ collection.previous_product.title }}">
+                {% else %}
+                  <div class="placeholder-image placeholder--banner object-fit">
+                    {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                    {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {% endif %}
+
+                <div class="card--ordercta-skrim"></div>
+              </div>
+              <div class="card-body card--ordercta-body position--hcenter position--vcenter text-center d-flex flex-column justify-content-start py-3">
+                <p class="card-text line-2 py-2 mb-0">{% include 'svg-chevron-left' %} Previous Product </p>
+                <h1 class="card-title line-1 mb-0 pb-0 px-2"> {{ collection.previous_product.title }}</h1>
+
+
+              </div>
+            </div>
+          </a>
+      {%- else -%}
+        <div class="card h-100 card--ordercta bg--grey radius-0"></div>
+      {%- endif -%}
+      </div>
+
+
+
+      <div class="col mb-4">
+      {% if collection.next_product %}
+
+        <a href="{{ collection.next_product.url }}" class="card--ordercta-a">
+          <div class="card h-100 card--ordercta">
+            <div class="card-img-top card--ordercta-img">
+              {% if collection.next_product.featured_image != blank %}
+                <img src="{{collection.next_product.featured_image.src | img_url: "master"}}" class="" alt="{{ collection.next_product.title }}">
+              {% else %}
+                <div class="placeholder-image placeholder--banner object-fit">
+                  {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                  {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {% endif %}
+
+              <div class="card--ordercta-skrim"></div>
+            </div>
+            <div class="card-body card--ordercta-body position--hcenter position--vcenter text-center d-flex flex-column justify-content-start py-3">
+              <p class="card-text line-2 py-2 mb-0">Next Product {% include 'svg-chevron-right' %} </p>
+              <h1 class="card-title line-1 mb-0 pb-0 px-2"> {{ collection.next_product.title }} </h1>
+
+
+            </div>
+          </div>
+        </a>
+
+        {%- else -%}
+          <div class="card h-100 card--ordercta bg--grey radius-0"></div>
+        {%- endif -%}
+    </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</section>

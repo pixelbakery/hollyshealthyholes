@@ -8,15 +8,15 @@
     <h1 class="feature-header h2 align-left feature-header--visible pt-3">{{faq_header}}</h1>
     <div class="mw-700 my-2 rte">{{faq_blurb}}</div>
 
-    <div class="accordion my-5" id="{{section.id}}">
+    <div class="accordion my-5 rounded-0 border-0" id="{{section.id}}">
       {%- for block in section.blocks -%}
-    <div class="card">
-      <div class="card-header" id="faq-heading{{forloop.index}}">
-        <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#faq-collapse{{forloop.index}}" aria-expanded="true" aria-controls="faq-collapse{{forloop.index}}">
+    <div class="hvr-float d-flex card rounded-0 border-0 mb-2 ">
+      <div class="card-header rounded-0 border-0 p-0" id="faq-heading{{forloop.index}}">
+        <p class="mb-0 faq-header rounded-0 border-0">
+          <button class="btn btn-link btn-block text-left rounded-0 py-3 pl-5" type="button" data-toggle="collapse" data-target="#faq-collapse{{forloop.index}}" aria-expanded="true" aria-controls="faq-collapse{{forloop.index}}">
             {{ block.settings.title }}
           </button>
-        </h2>
+        </p>
       </div>
 
       <div id="faq-collapse{{forloop.index}}" class="collapse {% if expand_questions %}show{% endif %}" aria-labelledby="faq-heading{{forloop.index}}" data-parent="{{section.id}}">
