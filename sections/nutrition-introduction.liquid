@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <h3 class="feature-header h2 align-left feature-header--visible py-4">{{section.settings.title}}</h3>
- 
+
       <div class="rte mw-700">
           {{section.settings.nu_basic_blurb}}
       </div>
@@ -72,6 +72,70 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Other Noms -->
+
+          {% comment %} Check to make sure there are viable products inside Other Noms before building the section {% endcomment %}
+          {% assign countOtherNoms = 0 %}
+          {% for product in collections['other-noms'].products %}
+            {% if product.metafields.global.protein != blank %}
+              {% if product.metafields.global.carbs != blank %}
+                {% if product.metafields.global.fat != blank %}
+                  {% if product.metafields.global.kcals != blank %}
+                    {% if product.metafields.global.fiber != blank %}
+                      {% if product.metafields.global.sugar != blank %}
+                        {% assign countOtherNoms = countOtherNoms | plus: 1 %}
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% comment %} if there are any viable products, go on ahead and build the section {% endcomment %}
+          {% if countOtherNoms > 0 %}
+          {% comment %} Build the section {% endcomment %}
+          <div class="col-12 my-3 py-3" id="other-noms">
+            <p class="lead font-weight-bold">Other Noms Nutritional Info:</p>
+            <p class="font-italic">
+              Note: bread nutrition is listed by the slice, not the entire loaf.
+            </p>
+            <table class="table table-striped table-hover table-responsive-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Donut</th>
+                  <th scope="col">Protein</th>
+                  <th scope="col">Net Carbs</th>
+                  <th scope="col">Fat</th>
+                  <th scope="col">KCals</th>
+                  <th scope="col">Fiber</th>
+                  <th scope="col">Sugar</th>
+                </tr>
+              </thead>
+              <tbody>
+          {% comment %} The section is built, now let's loop through the products with nutritional metafields {% endcomment %}
+          {% for product in collections['other-noms'].products %}
+            {% unless product.metafields.global.protein == blank %}
+              <tr>
+                <td scope="row"><a href="{{product.url}}">{{product.title}}</td>
+                <td>{{product.metafields.global.protein }} grams</td>
+                <td>{{product.metafields.global.carbs }} grams</td>
+                <td>{{product.metafields.global.fat }} grams</td>
+                <td>{{product.metafields.global.kcals }} kcals</td>
+                <td>{{product.metafields.global.fiber }} grams</td>
+                <td>{{product.metafields.global.sugar }} grams</td>
+              </tr>
+              {% endunless %}
+          {% endfor %}
+          {% comment %} The product loop is done, so let's close out the section {% endcomment %}
+              </tbody>
+            </table>
+          </div>
+          {% endif %}
+
+
+
+    <!-- End Other Noms -->
   </div>
 </div>
 
