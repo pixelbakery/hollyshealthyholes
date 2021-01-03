@@ -1,0 +1,15 @@
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) {
+  window.customCheckoutValidation = function() {
+    document.getElementById("checkoutBtn").innerHTML = "Loading ...";
+
+    _coup('a', function(){
+      var discount = (window.win_coupanCode === 'undefined') ? ' ' : window.win_coupanCode;
+      var checkout_params = Zapiet.Widget.getCheckoutParams();
+      checkout_params.discount = discount;
+
+      window.location = '/checkout?' + new URLSearchParams(checkout_params);
+    });
+  };
+});
+</script>
