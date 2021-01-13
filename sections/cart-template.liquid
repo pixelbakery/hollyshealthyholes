@@ -13,7 +13,7 @@
       </div>
 
 
-    </div>
+    </div> 
   </section>
 <div class="central content" data-section-type="cart-template">
 
@@ -199,14 +199,16 @@
         <div class="cart-policies rte">{{ taxes_shipping_checkout }}</div>
       {% endif %}
       <div id="storePickupApp"></div>
-      <input type="submit" class="checkout-btn" name="checkout" value="{{ 'cart.general.checkout' | t | escape }}" />
+      <input type="submit" class="checkout-btn" id="checkoutBtn" name="checkout" value="{{ 'cart.general.checkout' | t | escape }}" />
 
-      {% comment %}Paypal and Google checkout buttons{% endcomment %}
+      {% comment %}
+      Paypal and Google checkout buttons
       {% if section.settings.show_additional_checkout_buttons and additional_checkout_buttons and section.settings.cart_terms_show == false %}
       <div class="additional-checkout-buttons">
         {{ content_for_additional_checkout_buttons }}
       </div>
       {% endif %}
+      {% endcomment %}
 
       <p class="comment">{{ 'cart.general.message' | t }}</p>
     </div>
@@ -218,7 +220,7 @@
   <div>
     <h2>{{ 'cart.general.empty' | t }}</h2>
     <div class="rte">
-      <p class="align-center"><a href="/collections">{{ 'cart.general.continue_browsing' | t }}</a></p>
+      <p class="align-center"><a href="{{ routes.all_products_collection_url }}">{{ 'cart.general.continue_browsing' | t }}</a></p>
     </div>
   </div>
 

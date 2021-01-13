@@ -1,3 +1,33 @@
-#storePickupApp {
-	// Enter your custom styles here
+
+@media (max-width: 767.98px) {
+  #storePickupApp .checkoutMethodsContainer{
+  	flex-direction: column;
+  }
+  #storePickupApp .checkoutMethodsContainer .checkoutMethod:last-child,
+  #storePickupApp .checkoutMethodsContainer.default .checkoutMethod:last-child {
+      margin-right: .5em;
+  }
+  #storePickupApp .checkoutMethodsContainer .checkoutMethod,
+  #storePickupApp .checkoutMethodsContainer.default .checkoutMethod {
+    margin-top: .33em;
+    margin-bottom: .33em;
+  }
+  #storePickupApp .checkoutMethodsContainer .checkoutMethod div,
+  #storePickupApp .checkoutMethodsContainer.default .checkoutMethod div{
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  #storePickupApp .checkoutMethodsContainer .checkoutMethod div .checkoutMethodName,
+  #storePickupApp .checkoutMethodsContainer.default .checkoutMethod div .checkoutMethodName{
+    margin-left: 1em;
+}
+#storePickupApp .checkoutMethodsContainer .checkoutMethod div .checkoutMethodImage,
+#storePickupApp .checkoutMethodsContainer.default .checkoutMethod div .checkoutMethodImage{
+  margin-left: 1em;
+  padding-right: .5em;
+  padding-bottom: 0px;
+}
 }

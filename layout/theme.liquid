@@ -119,19 +119,17 @@
     })(theme.jQuery);
   </script>
 
-
-  {% include "storepickup" %}
+{% if request.page_type == 'cart' %}
+  {% include 'storepickup' %}
+{% endif %}
 <!-- Zapiet | Store Pickup + Delivery -->
 
   {{ 'InstagramFeed.min.js'  | asset_url | script_tag     }}
-	{{ shop.metafields.loox["global_html_head"] }}
+
 </head>
 
 <body id="page-{{ page_title | handle }}" class="hero-anime {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if template.suffix != blank %} template-suffix-{{ template.suffix }}{% endif %}{% if template contains 'customers' %} template-customer-area{% endif %}{% if logo_html contains 'img' %} has-logo{% endif %}" >
-{% capture the_snippet_content %}{% render 'socialshopwave-helper' %}{% endcapture %}
-            {% unless the_snippet_content contains 'Liquid error' %}
-              {{ the_snippet_content }}
-            {% endunless %}
+
   <a class="skip-link visually-hidden" href="#page-content">{{ 'general.accessibility_labels.skip_to_content' | t }}</a>
 
   {% include 'page-background' %}
@@ -168,10 +166,10 @@
   {{ 'theme.js'  | asset_url | script_tag }}
   {{ 'sprinkle-engine.js'  | asset_url | script_tag }}
   {{ 'backtotop.js'  | asset_url | script_tag }}
+  {% render 'ajaxify-cart' %}
 
 
 
-
-	{{ shop.metafields.loox["global_html_body"] }}
 </body>
 </html>
+ 

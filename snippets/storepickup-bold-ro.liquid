@@ -1,0 +1,110 @@
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  window.ZapietRO = {};
+
+  ZapietRO.CartIntegration = function() {
+    this.init();
+  }
+  ZapietRO.CartIntegration.prototype.init = function() {
+    this.addListeners();
+  }
+  ZapietRO.CartIntegration.prototype.updateSingleProductModeAddress = function() {
+    var zapietWidget = document.getElementById('storePickupApp');
+
+    var affectedForm = zapietWidget.closest('form');
+    if (!affectedForm)
+      return;
+
+    var roWidget = affectedForm.querySelector('.ro_widget');
+    if (!roWidget)
+      return;
+
+    var addressFields = [
+      'address1',
+      'address2',
+      'city',
+      'company',
+      'country',
+      'province',
+      'zip'
+    ];
+
+    addressFields.forEach(function(field) {
+        var addressEl = affectedForm.querySelector('[name="' + field + '"]');
+        if (addressEl) {
+          addressEl.value = BOLD.customer[field];
+        }
+    });
+  }
+  ZapietRO.CartIntegration.prototype.addListeners = function() {
+
+    window.ZapietEvent.listen('selected_method', function(method) {
+      switch(method) {
+        case 'shipping':
+        case 'delivery':
+          BOLD.recurring_orders.app.cartWidget.pickupEnabled = false;
+          break;
+        case 'pickup':
+          BOLD.recurring_orders.app.cartWidget.pickupEnabled = true;
+          break;
+      }
+    });
+
+    window.ZapietEvent.listen('disableCheckout', function(response) {
+      BOLD.recurring_orders.app.cartWidget.checkoutEnabled = false;
+    });
+
+    window.ZapietEvent.listen('activateCheckout', function(response) {
+
+      BOLD.recurring_orders.app.cartWidget.checkoutEnabled = true;
+
+      if(response && response.method && response.method === 'pickup' && response.location) {
+        BOLD.customer.address1 = response.location.address_line_1 || "";
+        BOLD.customer.address2 = response.location.address_line_2 || "";
+        BOLD.customer.city = response.location.city || "";
+        BOLD.customer.company = response.location.company_name || "";
+        BOLD.customer.country = response.location.country || "";
+        BOLD.customer.province = response.location.region || "";
+        BOLD.customer.zip = response.location.postal_code || "";
+        BOLD.recurring_orders.app.cartWidget.loadCustomerData();
+        ZapietRO.CartIntegration.prototype.updateSingleProductModeAddress(); // Updated as this.updateSingleProductModeAddress() was looking within the event emitter, not within the RO code.
+      }
+
+     if(response && response.method && response.method === 'delivery' && response.location && response.postal_code) {
+        BOLD.customer.city = response.location.city || "";
+        BOLD.customer.country = response.location.country || "";
+        BOLD.customer.province = response.location.region || "";
+        BOLD.customer.zip = response.postal_code || "";
+        BOLD.recurring_orders.app.cartWidget.loadCustomerData();
+        ZapietRO.CartIntegration.prototype.updateSingleProductModeAddress(); // Updated as this.updateSingleProductModeAddress() was looking within the event emitter, not within the RO code.
+      }
+    });
+  }
+
+  if(typeof window.Zapiet !== 'undefined' &&
+     typeof window.ZapietEvent !== 'undefined' &&
+     typeof BOLD !== 'undefined' &&
+     typeof BOLD.recurring_orders !== 'undefined' &&
+     typeof BOLD.recurring_orders.app !== 'undefined' &&
+     typeof BOLD.customer !== 'undefined') {
+    ZapietRO.cart = new ZapietRO.CartIntegration();
+  }
+
+  /**
+   * Element.closest polyfill for IE9+
+   */
+  if (!Element.prototype.matches)
+      Element.prototype.matches = Element.prototype.msMatchesSelector ||
+                                  Element.prototype.webkitMatchesSelector;
+  if (!Element.prototype.closest)
+      Element.prototype.closest = function(s) {
+          var el = this;
+          if (!document.documentElement.contains(el)) return null;
+          do {
+              if (el.matches(s)) return el;
+              el = el.parentElement || el.parentNode;
+          } while (el !== null && el.nodeType === 1);
+          return null;
+      };
+});
+</script>

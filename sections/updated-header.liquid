@@ -84,8 +84,10 @@
                   <a class="nav-link cart d-flex flex-column justify-content-around  text-center" href="{{ routes.cart_url }}" aria-label="{{ 'layout.navigation.cart' | t | escape }}">
                     <div>
                       {% include 'svg-cart' %}
-                        {% if cart.item_count > 0 %}
-                          {{ cart.item_count }}
+                        {% if cart.item_count > -1 %}
+                          <span id="CartCount">
+                            {{ cart.item_count }}
+                          </span>
                       {% endif %}
                     </div>
                   </a>

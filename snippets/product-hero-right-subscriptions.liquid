@@ -2,17 +2,7 @@
   <div class="row mx-3 mb-3 pb-3">
       <div class="col-12  ">
 
-
-
- 		{% include 'breadcrumbs' %}
         <h1 class="product-title feature-header align-left feature-header--visible mb-2">{{ product.title }}</h1>
-        <h4 class="font-italic align-left">
-          {% for collection in product.collections limit: 1 %}
-    		{% assign temp1 = collection.title %}
-        	{% assign temp1size = temp1 | size | minus: 1 %}
-        	{{ temp1 | slice: 0, temp1size }}
-          {% endfor %}
-        </h4>
         <div class="price-area my-1">
           {% if variant.compare_at_price > variant.price %}
           <span class="was-price theme-money">{{ variant.compare_at_price | money }}</span>
@@ -139,7 +129,7 @@
 
             {% if product.available %}
               {% if section.settings.show_quantity %}
-            <div class="my-1 my-xl-3">
+            <div class="my-1 my-xl-3 d-none">
             <label> Quantity </label>
               <div class="quantity-wrapper">
 

@@ -3620,5 +3620,5 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   } else {
     console.warn('Barry: No common sections have been registered.');
   }
-})(theme.jQuery);  
+})(theme.jQuery);
 /* Built with Barry v1.0.7 */
