@@ -42,6 +42,7 @@
           {% endcase %}
         {% endfor %}
         </ul>
+        {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
         <p class="card-text product-block py-1 my-2 text-left">{{ product.description  | strip_html | truncate: 100 }}</p>
         <p class="card-text product-price align-self-bottom pb-2 text-left">
           {% if product.available %}
