@@ -123,7 +123,8 @@
   {% include 'storepickup' %}
 {% endif %}
 <!-- Zapiet | Store Pickup + Delivery -->
-
+  {{ 'bsub.js' | asset_url | script_tag }} 
+  {{ 'bsub.scss.css' | asset_url | stylesheet_tag }}
   {{ 'InstagramFeed.min.js'  | asset_url | script_tag     }}
 
 </head>
@@ -172,4 +173,3 @@
 
 </body>
 </html>
- 
