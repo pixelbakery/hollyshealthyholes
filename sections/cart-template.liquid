@@ -202,14 +202,14 @@
       <div id="storePickupApp"></div>
       <input type="submit" class="checkout-btn" id="checkoutBtn" name="checkout" value="{{ 'cart.general.checkout' | t | escape }}" />
 
-      {% comment %}
-      Paypal and Google checkout buttons
-      {% if section.settings.show_additional_checkout_buttons and additional_checkout_buttons and section.settings.cart_terms_show == false %}
+
+
+
       <div class="additional-checkout-buttons">
         {{ content_for_additional_checkout_buttons }}
       </div>
-      {% endif %}
-      {% endcomment %}
+
+
 
       <p class="comment">{{ 'cart.general.message' | t }}</p>
     </div>
