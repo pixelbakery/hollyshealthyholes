@@ -22,11 +22,10 @@ html{
 }
 body{
 
-max-width: 100vw !important;
-min-height: 100vh !important;
-overflow-x: hidden !important;
+	max-width: 100vw !important;
+	overflow-x: hidden !important;
 	font-size: 16px;
- background-color: var(--hhh-color-white);
+ 	background-color: var(--hhh-color-white);
  color: var(--hhh-color-darkblue);
  font-family: 'Jost', 'Montserrat', sans-serif;
 
@@ -756,10 +755,59 @@ img.product-block--img{
   transition: all 0.5s ease 0s;
 
 }
+a.product-card--link:hover .product-block.card{
+	border: 1px solid var(--hhh-color-pink);
 
-a:hover .product-block .card-body .card-title{
+}
+a.product-card--link:hover .product-block .card-body .card-title{
   text-decoration: none !important;
  color: var(--hhh-color-darkblue);
+}
+a.product-card--link:hover .product-block .row .col .card-body .card-text, .card-text:hover,
+.product-block:hover, a.product-card--link, a.product-card--link:hover{
+	text-decoration: none !important;
+	text-decoration-line: none;
+}
+
+.product-block .card-body .card-text,
+.product-block .card-body .card-title,
+a:hover .product-block .card-body .card-text{
+	color: var(--hhh-color-darkblue);
+}
+a.product-card--link .product-block .card-body .card-title{
+	border-bottom: 2px solid transparent;
+	transition: border-bottom .22s ease;
+	color: var(--hhh-color-darkblue);
+}
+a.product-card--link:hover .product-block .card-body .card-title{
+	color: var(--hhh-color-pink);
+	border-bottom: 2px solid var(--hhh-color-pink);
+	transition: all .22s ease;
+}
+a.product-card--link, a.product-card--link:hover{
+	text-decoration: none !important;
+	text-decoration-line: none !important;
+}
+a.product-card--link .product-block .pink-skrim{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	opacity: 0%;
+	transition: opacity .22s ease;
+}
+a.product-card--link:hover .product-block .pink-skrim{
+	background-color: var(--hhh-color-lightpink);
+	opacity: 33%;
+	transition: opacity .22s ease;
+}
+.card-text.product-price{
+	font-weight: 800;
 }
 .product-area--hero{
 	min-height: calc(100vh - 180px);
@@ -1587,4 +1635,7 @@ li.bundle-builder-app--bundle--product div{
 /* Remove arrows from delivery calendar to prevent month scrolling */
 .picker__nav--next,.picker__nav--prev {
 	display: none;
+}
+.additional-checkout-buttons, .dynamic-checkout {
+  display: none !important;
 }
