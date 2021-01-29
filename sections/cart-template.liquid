@@ -13,7 +13,7 @@
       </div>
 
 
-    </div> 
+    </div>
   </section>
 <div class="central content" data-section-type="cart-template">
 
@@ -71,6 +71,7 @@
             {% comment %}
             Line Item Properties
             {% endcomment %}
+            {% include 'bsub-cart' %}
             {% if item.properties.size > 0 %}
             <div class="line-items">
               {% for p in item.properties %}
