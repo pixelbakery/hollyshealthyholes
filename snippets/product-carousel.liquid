@@ -10,18 +10,26 @@
       {% endfor%}
     </ol>
     <div class="carousel-inner object-fit">
-      {% for image in product.images %}
-        <div class="carousel-item  {% if forloop.first == true %}active{% endif %} object-fit ">
-         <img class=" object-fit"  alt="{{image.alt}}" src="{{ image.src | product_img_url: 'master' }}" >
-        </div>
-      {% endfor%}
+      {% if product.type =="Donut" %}
+        {% for image in product.images offset:1 %}
+          <div class="carousel-item  {% if forloop.first == true %}active{% endif %} object-fit ">
+           <img class=" object-fit"  alt="{{image.alt}}" src="{{ image.src | product_img_url: 'master' }}" >
+          </div>
+        {% endfor%}
+      {% else %}
+        {% for image in product.images %}
+          <div class="carousel-item  {% if forloop.first == true %}active{% endif %} object-fit ">
+           <img class=" object-fit"  alt="{{image.alt}}" src="{{ image.src | product_img_url: 'master' }}" >
+          </div>
+        {% endfor%}
+      {% endif %}
     </div>
-    <a class="carousel-control-prev" href="#ProductCarouselIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <a class="carousel-control-prev " href="#ProductCarouselIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next" href="#ProductCarouselIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="carousel-control-next-icon " aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>

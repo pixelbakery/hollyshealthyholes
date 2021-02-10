@@ -1,0 +1,243 @@
+
+<section class="container-fluid bg--white shopify-section py-5" id="pickup">
+  <div class="container my-3 py-3">
+    <div class="row">
+      {% for block in section.blocks %}
+        {% assign Name = block.settings.title %}
+        {% assign Website = block.settings.deliv_website %}
+        {% assign Visible = block.settings.deliv_visible %}
+        {% assign Phone = block.settings.deliv_phone %}
+        {% assign Street = block.settings.deliv_street %}
+        {% assign City = block.settings.deliv_city %}
+        {% assign State = block.settings.deliv_state %}
+        {% assign Zip = block.settings.deliv_zip %}
+        {% capture Address %}
+        {{Street}}, {{City}}, {{State}} {{Zip}}
+        {% endcapture %}
+
+        {% assign Monday = block.settings.deliv_mon %}
+        {% assign Tuesday = block.settings.deliv_tue %}
+        {% assign Wednesday = block.settings.deliv_wed %}
+        {% assign Thursday = block.settings.deliv_thu %}
+        {% assign Friday = block.settings.deliv_fri %}
+        {% assign Saturday = block.settings.deliv_sat %}
+        {% assign Sunday = block.settings.deliv_sun %}
+
+        {% assign Earliest = block.settings.deliv_earliest %}
+        {% assign Latest = block.settings.deliv_latest %}
+
+        {% assign Notes = block.settings.deliv_notes %}
+        {% if Visible == true %}
+        <div class="col-12 col-sm-4 mb-2 mb-sm-4 d-flex justify-content-center">
+          <div class="card delivery-card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div class="my-1">
+                <div class="delivery-card-city px-4 d-inline">
+                  {{ City }}
+                </div>
+              </div>
+              <div>
+                <h5 class="">{{ Name }}</h5>
+              </div>
+              <div class="my-2">
+                <h6 class="delivery-card-subtitle mb-0 pb-1 text-muted">{{ Address |remove: "."| replace: "Suite ", "#"}}</h6>
+                <a href="tel:{{ Phone }}" target="_blank" class="delivery-card-phone"><h6 class="delivery-card-subtitle text-muted">{{Phone}}</h6></a>
+              </div>
+              <div class="delivery-card-timebox d-flex flex-column justify-content-between py-3 my-2 px-2">
+                  <h5 class="delivery-card-estimated mb-2">ESTIMATED DELIVERY TIME</h5>
+                <h2 class="delivery-card-time">{{ Earliest }}
+                <p class="delivery-card-time mb-0 py-1">THROUGH</p>
+                <h2 class="delivery-card-time">{{ Latest }}</h2>
+              </div>
+                <div class="delivery-card-days w-100 d-flex justify-content-between my-3">
+                  <div class="delivery-card-days-day {% if Monday %}selected{% endif %}"> MO</div>
+                  <div class="delivery-card-days-day {% if Tuesday %}selected{% endif %}"> TU</div>
+                  <div class="delivery-card-days-day {% if Wednesday %}selected{% endif %}"> WE</div>
+                  <div class="delivery-card-days-day {% if Thursday %}selected{% endif %}"> TH</div>
+                  <div class="delivery-card-days-day {% if Friday %}selected{% endif %}"> FR</div>
+                  <div class="delivery-card-days-day {% if Saturday %}selected{% endif %}"> SA</div>
+                  <div class="delivery-card-days-day {% if Sunday %}selected{% endif %}"> SU</div>
+                </div>
+              <div class="delivery-card-notes">
+                {% if Notes != blank %}
+                <p>Notes: </br>
+                  {{ Notes }}
+                </p>
+                {% endif %}
+              </div>
+              <div class="w-100 my-2 d-flex justify-content-around">
+                  {% if Website != blank %}
+                  <div class="text-left ">
+                    <a href="{{ Website }}" class="card-link delivery-card-link" target="_blank">Website <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
+</svg></a>
+                  </div>
+
+                  {% endif %}
+                  <div class="text-right">
+                    <a href="https://www.google.com/maps/search/?api=1&query={{ Address | lstrip | remove: "." | rstrip | escape  }}" class="card-link delivery-card-link" target="_blank"> Get Directions <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg></a>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+   {
+   "name": "Pickup Locations",
+   "blocks": [
+     {
+       "type": "DeliveryLocation",
+       "name": "Delivery Location",
+       "settings": [
+       {
+         "id": "title",
+         "type": "text",
+         "label": "Vendor Name"
+       },
+       {
+           "type":      "checkbox",
+           "id":        "deliv_visible",
+           "label":     "Visible?",
+           "default":   true,
+           "info":      "Uncheck this box to hide the vendor from the Delivery Info page."
+        },
+        {
+          "type": "header",
+          "content": "Contact Info",
+          "info": "How can HHH customers get ahold of the pickup location?"
+       },
+       {
+         "id": "deliv_website",
+         "type": "url",
+         "label": "Vendor Website"
+       },
+       {
+         "id": "deliv_phone",
+         "type": "text",
+         "placeholder" : "(402) 123-4567",
+         "label": "Vendor Phone Number"
+       },
+       {
+         "type": "header",
+         "content": "Vendor Address",
+         "info": "Enter the address information for the pickup location"
+      },
+       {
+         "id": "deliv_street",
+         "type": "text",
+         "label": "Vendor Street Number And Suite"
+       },
+       {
+         "id": "deliv_city",
+         "type": "text",
+         "label": "Vendor City"
+       },
+       {
+         "id": "deliv_state",
+         "type": "text",
+         "label": "Vendor State"
+       },
+       {
+         "id": "deliv_zip",
+         "type": "text",
+         "label": "Vendor Zip Code"
+       },
+       {
+         "type": "header",
+         "content": "Delivery Days",
+         "info": "Select the days that HHH will deliver to that location."
+      },
+       {
+         "type": "checkbox",
+         "id": "deliv_mon",
+         "label": "Monday",
+         "default": false
+       },
+       {
+         "type": "checkbox",
+         "id": "deliv_tue",
+         "label": "Tuesday",
+         "default": false
+       },
+       {
+         "type": "checkbox",
+         "id": "deliv_wed",
+         "label": "Wednesday",
+         "default": false
+       },
+       {
+         "type": "checkbox",
+         "id": "deliv_thu",
+         "label": "Thursday",
+         "default": false
+       },
+       {
+         "type": "checkbox",
+         "id": "deliv_fri",
+         "label": "Friday",
+         "default": false
+       },
+       {
+         "type": "checkbox",
+         "id": "deliv_sat",
+         "label": "Saturday",
+         "default": false
+       },
+       {
+         "type": "checkbox",
+         "id": "deliv_sun",
+         "label": "Sunday",
+         "default": false
+       },
+       {
+         "type": "header",
+         "content": "Delivery Window",
+         "info": "Enter the times for the delivery window below"
+      },
+      {
+        "type": "text",
+        "id": "deliv_earliest",
+        "label": "Earliest Delivery Time",
+        "placeholder": "10:00 AM"
+      },
+      {
+        "type": "text",
+        "id": "deliv_latest",
+        "label": "Latest Delivery Time",
+        "placeholder": "11:45 AM"
+      },
+       {
+         "type": "header",
+         "content": "Notes",
+         "info": "Enter any additional information to show up at the bottom. Please keep it limited to three lines of text for styling purposes."
+      },
+      {
+        "type": "text",
+        "id": "deliv_notes",
+        "label": "Notes"
+      }
+
+
+       ]
+     }
+   ]
+ }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

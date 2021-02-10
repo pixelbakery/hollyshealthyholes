@@ -90,14 +90,16 @@ a.button--contact{
 }
 
 .product-card--highlights-item:not(:last-child):after{
-	content: '|';
+	content: ' |';
+	white-space: pre;
 	padding-left: .25em;
-	padding-right: .25em;
+	padding-right: .22em;
 }
 button.btn-block:focus{
 	outline: none !important;
 }
-a:hover .product-block .row .col .card-body .card-text, .card-text:hover, .product-block:hover, a.product-card--link, a.product-card--link:hover{
+a.product-card--link:hover .product-block .row .col .card-body .card-text, .card-text:hover,
+.product-block:hover, a.product-card--link, a.product-card--link:hover{
 	text-decoration: none !important;
 	text-decoration-line: none;
 }
@@ -107,12 +109,12 @@ a:hover .product-block .row .col .card-body .card-text, .card-text:hover, .produ
 a:hover .product-block .card-body .card-text{
 	color: var(--hhh-color-darkblue);
 }
-a .product-block .card-body .card-title{
+a.product-card--link .product-block .card-body .card-title{
 	border-bottom: 2px solid transparent;
 	transition: border-bottom .22s ease;
 	color: var(--hhh-color-darkblue);
 }
-a:hover .product-block .card-body .card-title{
+a.product-card--link:hover .product-block .card-body .card-title{
 	color: var(--hhh-color-pink);
 	border-bottom: 2px solid var(--hhh-color-pink);
 	transition: all .22s ease;

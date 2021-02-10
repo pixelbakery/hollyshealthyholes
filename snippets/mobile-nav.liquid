@@ -5,36 +5,32 @@
     <div class="line"></div>
     <div class="line"></div>
   </label>
-
-  <div class="nav-item mb-2 text-center nav-icon d-flex flex-column justify-content-center mx-2 text-center align-middle mobile-cart-icon">
-    <a class=" cart   text-center  ml-2" href="{{ routes.cart_url }}" aria-label="{{ 'layout.navigation.cart' | t | escape }}">
+  <div class="nav-item mb-2 text-center nav-icon d-flex flex-column justify-content-center mx-2 text-center align-middle mobile-cart-icon nav-link">
+    <a class=" cart text-decoration-none text-center  ml-2" href="{{ routes.cart_url }}" aria-label="{{ 'layout.navigation.cart' | t | escape }}">
       {% include 'svg-cart' %}
-      {% if cart.item_count > 0 %}
-      {{ cart.item_count }}
+      {% if cart.item_count > -1 %}
+        <span id="CartCount">
+          {{ cart.item_count }}
+        </span>
       {% endif %}
     </a>
   </div>
-
   <div class="menu">
     <div class="menu-inner">
-      
       <nav id="page-menu" class=" nav-uses-modal" >
         <div class="inner">
           <div class="container growth-area">
             <div class="nav main-nav mx-auto" role="navigation" aria-label="{{ 'layout.navigation.menu_aria_label' | t | escape }}">
-
               {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_1 %}
               {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_2 %}
               {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_3 %}
               {% include 'modal-horizontal-nav' with section.settings.nav_horizontal_4 %}
-
               <ul>
                 {% for link in linklists[section.settings.menu_linklist].links %}
                 <li {% if link.active %}class="active"{% endif %}>
                   <a href="{{ link.url }}" {% if link.links != blank %}aria-haspopup="true"{% endif %}>
                     <span>{{ link.title }}</span>
                   </a>
-
                   {% if link.links != blank %}
                   <ul>
                     {% for child_link in link.links %}
@@ -42,7 +38,6 @@
                       <a href="{{ child_link.url }}" {% if child_link.links != blank %}aria-haspopup="true"{% endif %}>
                         <span>{{ child_link.title }}</span>
                       </a>
-
                       {% if child_link.links != blank %}
                       <ul>
                         {% for child_child_link in child_link.links %}
@@ -62,9 +57,7 @@
                 {% endfor %}
               </ul>
             </div>
-
           </div>
-        
           {% if shop.customer_accounts_enabled %}
           <div class="customer-links">
             {% if customer %}
@@ -77,10 +70,8 @@
             <a href="{{ routes.account_register_url }}">{{ 'layout.customer.register' | t }}</a>
             {% endif %}
           </div>
-          {% endif %}    
-
+          {% endif %}
         {% include 'social-icons', icon_setting: settings.social_custom_icon, icon_size: 'x40' %}
-
         {% if section.settings.show_locale_selector or section.settings.show_currency_selector %}
           <div class="localization">
             {% include 'localization', input_prefix: 'header' %}
@@ -88,8 +79,5 @@
         {% endif %}
       </div>
     </nav>
-
   </div>
 </div>
-
-

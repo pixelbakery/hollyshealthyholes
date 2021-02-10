@@ -1618,7 +1618,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   theme.HeaderSection = new function () {
     this.onSectionLoad = function (target) {
       theme.addControlPaddingToModal();
-      theme.assessAltLogo();
+      // theme.assessAltLogo();
       $('body').toggleClass('modal-active', $('.theme-modal.reveal').length > 0);
       $('#faux-site-control a', target).attr('tabindex', '-1');
       $('#page-menu a', target).attr('tabindex', '-1');
@@ -1725,7 +1725,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       $(window).trigger('slideshowfillheight');
       theme.checkViewportFillers();
-      theme.assessAltLogo();
+      // theme.assessAltLogo();
     };
 
     this.onSectionUnload = function (target) {
@@ -1771,7 +1771,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       });
       $(window).trigger('slideshowfillheight');
       theme.checkViewportFillers();
-      theme.assessAltLogo();
+      // theme.assessAltLogo();
     };
 
     this.onSectionUnload = function (target) {
@@ -2532,7 +2532,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     this.onSectionLoad = function (target) {
       // header assessment first (affects gallery height)
       theme.checkViewportFillers();
-      theme.assessAltLogo(); /// Product page upper gallery
+      // theme.assessAltLogo(); /// Product page upper gallery
 
       $('.theme-gallery', target).each(function () {
         galleries.push(new theme.ProductMediaGallery($(this), $('.theme-gallery-thumb', target), false));
@@ -3301,7 +3301,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     $('.rte a img').closest('a').addClass('contains-img'); /// Check if using correct logo (would be nice to assess on section move/load/unload as well)
 
-    theme.assessAltLogo(); /// On any section reload
+    // theme.assessAltLogo(); /// On any section reload
 
     $(document).on('shopify:section:load', function (e) {
       /// Image-links inside any rte block
@@ -3362,7 +3362,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       var appearenceBuffer = 60;
       var windowBottom = scrollTop + $(window).height() - appearenceBuffer;
       $('body').toggleClass('scrolled-down', scrollTop > 0);
-      theme.assessAltLogo();
+      // theme.assessAltLogo();
       $('.feature-header:not(.feature-header--visible)').filter(function () {
         var offset = $(this).offset().top;
         var height = $(this).outerHeight();
@@ -3574,7 +3574,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     function afterSectionLoadFunctions() {
       theme.checkViewportFillers();
-      theme.assessAltLogo();
+      // theme.assessAltLogo();
     } /// Redirection dropdowns
 
 
@@ -3620,5 +3620,5 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   } else {
     console.warn('Barry: No common sections have been registered.');
   }
-})(theme.jQuery);  
+})(theme.jQuery);
 /* Built with Barry v1.0.7 */

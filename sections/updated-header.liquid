@@ -2,7 +2,7 @@
 
 {% capture logo_html %}
  <a class="align-center order-0 order-md-1 -mx-1 -mx-md-2 -mx-xl-5" href="{{ routes.root_url }}" style="flex-shrink:1">
-   <div class="navbar-brand">
+   <div class="navbar-brand hvr-float">
      <img src="https://media.pixelbakery.com/HHH/HHH_Logo_AltBrown.svg" alt="{{ shop.name | escape }}">
    </div>
 </a>
@@ -84,8 +84,10 @@
                   <a class="nav-link cart d-flex flex-column justify-content-around  text-center" href="{{ routes.cart_url }}" aria-label="{{ 'layout.navigation.cart' | t | escape }}">
                     <div>
                       {% include 'svg-cart' %}
-                        {% if cart.item_count > 0 %}
-                          {{ cart.item_count }}
+                        {% if cart.item_count > -1 %}
+                          <span id="CartCount">
+                            {{ cart.item_count }}
+                          </span>
                       {% endif %}
                     </div>
                   </a>
