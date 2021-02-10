@@ -12,6 +12,7 @@
   	--hhh-color-white: #FDFFFC;
 		--hhh-color-grey: #f4f4f4;
     --nav-height: 130px;
+		--hhh-color-lighterblue: #70707d;
 }
 * {
   -webkit-font-smoothing: antialiased;
@@ -1631,7 +1632,122 @@ li.bundle-builder-app--bundle--product div{
     max-height: 75vh;
   }
 }
+/* Delivery Info Page Template */
+.delivery-card{
+	border: 6px solid var(--hhh-color-darkblue);
+	border-radius: 16px;
+	max-width: 18rem;
+	transition: all .33s ease;
+}
+.delivery-card:hover{
+		border: 6px solid var(--hhh-color-pink);
+}
 
+.delivery-card-city{
+	display: inline-block !important;
+	border-radius: 2px;
+	color: var(--hhh-color-white);
+	background-color: var(--hhh-color-darkblue);
+	font-weight: 600;
+	font-size: 14px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	text-transform: uppercase;
+	transition: all .33s ease;
+}
+.delivery-card:hover .delivery-card-city{
+	background-color: 	var(--hhh-color-pink);
+}
+.delivery-card-subtitle{
+	font-size: .77em;
+}
+h2.delivery-card-time{
+	line-height: 85%;
+	margin-bottom: 0px;
+}
+.delivery-card-timebox{
+	border-bottom: 6px solid var(--hhh-color-darkblue);
+	border-top: 6px solid var(--hhh-color-darkblue);
+	transition: all .33s ease;
+}
+.delivery-card:hover .delivery-card-timebox{
+	border-bottom: 6px solid 	var(--hhh-color-pink);
+	border-top: 6px solid 	var(--hhh-color-pink);
+}
+.delivery-card-notes{
+	height: calc(13px*5);
+	font-size: 13px;
+	font-style: italic;
+	line-height: 12px;
+	color: var(--hhh-color-darkblue);
+}
+.delivery-card-notes p{
+	opacity: 66%;
+}
+p.delivery-card-time{
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: 600;
+
+	top:0px;
+	color: var(--hhh-color-darkblue);
+}
+h5.delivery-card-estimated{
+
+	padding-bottom: .33em;
+	color: var(--hhh-color-darkblue);
+	line-height: 95%;
+	font-size: 16px;
+}
+.delivery-card-days{
+	border: 1px solid var(--hhh-color-darkblue);
+	border-radius: 2px;
+	transition: all .33s ease;
+}
+.delivery-card:hover .delivery-card-days{
+	border: 1px solid var(--hhh-color-pink);
+}
+.delivery-card-days-day{
+	width:100%;
+	text-align: center;
+	line-height: 2em;
+	opacity: 33%;
+	text-decoration: line-through;
+	transition: all .33s ease;
+}
+a.delivery-card-phone{
+	text-decoration: none;
+	transition: all .33s ease;
+
+}
+a.delivery-card-phone:hover h6.delivery-card-subtitle.text-muted{
+		color: var(--hhh-color-pink);
+}
+.delivery-card-days-day.selected{
+	background-color:  var(--hhh-color-darkblue);
+	color: var(--hhh-color-white);
+	opacity: 100%;
+
+	text-decoration: none;
+}
+.delivery-card:hover .delivery-card-days-day.selected{
+		background-color:	var(--hhh-color-pink);
+}
+.delivery-card-days-day.selected:not(:last-child){
+
+}
+a.delivery-card-link {
+
+}
+a.delivery-card-link svg{
+	height: 16px;
+	width: 16px;
+	margin-right: 3px;
+	align-items: center;
+}
+a.delivery-card-link:hover svg{
+	fill: var(--hhh-color-pink);
+}
 /* Remove arrows from delivery calendar to prevent month scrolling */
 .picker__nav--next,.picker__nav--prev {
 	display: none;

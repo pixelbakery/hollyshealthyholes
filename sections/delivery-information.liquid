@@ -1,0 +1,81 @@
+<section class="container-fluid bg--white shopify-section py-5" id="delivery">
+  <div class="container my-3 py-3">
+    {% for block in section.blocks %}
+      <div class="row">
+        {% unless block.settings.delivery_hidetitle %}
+          <div class="col-12">
+            <h1 class="feature-header h2 align-left feature-header--visible pt-3">{{ block.settings.title }}</h1>
+          </div>
+        {% endunless %}
+        {% if block.settings.delivery_richtext != blank %}
+          <div class="col-12 col-sm-{{block.settings.delivery_columns}}">
+            <div class="mw-700 my-2 rte">{{block.settings.delivery_richtext}}</div>
+          </div>
+        {% endif %}
+        {% if block.settings.delivery_html != blank %}
+          <div class="col-12 col-sm-{{block.settings.delivery_columns}}">
+            <div class="mw-700 html-text">{{ block.settings.delivery_html }}</div>
+          </div>
+        {% endif %}
+
+        </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "Delivery Information",
+
+"blocks":[
+{
+  "type": "deliveryInfo",
+  "name": "Delivery Info Block",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Section Title",
+      "default": "DELIVERY INFORMATION"
+    },
+    {
+      "type": "checkbox",
+      "id": "delivery_hidetitle",
+      "label": "Hide Title?",
+      "default": false
+    },
+    {
+       "type": "select",
+       "id": "delivery_columns",
+       "info": "Selecting Two will put the content side by side. One will put the content on it's own line.",
+       "options": [
+          { "value": "12", "label": "One"},
+          { "value": "6", "label": "Two"}
+       ],
+       "label": "Number of Columns"
+
+    },
+    {
+       "type": "richtext",
+       "id": "delivery_richtext",
+       "label": "Section Content",
+       "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+    },
+    {
+       "type": "html",
+       "id": "delivery_html",
+       "label": "Section HTML",
+       "default": "<h1>A heading</h1><p>A paragraph</p>"
+    }
+  ]
+}
+]
+
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
